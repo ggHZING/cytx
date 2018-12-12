@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>订单详情</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/orderDetail.css">
+    <script type="text/javascript" src="../js/index.js"></script>
+	
+</head>
+<body>
+	<!--欢迎框 -->
+	<div class="wellcome" id="wellcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好，<span class="user_id">xxx</span>，欢迎来到畅游天下</div>
+
+
+	<!--logo部分 -->
+	<div class="logo">
+		<div class="logo-both">
+			<div class="logo-l"><span><img src="../images/logo.png"><span></span></div>
+	    	<div class="logo-c">
+	    		<input type="text" class="serch" placeholder="请输入...">
+		        <button class="btn">搜索</button>
+	    	</div>
+	    </div>
+		<div class="logo-r">
+			<img src="../images/phone.png"><span><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></span>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+
+	<!--nav部分 -->
+	<div class="nav">
+		<nav class="navbar navbar-default" id="nav_daohang">
+			<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+			    <span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			    <span class="icon-bar"></span></button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav navbar-right" style="padding: 0px;">
+					<li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+					<li class="dropdown"><a href="#"><span class="glyphicon glyphicon-fire"></span>最新资讯</a>
+					   <ul class="dropdown-content">
+                         <li><a href="#">凤凰古城</a></li>
+                         <li><a href="#">北京故宫</a></li>
+                         <li><a href="#">云南大理</a></li>
+                         <li><a href="#">武汉樱花</a></li>
+                         <li><a href="#">四川美食</a></li>
+                         <li><a href="#">港澳风情</a></li>
+                       </ul>
+					</li>
+					<li><a href="strategy.html"><span class="glyphicon glyphicon-fire"></span>热门攻略</a>
+					<li><a href="route.html"><span class="glyphicon glyphicon-flag"></span>特价路线</a></li>
+					<li><a href="person.html"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>
+					<li><a href="collection.html"><span class="glyphicon glyphicon-heart"></span>我的收藏</a></li>
+					<li><a href="login.html"><span class="glyphicon glyphicon-star"></span>登录/注册</a></li>
+				</ul>
+			</div>
+			</div>
+		</nav>
+	</div>
+
+	<!--订单详情部分 -->
+	<div class="name">
+		<h4><span class="goodsName">商品名称</span></h4>
+	</div>
+	<div class="detail">
+		<ul class="box">
+			<li>
+				<h4>订单编号：</h4>
+				<h5><span class="orderNum">xxx</span></h5>
+			</li>
+			<li>
+				<h4>订单状态：</h4>
+				<h5><span class="status">xxx</span></h5>
+			</li>
+			<li>
+				<h4>出游人数</h4>
+			</li>
+			<li class="num">
+				<h5>成人：</h5>
+				<h5><span class="adult">xx</span></h5>
+				<h5>儿童：</h5>
+				<h5><span class="child">xx</span></h5>
+			</li>
+			<li>
+				<h4>订单金额：</h4>
+				<h5><span class="price">xxx</span></h5>
+			</li>
+			<li>
+				<h4>订单创建时间：</h4>
+				<h5><span class="createTime">xxx</span></h5>
+			</li>
+			<li class="button">
+				<input type="button" name="cancel" class="btn btn-primary cancel" id="cancel" value="取消订单">
+				<input type="button" name="return" class="btn btn-primary return" id="return" value="返回">
+			</li>
+		</ul>
+	</div>
+	<div class="toTop">
+		<a href="#wellcome"><span class="glyphicon glyphicon-chevron-up"></span></a>
+	</div>
+
+	<!--底部部分 -->
+    <div class="foot">
+        <hr style="height:1px;border:none;border-top:1px solid gray;" />
+        <div>
+            <table>
+                <tr>
+                    <th>关于畅游天下</th>
+                    <th>有话要说</th>
+                    <th>服务保障</th>
+                </tr>
+                <tr>
+                    <td><a href="#">帮助中心</a></td>
+                    <td><a href="#">客服热线</a></td>
+                    <td><a href="#">隐私政策</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">法律声明</a></td>
+                    <td><a href="#">我要投诉</a></td>
+                    <td><a href="#">争议调解</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer">
+            <p>Copyright © 2018-2019 Changyou.com | <a href="#">营业执照</a> | ICP证：xxxxxxxxxx | xxxxxxxxxxx | xxxxxxxxxx</p>
+            <p>违法和不良信息举报电话：xxx-xxxxxxxx 违法和不良信息举报邮箱：xxxxxxx@xxxxxx.com</p>
+        </div>
+    </div>
+
+
+
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script> 
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cytx.dao.ScenicMapper">
+  <resultMap id="BaseResultMap" type="com.cytx.pojo.Scenic">
+    <id column="scenic _id" jdbcType="INTEGER" property="scenicId" />
+    <result column="scenic_name" jdbcType="VARCHAR" property="scenicName" />
+    <result column="scenic_addr" jdbcType="VARCHAR" property="scenicAddr" />
+    <result column="scenic_link" jdbcType="VARCHAR" property="scenicLink" />
+    <result column="scenic_tel" jdbcType="VARCHAR" property="scenicTel" />
+    <result column="scenic_ticket" jdbcType="VARCHAR" property="scenicTicket" />
+    <result column="scenic_charge" jdbcType="DOUBLE" property="scenicCharge" />
+    <result column="scenic_picture" jdbcType="VARCHAR" property="scenicPicture" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cytx.pojo.Scenic">
+    <result column="scenic_intro" jdbcType="LONGVARCHAR" property="scenicIntro" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    "scenic _id", scenic_name, scenic_addr, scenic_link, scenic_tel, scenic_ticket, scenic_charge, 
+    scenic_picture
+  </sql>
+  <sql id="Blob_Column_List">
+    scenic_intro
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.cytx.pojo.ScenicExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from scenic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.cytx.pojo.ScenicExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from scenic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from scenic
+    where "scenic _id" = #{scenicId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from scenic
+    where "scenic _id" = #{scenicId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.cytx.pojo.ScenicExample">
+    delete from scenic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.cytx.pojo.Scenic">
+    insert into scenic ("scenic _id", scenic_name, scenic_addr, 
+      scenic_link, scenic_tel, scenic_ticket, 
+      scenic_charge, scenic_picture, scenic_intro
+      )
+    values (#{scenicId,jdbcType=INTEGER}, #{scenicName,jdbcType=VARCHAR}, #{scenicAddr,jdbcType=VARCHAR}, 
+      #{scenicLink,jdbcType=VARCHAR}, #{scenicTel,jdbcType=VARCHAR}, #{scenicTicket,jdbcType=VARCHAR}, 
+      #{scenicCharge,jdbcType=DOUBLE}, #{scenicPicture,jdbcType=VARCHAR}, #{scenicIntro,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cytx.pojo.Scenic">
+    insert into scenic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="scenicId != null">
+        "scenic _id",
+      </if>
+      <if test="scenicName != null">
+        scenic_name,
+      </if>
+      <if test="scenicAddr != null">
+        scenic_addr,
+      </if>
+      <if test="scenicLink != null">
+        scenic_link,
+      </if>
+      <if test="scenicTel != null">
+        scenic_tel,
+      </if>
+      <if test="scenicTicket != null">
+        scenic_ticket,
+      </if>
+      <if test="scenicCharge != null">
+        scenic_charge,
+      </if>
+      <if test="scenicPicture != null">
+        scenic_picture,
+      </if>
+      <if test="scenicIntro != null">
+        scenic_intro,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="scenicId != null">
+        #{scenicId,jdbcType=INTEGER},
+      </if>
+      <if test="scenicName != null">
+        #{scenicName,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicAddr != null">
+        #{scenicAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicLink != null">
+        #{scenicLink,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicTel != null">
+        #{scenicTel,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicTicket != null">
+        #{scenicTicket,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicCharge != null">
+        #{scenicCharge,jdbcType=DOUBLE},
+      </if>
+      <if test="scenicPicture != null">
+        #{scenicPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicIntro != null">
+        #{scenicIntro,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.cytx.pojo.ScenicExample" resultType="java.lang.Long">
+    select count(*) from scenic
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update scenic
+    <set>
+      <if test="record.scenicId != null">
+        "scenic _id" = #{record.scenicId,jdbcType=INTEGER},
+      </if>
+      <if test="record.scenicName != null">
+        scenic_name = #{record.scenicName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scenicAddr != null">
+        scenic_addr = #{record.scenicAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scenicLink != null">
+        scenic_link = #{record.scenicLink,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scenicTel != null">
+        scenic_tel = #{record.scenicTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scenicTicket != null">
+        scenic_ticket = #{record.scenicTicket,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scenicCharge != null">
+        scenic_charge = #{record.scenicCharge,jdbcType=DOUBLE},
+      </if>
+      <if test="record.scenicPicture != null">
+        scenic_picture = #{record.scenicPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scenicIntro != null">
+        scenic_intro = #{record.scenicIntro,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update scenic
+    set "scenic _id" = #{record.scenicId,jdbcType=INTEGER},
+      scenic_name = #{record.scenicName,jdbcType=VARCHAR},
+      scenic_addr = #{record.scenicAddr,jdbcType=VARCHAR},
+      scenic_link = #{record.scenicLink,jdbcType=VARCHAR},
+      scenic_tel = #{record.scenicTel,jdbcType=VARCHAR},
+      scenic_ticket = #{record.scenicTicket,jdbcType=VARCHAR},
+      scenic_charge = #{record.scenicCharge,jdbcType=DOUBLE},
+      scenic_picture = #{record.scenicPicture,jdbcType=VARCHAR},
+      scenic_intro = #{record.scenicIntro,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update scenic
+    set "scenic _id" = #{record.scenicId,jdbcType=INTEGER},
+      scenic_name = #{record.scenicName,jdbcType=VARCHAR},
+      scenic_addr = #{record.scenicAddr,jdbcType=VARCHAR},
+      scenic_link = #{record.scenicLink,jdbcType=VARCHAR},
+      scenic_tel = #{record.scenicTel,jdbcType=VARCHAR},
+      scenic_ticket = #{record.scenicTicket,jdbcType=VARCHAR},
+      scenic_charge = #{record.scenicCharge,jdbcType=DOUBLE},
+      scenic_picture = #{record.scenicPicture,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cytx.pojo.Scenic">
+    update scenic
+    <set>
+      <if test="scenicName != null">
+        scenic_name = #{scenicName,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicAddr != null">
+        scenic_addr = #{scenicAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicLink != null">
+        scenic_link = #{scenicLink,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicTel != null">
+        scenic_tel = #{scenicTel,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicTicket != null">
+        scenic_ticket = #{scenicTicket,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicCharge != null">
+        scenic_charge = #{scenicCharge,jdbcType=DOUBLE},
+      </if>
+      <if test="scenicPicture != null">
+        scenic_picture = #{scenicPicture,jdbcType=VARCHAR},
+      </if>
+      <if test="scenicIntro != null">
+        scenic_intro = #{scenicIntro,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where "scenic _id" = #{scenicId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cytx.pojo.Scenic">
+    update scenic
+    set scenic_name = #{scenicName,jdbcType=VARCHAR},
+      scenic_addr = #{scenicAddr,jdbcType=VARCHAR},
+      scenic_link = #{scenicLink,jdbcType=VARCHAR},
+      scenic_tel = #{scenicTel,jdbcType=VARCHAR},
+      scenic_ticket = #{scenicTicket,jdbcType=VARCHAR},
+      scenic_charge = #{scenicCharge,jdbcType=DOUBLE},
+      scenic_picture = #{scenicPicture,jdbcType=VARCHAR},
+      scenic_intro = #{scenicIntro,jdbcType=LONGVARCHAR}
+    where "scenic _id" = #{scenicId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cytx.pojo.Scenic">
+    update scenic
+    set scenic_name = #{scenicName,jdbcType=VARCHAR},
+      scenic_addr = #{scenicAddr,jdbcType=VARCHAR},
+      scenic_link = #{scenicLink,jdbcType=VARCHAR},
+      scenic_tel = #{scenicTel,jdbcType=VARCHAR},
+      scenic_ticket = #{scenicTicket,jdbcType=VARCHAR},
+      scenic_charge = #{scenicCharge,jdbcType=DOUBLE},
+      scenic_picture = #{scenicPicture,jdbcType=VARCHAR}
+    where "scenic _id" = #{scenicId,jdbcType=INTEGER}
+  </update>
+</mapper>

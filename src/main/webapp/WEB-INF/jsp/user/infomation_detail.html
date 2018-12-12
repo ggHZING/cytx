@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>资讯详情</title>
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/infomation_detail.css">
+
+</head>
+<body>
+	<!--欢迎框 -->
+	<div class="wellcome" id="wellcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好，<span class="user_id">xxx</span>，欢迎来到畅游天下</div>
+
+
+	<!--logo部分 -->
+	<div class="logo">
+		<div class="logo-both">
+			<div class="logo-l"><span><img src="../images/logo.png"><span></span></div>
+	    	<div class="logo-c">
+	    		<input type="text" class="serch" placeholder="请输入...">
+		        <button class="btn">搜索</button>
+	    	</div>
+	    </div>
+		<div class="logo-r">
+			<img src="../images/phone.png"><span><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></span>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+
+	<!--nav部分 -->
+	<div class="nav">
+		<nav class="navbar navbar-default" id="nav_daohang">
+			<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+			    <span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			    <span class="icon-bar"></span></button>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav navbar-right" style="padding: 0px;">
+					<li><a href="index.html"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+					<li class="dropdown active"><a href=""><span class="glyphicon glyphicon-th-list"></span>最新资讯</a>
+					   <ul class="dropdown-content">
+                         <li><a href="#">凤凰古城</a></li>
+                         <li><a href="#">北京故宫</a></li>
+                         <li><a href="#">云南大理</a></li>
+                         <li><a href="#">武汉樱花</a></li>
+                         <li><a href="#">四川美食</a></li>
+                         <li><a href="#">港澳风情</a></li>
+                       </ul>
+					</li>
+					<li><a href="strategy.html"><span class="glyphicon glyphicon-fire"></span>热门攻略</a>
+          <li><a href="route.html"><span class="glyphicon glyphicon-flag"></span>特价路线</a></li>
+          <li><a href="person.html"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>
+          <li><a href="collection.html"><span class="glyphicon glyphicon-heart"></span>我的收藏</a></li>
+          <li><a href="login.html"><span class="glyphicon glyphicon-star"></span>登录/注册</a></li>
+				</ul>
+			</div>
+			</div>
+		</nav>
+	</div>
+    
+    <div id="infomation_detail">
+    <!--详情简介 -->
+	<div id="introduce">
+		<div class="container box">
+
+            <div class="row">
+                <div class="col-md-7">
+                    <img src="../images/planting-2.jpg" class="img-responsive" alt="">
+                </div>
+                <div class="col-md-5 info-right">
+                    <div class="title"><p>屏山牧场一日游</p></div>
+                    <div class="content hidden-md hidden-sm hidden-xs"> 
+                    走过的路途是成长，留下的足迹是生命
+                    走过的路途是成长，留下的足迹是生命
+                    走过的路途是成长，留下的足迹是生命
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+	</div>
+
+
+    <!--详情信息 -->
+    <div class="detail">
+    	
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active"><a href="#notice" data-toggle="tab">详情信息</a></li>
+            <li><a href="#evaluate" data-toggle="tab">驴友评价</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="notice">
+              <p>屏山牧场是........一起欣赏一下屏山美景吧</p>
+              <img src="../images/bg-3.jpg" style="width: 80%;">
+            </div>
+            <div class="tab-pane fade" id="evaluate">
+               <div class="person">
+               	 <div class="touxiang">
+               	 	<img class="img-circle image-responsive" src="../images/wu.jpg">
+               	 </div>
+               	 <div class="user">
+               	 	<div class="username">起个名字真难</div>
+               	 	<div class="text">屏山牧场是........一起欣赏一下屏山美景吧</div>
+               	 	<div class="reply">
+               	 		<span class="replytext"><img src="../images/评论小.png" alt=""> 评论</span>
+               	 		<span class="zan"><img src="../images/赞2.png" alt=""><span class="count">点赞</span></span>
+               	 	</div>
+               	 </div>
+               </div>
+            </div>
+        </div>
+   </div>
+    </div>
+	</div>
+    <div class="toTop">
+      <a href="#wellcome"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    </div>
+    
+
+
+
+
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script> 
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+    </script>
+
+</body>
+</html>
