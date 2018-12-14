@@ -1,4 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,64 +11,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>畅游天下主页</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <script type="text/javascript" src="../js/index.js"></script>
+    <link rel="stylesheet" href="<%=basePath%>css/index.css">
+    <script type="text/javascript" src="<%=basePath%>js/index.js"></script>
 
 </head>
 <body>
-<!--欢迎框 -->
-<div class="wellcome" id="wellcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好，<span class="user_id">xxx</span>，欢迎来到畅游天下</div>
-
-
-<!--logo部分 -->
-<div class="logo">
-    <div class="logo-both">
-        <div class="logo-l"><span><img src="../images/logo.png"><span></span></div>
-        <div class="logo-c">
-            <input type="text" class="serch" placeholder="请输入...">
-            <button class="btn">搜索</button>
-        </div>
-    </div>
-    <div class="logo-r">
-        <img src="../images/phone.png"><span><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></span>
-    </div>
-    <div class="clear"></div>
-</div>
-
-
-<!--nav部分 -->
-<div class="nav">
-    <nav class="navbar navbar-default" id="nav_daohang">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span></button>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right" style="padding: 0px;">
-                    <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span>首页</a></li>
-                    <li class="dropdown"><a href="infomation.html"><span class="glyphicon glyphicon-th-list"></span>最新资讯</a>
-                        <ul class="dropdown-content">
-                            <li><a href="#">凤凰古城</a></li>
-                            <li><a href="#">北京故宫</a></li>
-                            <li><a href="#">云南大理</a></li>
-                            <li><a href="#">武汉樱花</a></li>
-                            <li><a href="#">四川美食</a></li>
-                            <li><a href="#">港澳风情</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="strategy.html"><span class="glyphicon glyphicon-fire"></span>热门攻略</a>
-                    <li><a href="route.html"><span class="glyphicon glyphicon-flag"></span>特价路线</a></li>
-                    <li><a href="person.html"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>
-                    <li><a href="collection.html"><span class="glyphicon glyphicon-heart"></span>我的收藏</a></li>
-                    <li><a href="login.html"><span class="glyphicon glyphicon-star"></span>登录/注册</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</div>
+<!-- 引入header.jsp -->
+<jsp:include page="header.jsp"></jsp:include>
 
 
 <!--轮播图 -->
@@ -149,24 +103,24 @@
 </div>
 <div id="hot-infomation">
     <div class="infomation_l">
-        <div class="img"><img src="../images/l-5.jpg" alt=""></div>
+        <div class="img"><img src="../images/l-5.jpg" id="img1"></div>
         <div class="title">欢乐海洋之旅</div>
         <div class="content">带你玩转秦皇岛、山海关、南戴河，惊爆价出游</div>
-        <div class="money"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
+        <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
     </div>
 
     <div class="infomation_c">
         <div class="img"><img src="../images/l-5.jpg" alt=""></div>
         <div class="title">欢乐海洋之旅</div>
         <div class="content">带你玩转秦皇岛、山海关、南戴河，惊爆价出游</div>
-        <div class="money"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
+        <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
     </div>
 
     <div class="infomation_r">
         <div class="img"><img src="../images/l-5.jpg" alt=""></div>
         <div class="title">欢乐海洋之旅</div>
         <div class="content">带你玩转秦皇岛、山海关、南戴河，惊爆价出游</div>
-        <div class="money"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
+        <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
     </div>
 </div>
 
@@ -177,34 +131,34 @@
         <span class="line-text">热门攻略</span>
     </div>
 </div>
-<div id="hot-strategy" onmouseover ="return Checkover()" onmouseout="return Checkout()">
-    <div id="strategy_1" onmouseover="disp()"; onmouseout="hid();">
-        <div id="title">
+<div id="hot-strategy">
+    <div id="strategy_1" style="background-image: url(<%=path%>/images/ttd.jpg);">
+        <div id="title1">
             <h3>繁华香港</h3>
-            <p id="introduce">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+            <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
         </div>
-        <div id="check" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
+        <div id="check1" style="display: none;"><a href="strategy_detail.html" title=""><button id="chenkinfomation" >查看详情</button></a></div>
     </div>
-    <div id="strategy_2">
-        <div id="title">
+    <div id="strategy_2" style="background-image: url(<%=path%>/images/ttd.jpg);">
+        <div id="title2">
             <h3>繁华香港</h3>
-            <p id="introduce">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+            <p id="introduce1" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
         </div>
-        <div id="check"><button id="chenkinfomation">查看详情</button></div>
+        <div id="check2" style="display: none;"><button id="chenkinfomation1">查看详情</button></div>
     </div>
-    <div id="strategy_3">
-        <div id="title">
+    <div id="strategy_3" style="background-image: url(<%=path%>/images/ttd.jpg);">
+        <div id="title3">
             <h3>繁华香港</h3>
-            <p id="introduce">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+            <p id="introduce2" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
         </div>
-        <div id="check"><button id="chenkinfomation">查看详情</button></div>
+        <div id="check3" style="display: none;"><button id="chenkinfomation2">查看详情</button></div>
     </div>
-    <div id="strategy_4">
-        <div id="title">
+    <div id="strategy_4" style="background-image: url(<%=path%>/images/ttd.jpg);">
+        <div id="title4">
             <h3>繁华香港</h3>
-            <p id="introduce">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+            <p id="introduce3" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
         </div>
-        <div id="check"><button id="chenkinfomation">查看详情</button></div>
+        <div id="check4" style="display: none;"><button id="chenkinfomation3">查看详情</button></div>
     </div>
 </div>
 <div class="toTop">
@@ -213,33 +167,8 @@
 
 
 
-<!--底部部分 -->
-<div class="foot">
-    <hr style="height:1px;border:none;border-top:1px solid gray;" />
-    <div>
-        <table>
-            <tr>
-                <th>关于畅游天下</th>
-                <th>有话要说</th>
-                <th>服务保障</th>
-            </tr>
-            <tr>
-                <td><a href="#">帮助中心</a></td>
-                <td><a href="#">客服热线</a></td>
-                <td><a href="#">隐私政策</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">法律声明</a></td>
-                <td><a href="#">我要投诉</a></td>
-                <td><a href="#">争议调解</a></td>
-            </tr>
-        </table>
-    </div>
-    <div class="footer">
-        <p>Copyright © 2018-2019 Changyou.com | <a href="#">营业执照</a> | ICP证：xxxxxxxxxx | xxxxxxxxxxx | xxxxxxxxxx</p>
-        <p>违法和不良信息举报电话：xxx-xxxxxxxx 违法和不良信息举报邮箱：xxxxxxx@xxxxxx.com</p>
-    </div>
-</div>
+<!-- 引入footer.jsp -->
+<jsp:include page="footer.jsp"></jsp:include>
 
 
 

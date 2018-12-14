@@ -74,17 +74,18 @@
 
         <!--短信登录 -->
         <div class="tab-pane fade" id="duanxin">
-            <form action="#" method="post" id="myform-duanxin">
+            <form action="${pageContext.request.contextPath }/phoneIsRegister" method="post" id="myform-duanxin">
+                <c:if test="${loginInfo!=null}">${loginInfo}</c:if>
                 <input type="text" id="phonenum" name="phonenum" class="form-control" placeholder="请输入手机号码">
                 <span class="errorTips"></span>
                 <div class="yanzheng">
                     <input type="txt" class="form-control" id="txt_yzm" name="txt_yzm" placeholder="请输入验证码">
-                    <span><input type="button" name="yz" class="btn btn-primary" id="yz" value="获取验证码" onclick="sendMessage()"></span>
+                    <span><input type="button" name="yz" class="btn btn-primary" id="yz"  value="获取验证码" onclick="sendMessage()"></span>
                 </div>
                 <span class="errorTips"></span>
-                <button type="button" class="btn btn-primary" id="denglu2">登录</button>
+                <button type="submit" class="btn btn-primary" id="denglu2">登录</button>
             </form>
-            <div class="register"><p>还没有账号？<a href="register.html">立即注册</a></p></div>
+            <div class="register"><p>还没有账号？<a href="<%=basePath%>registerPage">立即注册</a></p></div>
         </div>
     </div>
 </div>
@@ -244,31 +245,9 @@
         }
 
     });
+
     $("#denglu2").click(function(){
-        <%--var phonenum=$("#phonenum").val();--%>
 
-        <%--$.ajax({--%>
-            <%--url:"phoneIsRegister",--%>
-            <%--type:"post",--%>
-            <%--data:{"phonenum":phonenum},--%>
-
-        <%--})--%>
-
-        <%--if (${isRegister}) {--%>
-            <%--var code=$("#txt_yzm").val();--%>
-            <%--if(code==""){--%>
-                <%--alert("请输入验证码");--%>
-            <%--}else{--%>
-                <%--if(sms==code){--%>
-                    <%--window.location.href="<%=basePath%>user";--%>
-                <%--}else{--%>
-                    <%--alert("验证码错误");--%>
-
-                <%--};--%>
-            <%--};--%>
-        <%--}else {--%>
-            <%--alert("请先注册")--%>
-        <%--}--%>
 
             var code=$("#txt_yzm").val();
             if(code==""){

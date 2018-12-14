@@ -6,17 +6,23 @@
 #bg{
     width: 100%;
     height: 300px;
-    background:url(../images/backg.jpg)no-repeat;
+    background:url(../images/魔兽世界.jpg)no-repeat;
     background-size:100%100%;
     margin-top: -20px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 #bg h1{
 	padding-top: 5%;
 	padding-left: 70%;
+	color: #eee;
+	font-size: 50px;
+	font-family:"STXingkai";
 }
 #bg h3{
 	padding-left: 80%;
+	color: #eee;
+	font-size: 40px;
+	font-family:"STXingkai";
 }
 
 
@@ -24,11 +30,10 @@
 .line{
 	width: 90%;
 	margin: auto;
-	margin-top: 30px;
 	text-align: center;
     background-color: #fff;
     margin-bottom: 50px;
-    margin-top: 70px;
+    margin-top: 30px;
 }
 .middle-line:before{
 	content: '';
@@ -70,11 +75,25 @@
 	box-shadow: 2px 2px 2px #ccc;
 }
 #introduce .img{
-	width: 100%;
+	position: relative;
+	width: 97%;
 	height: 300px;
-	background: url(../images/yangsuo.jpg);
+	margin: auto;
+}
+#introduce .img img{
+	transition: all 0.8s ease;
+}
+#introduce .img img:hover{
+	transform: scale(1.3);
+    -webkit-transform: scale(1.3); /*Safari 和 Chrome*/
+    -moz-transform: scale(1.3); /*Firefox*/
+    -ms-transform: scale(1.3); /*IE9*/
+    -o-transform: scale(1.3); /*Opera*/
 }
 #introduce .img button{
+	position: absolute;
+	top: 20px;
+	left: 20px;
 	width: 80px;
 	height: 30px;
 	margin: 5% 5%;
@@ -114,17 +133,26 @@
 /*所有特价部分 */
 #all_strategy{
 	width: 90%;
-	height: 700px;
-	border: solid 1px gray;
-
 	margin: auto;
 	display:flex;
 	-webkit-justify-content: space-between;
     justify-content: space-between;
 }
+#all_strategy .strategy_img{
+	overflow: hidden;
+	width: 97%;
+}
 #all_strategy img{
 	width: 100%;
 	height: 200px;
+	transition: all 0.8s ease;
+}
+#all_strategy img:hover{
+	transform: scale(1.3);
+    -webkit-transform: scale(1.3); /*Safari 和 Chrome*/
+    -moz-transform: scale(1.3); /*Firefox*/
+    -ms-transform: scale(1.3); /*IE9*/
+    -o-transform: scale(1.3); /*Opera*/
 }
 #all_strategy .strategy_title{
 	text-align: center;

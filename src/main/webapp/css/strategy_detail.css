@@ -2,11 +2,11 @@
 	margin: 0;
 	padding: 0;
 }
-#infomation_detail{
+#strategy_detail{
 	width: 80%;
 
 	margin: auto;
-	border:solid 1px #aaa;
+	border:solid 1px gray;
 }
 .box{
 	width: 100%;
@@ -21,119 +21,37 @@
 .col-md-7 img{
 	padding: 10px 0;
 }
-
-.info-right{
-	padding: 20px 20px;
-}
-.reserve_box{
+.shoucang{
+	width: 150px;
+	height: 40px;
+    margin-top: 53%;
 	display: flex;
 }
-#reserve{
-	border: 0;
+.shoucang_txt{
 	width: 100px;
 	height: 40px;
-	background-color: #ff9d00;
+	padding-top: 10px;
 }
-#reserve:hover{
-	border: 0;
-	background-color: #f60;
-}
-.reserve_r{
-	width: 150px;
-	height: 50px;
-	margin-left: 15%;
-	display: flex;
-}
-.txt{
-	font-size: 14px;
-	margin-top: 10px;
-}
-.like{
+.p{
 	width: 40px;
 	height: 40px;
 	background: url(../icon/喜欢.png);
 	background-size: 40px 40px;
 }
 
-/*订单信息 */
-#confirm{
-	
-}
-#goods{
-	margin-top: 10%;
-    display: flex;
-	margin-bottom: 10px;
-}
-#goods img{
-	width: 25px;
-	height: 25px;
-	margin-top: -10px;
-}
-#goods_shoucang{
-	
-	height: 30px;
-	margin-left: 20%;
 
-}
-#goods_shoucang img{
-	margin-top: -5px;
-	width: 30px;
-	height: 30px;
-}
- #date{
-    width: 100%;
-    height: 40px;
-    display: flex;
-}
-#date .date{
-	width: 20%;
-	height: 30px;
-	margin-top: 5px;
-}
-#date .chose{
-	width: 80%;
-}
-#date .chose select{
-	width: 100%;
-	height: 30px;
-}
- #number{
-    width: 100%;
-    height: 40px;
-    display: flex;
-}
-#number span{
-	text-align: center;
-	line-height: 30px;
-	font-size: 20px;
-	margin-left: 30%;
-}
- #number #person_number{
- 	margin-top: 5px;
- 	width: 20%;
- }
-#adult{
-	width: 40%;
-    height: 50px;
-    display: flex;
-    justify-content: flex-start;
-}
-#adult .dec,#adult .add{
-	cursor: pointer;
-}
-/*#child{
-	width: 40%;
-    height: 50px;
-    display: flex;
-}*/
 
 
 /*详情内容 */
-.detail{
-	height: 500px;
+.strategy_detail{
+
+	height: 700px;
 	margin: auto;
 }
-
+.strategy_toute_detail{
+	width: 80%;
+	margin: auto;
+}
 #myTab{
 	list-style: none;
 	border-radius: 0;
@@ -157,31 +75,33 @@
 }
 
 #notice{
-	width: 80%;
-	margin: auto;
+	padding: 10px 10px;
 }
+
+
+
 /*评价部分*/
-#comment{
+#strategy_comment{
 	width: 50%;
 	margin: auto;
 	margin-top: 10px;
 	margin-right: 30%;
 }
-#header{
+#strategy_header{
 	width: 100%;
 	height: 40px;
 	margin-bottom: 10px;
 	border-bottom: solid 1px #ddd;
 }
-#header .l{
+#strategy_header .strategy_l{
 	font-size: 20px;
 }
-#header .r{
+#strategy_header .strategy_r{
 	font-size: 14px;
 	color: #aaa;
 	margin-left: 20px;
 }
-#publish{
+#strategy_publish{
     width: 100%;
     height: 175px;
     margin-top: 20px;
@@ -189,36 +109,35 @@
     background-color: #eee;
     cursor: pointer;
 }
-#wirte_box{
+#strategy_box{
 	width: 97%;
 	margin: auto;
     margin-top: 5px;
     background-color: #eee;
 } 
-#wirte_txt{
+#strategy_txt{
 	 width: 100%;
 	 height: 100px;
 	 border: solid 1px #ddd;
 	 background-color: white;
 }
-#report{
+#strategy_report{
     margin-left: 80%;
 	width: 20%;
 	margin-top: -6px;
 }
-#wirte_box img{
+#strategy_box img{
 	width: 30px;
 	height: 30px;
 }
 
-#comment h5{
+#strategy_comment h5{
 	display: block;
 	height: 30px;
 	margin-top: 40px;
 	border-bottom: solid 1px #ddd;
 }
-#comment_txt{
+#strategy_comment_txt{
 	height: 100px;
 	border: solid 1px #ddd;
 }
-

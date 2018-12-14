@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -40,8 +41,11 @@
 <div class="register container">
     <div class="register-l">
         <div class="form-reg">
-            <form action="#" method="post" id="myform-register" onsubmit="return checkForm()">
+            <form action="${pageContext.request.contextPath }/register" method="post" id="myform-register" onsubmit="return checkForm()">
                 <table>
+                    <tr>
+                        <td><c:if test="${errorInfo!=null}">${errorInfo}</c:if></td>
+                    </tr>
                     <tr>
                         <td class="txt">用户名</td>
                         <td><input type="text" id="username" name="username"  onkeyup="checkusername();" placeholder="请输入用户名"></td>
@@ -70,15 +74,10 @@
                     <tr>
                         <td class="txt">手机号码</td>
                         <td><input type="text" name="phone" id="phone" onkeyup="checkphone();"  placeholder="手机号"></td>
-                        <td><span id="phonedMsg" style="margin-left: 15px;"></span>
+                        <td><span id="phoneMsg" style="margin-left: 15px;"></span>
                             <font color="#999999"></font></td>
                     </tr>
-                    <tr>
-                        <td class="txt">验证码</td>
-                        <td><input type="txt" name="yzm" id="yzm" onkeyup="checkyzm();" placeholder="请输入验证码"><button class="btn btn-primary" name="yz" id="yz">获取验证码</button></td>
-                        <td><span id="yzmdMsg" style="margin-left: 15px;"></span>
-                            <font color="#999999"></font></td>
-                    </tr>
+
                 </table>
                 <input type="submit" class="btn btn-primary" name="register" id="register" value="立即注册"></input>
                 <input type="reset" class="btn btn-primary" name="reset" id="reset" value="重置"></input>
@@ -97,15 +96,9 @@
     </div>
 </div>
 
-<!--<script type="text/javascript">
-    window.onload=function(){
-      var reg = document.getElementById("register-r");
-
-      if ( document.body.clientWidth < 900) {
-          reg.style.display = 'none';
-      }
-    }
-</script>-->
 
 </body>
 </html>
+
+
+

@@ -10,6 +10,7 @@
 
 </head>
 <body>
+  <input type="hidden" id="baseUrl" value="${pageContext.request.contextPath }/" />
  
   <!--<div class="top">
         <ul>
@@ -22,13 +23,13 @@
       <div class="logo-img">
           <img src="../images/logo_1.jpg">
       </div>
-      <div class="logo-nav">
+      <div class="logo-nav hidden-xs">
           <ul>
             <li><a href="index.html">返回首页</a></li>
             <li><a href="#">联系我们</a></li>
         </ul>
       </div>
-      <div class="login">已经有畅游天下账号了？<a href="login.html">立即登录</a></div>
+      <div class="login hidden-xs">已经有畅游天下账号了？<a href="login.html">立即登录</a></div>
   </div>
   </div>
   
@@ -80,7 +81,7 @@
     </div>
     </div>
 
-    <div class="register-r" id="register-r">
+    <div class="register-r hidden-md hidden-xs" id="register-r">
         <h5>注册成为畅游天下用户后，您可以：</h5>
         <ul>
             <li>畅游全国所有景点</li>

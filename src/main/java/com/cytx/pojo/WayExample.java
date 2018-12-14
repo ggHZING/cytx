@@ -233,6 +233,76 @@ public class WayExample {
             addCriterion("way_name not between", value1, value2, "wayName");
             return (Criteria) this;
         }
+
+        public Criteria andWayPicIsNull() {
+            addCriterion("way_pic is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicIsNotNull() {
+            addCriterion("way_pic is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicEqualTo(String value) {
+            addCriterion("way_pic =", value, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicNotEqualTo(String value) {
+            addCriterion("way_pic <>", value, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicGreaterThan(String value) {
+            addCriterion("way_pic >", value, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicGreaterThanOrEqualTo(String value) {
+            addCriterion("way_pic >=", value, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicLessThan(String value) {
+            addCriterion("way_pic <", value, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicLessThanOrEqualTo(String value) {
+            addCriterion("way_pic <=", value, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicLike(String value) {
+            addCriterion("way_pic like", value, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicNotLike(String value) {
+            addCriterion("way_pic not like", value, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicIn(List<String> values) {
+            addCriterion("way_pic in", values, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicNotIn(List<String> values) {
+            addCriterion("way_pic not in", values, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicBetween(String value1, String value2) {
+            addCriterion("way_pic between", value1, value2, "wayPic");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayPicNotBetween(String value1, String value2) {
+            addCriterion("way_pic not between", value1, value2, "wayPic");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -513,6 +513,66 @@ public class UserExample {
             addCriterion("user_photo not between", value1, value2, "userPhoto");
             return (Criteria) this;
         }
+
+        public Criteria andUserStateIsNull() {
+            addCriterion("user_state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateIsNotNull() {
+            addCriterion("user_state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateEqualTo(Integer value) {
+            addCriterion("user_state =", value, "userState");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateNotEqualTo(Integer value) {
+            addCriterion("user_state <>", value, "userState");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateGreaterThan(Integer value) {
+            addCriterion("user_state >", value, "userState");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("user_state >=", value, "userState");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateLessThan(Integer value) {
+            addCriterion("user_state <", value, "userState");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateLessThanOrEqualTo(Integer value) {
+            addCriterion("user_state <=", value, "userState");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateIn(List<Integer> values) {
+            addCriterion("user_state in", values, "userState");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateNotIn(List<Integer> values) {
+            addCriterion("user_state not in", values, "userState");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateBetween(Integer value1, Integer value2) {
+            addCriterion("user_state between", value1, value2, "userState");
+            return (Criteria) this;
+        }
+
+        public Criteria andUserStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("user_state not between", value1, value2, "userState");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

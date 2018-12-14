@@ -64,6 +64,30 @@
 	margin: 0 0 20px 0;
 	box-shadow: 2px 2px 2px #ccc;
 }
+.col-md-7{
+	overflow: hidden;
+}
+.col-md-7 img{
+	padding: 10px 0;
+	transition: all 0.8s ease;
+}
+.col-md-5 {
+	overflow: hidden;
+}
+.col-md-5 img{
+
+	transition: all 0.8s ease;
+}
+.col-md-7 img:hover,.col-md-5 img:hover{
+	transform: scale(1.2);
+    -webkit-transform: scale(1.2); /*Safari 和 Chrome*/
+    -moz-transform: scale(1.2); /*Firefox*/
+    -ms-transform: scale(1.2); /*IE9*/
+    -o-transform: scale(1.2); /*Opera*/
+}
+}
+
+
 .info-content img{
 	margin: 12px 0;
 }

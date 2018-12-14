@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean phoneIsExist(String phone) {
         UserExample example = new UserExample();
-        example.or().andUserNameEqualTo(phone);
+        example.or().andUserPhoneEqualTo(phone);
         List<User> result = userMapper.selectByExample(example);
         if (result.isEmpty()){
             return false;
@@ -38,4 +38,39 @@ public class UserServiceImpl implements UserService {
         }
 
     }
+
+    @Override
+    public int checkPhone(String userPhone) {
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andUserPhoneEqualTo(userPhone);
+        int count =(int) userMapper.countByExample(example);
+
+        return count;
+    }
+
+    @Override
+    public int userRegister(User user) {
+
+        user.setUserName(user.getUserName());
+        user.setUserPassword(user.getUserPassword());
+        user.setUserEmail(user.getUserEmail());
+        user.setUserPhone(user.getUserPhone());
+
+        int i = userMapper.insert(user);
+
+        return i;
+    }
+
+    @Override
+    public int checkUsernane(String userName) {
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andUserNameEqualTo(userName);
+        int count =(int) userMapper.countByExample(example);
+
+        return count;
+    }
+
+
 }

@@ -20,6 +20,10 @@ public class Order {
 
     private String paySerialsNumber;
 
+    private Integer sid;
+
+    private Integer uid;
+
     public Integer getOrderId() {
         return orderId;
     }
@@ -82,5 +86,21 @@ public class Order {
 
     public void setPaySerialsNumber(String paySerialsNumber) {
         this.paySerialsNumber = paySerialsNumber == null ? null : paySerialsNumber.trim();
+    }
+
+    public Integer getSid() {
+        return sid;
+    }
+
+    public void setSid(Integer sid) {
+        this.sid = sid;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 }

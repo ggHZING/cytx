@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>最新资讯</title>
-	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/index.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>最新资讯</title>
+  <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" type="text/css" href="../css/infomation.css">
 
 </head>
 <body>
-	<!--欢迎框 -->
-	<div class="wellcome" id="wellcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好，<span class="user_id">xxx</span>，欢迎来到畅游天下</div>
+  <!--欢迎框 -->
+  <div class="wellcome" id="wellcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好，<span class="user_id">xxx</span>，欢迎来到畅游天下</div>
 
 
-	<!--logo部分 -->
-	<div class="logo">
-		<div class="logo-both">
-			<div class="logo-l"><span><img src="../images/logo.png"><span></span></div>
-	    	<div class="logo-c">
-	    		<input type="text" class="serch" placeholder="请输入...">
-		        <button class="btn">搜索</button>
-	    	</div>
-	    </div>
-		<div class="logo-r">
-			<img src="../images/phone.png"><span><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></span>
-		</div>
-		<div class="clear"></div>
-	</div>
+  <div id="logobox">
+      <div id="logo"><img src="../images/logo.png"></div>
+      <div id="serchbox">
+        <div id="serch"><input type="text" id="serchtxt"  placeholder="请输入"></div>
+        <div id="serchbtn"><button type="button" class="btn btn-primary" id="serchbutton">搜索</button></div>
+      </div>
+      <div id="contact" class="hidden-xs">
+        <div class="phonelogo"><img src="../images/phone.png"></div>
+        <div class="phonetxt"><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></div>
+      </div>
+    </div>
 
 
-	<!--nav部分 -->
-	<div class="nav">
-		<nav class="navbar navbar-default" id="nav_daohang">
-			<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-			    <span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			    <span class="icon-bar"></span></button>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse">
-				<ul class="nav navbar-nav navbar-right" style="padding: 0px;">
-					<li><a href="index.html"><span class="glyphicon glyphicon-home"></span>首页</a></li>
-					<li class="dropdown active"><a href="infomation.html"><span class="glyphicon glyphicon-th-list"></span>最新资讯</a>
-					   <ul class="dropdown-content">
+  <!--nav部分 -->
+  <div class="nav">
+    <nav class="navbar navbar-default" id="nav_daohang">
+      <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+          <span class="icon-bar"></span></button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right" style="padding: 0px;">
+          <li><a href="index.html"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+          <li class="dropdown active"><a href="infomation.html"><span class="glyphicon glyphicon-th-list"></span>最新资讯</a>
+             <ul class="dropdown-content">
                          <li><a href="#">凤凰古城</a></li>
                          <li><a href="#">北京故宫</a></li>
                          <li><a href="#">云南大理</a></li>
@@ -52,24 +49,24 @@
                          <li><a href="#">四川美食</a></li>
                          <li><a href="#">港澳风情</a></li>
                        </ul>
-					</li>
-					<li><a href="strategy.html"><span class="glyphicon glyphicon-fire"></span>热门攻略</a>
+          </li>
+          <li><a href="strategy.html"><span class="glyphicon glyphicon-fire"></span>热门攻略</a>
           <li><a href="route.html"><span class="glyphicon glyphicon-flag"></span>特价路线</a></li>
           <li><a href="person.html"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>
           <li><a href="collection.html"><span class="glyphicon glyphicon-heart"></span>我的收藏</a></li>
           <li><a href="login.html"><span class="glyphicon glyphicon-star"></span>登录/注册</a></li>
-				</ul>
-			</div>
-			</div>
-		</nav>
-	</div>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  </div>
     
 
     <div class="bgcolor" style="background-color: #eee;">
     <!--资讯轮播图 -->
     <div id="box">
         <div id="box-l">
-        	<div id="myCarousel" class="carousel slide">
+          <div id="myCarousel" class="carousel slide">
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -87,11 +84,11 @@
                     </div>
                  </div>
                   <a href="#myCarousel" data-slide="prev" class="carousel-control left">
-	  	        <span class="glyphicon glyphicon-chevron-left" ></span>
-	         </a>
-	        <a href="#myCarousel" data-slide="next" class="carousel-control right">
-	  	        <span class="glyphicon glyphicon-chevron-right"></span>
-	          </a>   
+              <span class="glyphicon glyphicon-chevron-left" ></span>
+           </a>
+          <a href="#myCarousel" data-slide="next" class="carousel-control right">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>   
             </div>
         </div>
 
@@ -113,15 +110,15 @@
         </div>
         <div class="clear"></div>
     </div>
-        	<!--<div class="title_img"><img src="../images/title_logo.jpg" alt=""></div>
-        	<div class="box_content  hidden-xs">
-        		<ul id="ul">
-        			<li><a href="#"><img src="../icon/user.png"><span class="usernumber">xxx</span></a>位用户</li>
-        			<li><a href="#"><img src="../icon/business.png"><span class="businessnumber">xxx</span></a>位商家</li>
-        			<li><a href="#"><img src="../icon/infomation.png"><span class="infomationnumber">xxx</span></a>个资讯</li>
-        			<li><a href="#"><img src="../icon/strategy.png"><span class="strategynumber">xxx</span></a>篇攻略</li>
-        		</ul>
-        	</div>
+          <!--<div class="title_img"><img src="../images/title_logo.jpg" alt=""></div>
+          <div class="box_content  hidden-xs">
+            <ul id="ul">
+              <li><a href="#"><img src="../icon/user.png"><span class="usernumber">xxx</span></a>位用户</li>
+              <li><a href="#"><img src="../icon/business.png"><span class="businessnumber">xxx</span></a>位商家</li>
+              <li><a href="#"><img src="../icon/infomation.png"><span class="infomationnumber">xxx</span></a>个资讯</li>
+              <li><a href="#"><img src="../icon/strategy.png"><span class="strategynumber">xxx</span></a>篇攻略</li>
+            </ul>
+          </div>
         </div>-->
 
      <div id="infomation">
@@ -148,7 +145,7 @@
                             </div>
                         </div>
                          <div class="row info-content">
-                            <div class="col-md-7 col-sm-7 col xs-7"><a href="#"><img src="../images/10.jpg" class="img-responsive"></a></div>
+                            <div class="col-md-7 col-sm-7 col xs-7"><a href="#"><img src="../images/10.jpg" class="img-responsive" ></a></div>
                             <div class="col-md-5 col-sm-5 col xs-5">
                                 <h3>畅游韩国</h3>
                                 <p class="hidden-xs">简介：天灵大陆,在这片神奇的大陆上,修炼的不是斗气亦非魔法,而是幻灵力。大陆上的职业又分为:战灵师</p>
@@ -161,7 +158,7 @@
 
                 <!--右边-->
                 <div class="col-md-5 info-right">
-                    <div class="right_title"><h3>驴友推荐</h3></div>
+                    <div class="right_title"><h3>商家推荐</h3></div>
                     <div class="container-fluid">
                         <div class="row right_content">
                             <div class="col-md-5 col-sm-5 col xs-5" style="margin: 15px 0;padding: 0;"><a href="#"><img src="../images/3.jpg" class="img-responsive"></a></div>

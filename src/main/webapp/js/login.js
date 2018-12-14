@@ -7,7 +7,7 @@ function btn(){
 
     function check(){
     	if (code != value) {
-    		alert("验证码错误")；
+    		alert("验证码错误");
     		return false;
     	}
     }

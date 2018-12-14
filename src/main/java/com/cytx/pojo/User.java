@@ -13,6 +13,8 @@ public class User {
 
     private String userPhoto;
 
+    private Integer userState;
+
     public Integer getUserId() {
         return userId;
     }
@@ -59,5 +61,13 @@ public class User {
 
     public void setUserPhoto(String userPhoto) {
         this.userPhoto = userPhoto == null ? null : userPhoto.trim();
+    }
+
+    public Integer getUserState() {
+        return userState;
+    }
+
+    public void setUserState(Integer userState) {
+        this.userState = userState;
     }
 }

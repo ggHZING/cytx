@@ -11,24 +11,23 @@
 
 </head>
 <body>
+	<input type="hidden" id="baseUrl" value="${pageContext.request.contextPath }/" />
 	<!--欢迎框 -->
 	<div class="wellcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好，<span class="user_id">xxx</span>，欢迎来到畅游天下</div>
 
 
 	<!--logo部分 -->
-	<div class="logo">
-		<div class="logo-both">
-			<div class="logo-l"><span><img src="../images/logo.png"><span></span></div>
-	    	<div class="logo-c">
-	    		<input type="text" class="serch" placeholder="请输入...">
-		        <button class="btn">搜索</button>
-	    	</div>
-	    </div>
-		<div class="logo-r">
-			<img src="../images/phone.png"><span><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></span>
-		</div>
-		<div class="clear"></div>
-	</div>
+	<div id="logobox">
+    	<div id="logo"><img src="../images/logo.png"></div>
+    	<div id="serchbox">
+    		<div id="serch"><input type="text" id="serchtxt"  placeholder="请输入"></div>
+    		<div id="serchbtn"><button type="button" class="btn btn-primary" id="serchbutton">搜索</button></div>
+    	</div>
+    	<div id="contact" class="hidden-xs">
+    		<div class="phonelogo"><img src="../images/phone.png"></div>
+    		<div class="phonetxt"><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></div>
+    	</div>
+    </div>
 
 
 	<!--nav部分 -->

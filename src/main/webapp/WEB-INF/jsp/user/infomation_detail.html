@@ -6,28 +6,28 @@
 	<title>资讯详情</title>
 	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../css/infomation_detail.css">
-
+  <link rel="stylesheet" type="text/css" href="../css/infomation_detail.css">
+  <script type="text/javascript" src="../js/infomation_detail.js"></script>
+  <script type="text/javascript" src="../js/infomation_detail_report.js"></script>
 </head>
 <body>
+  <input type="hidden" id="baseUrl" value="${pageContext.request.contextPath }/" />
 	<!--欢迎框 -->
 	<div class="wellcome" id="wellcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好，<span class="user_id">xxx</span>，欢迎来到畅游天下</div>
 
 
 	<!--logo部分 -->
-	<div class="logo">
-		<div class="logo-both">
-			<div class="logo-l"><span><img src="../images/logo.png"><span></span></div>
-	    	<div class="logo-c">
-	    		<input type="text" class="serch" placeholder="请输入...">
-		        <button class="btn">搜索</button>
-	    	</div>
-	    </div>
-		<div class="logo-r">
-			<img src="../images/phone.png"><span><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></span>
-		</div>
-		<div class="clear"></div>
-	</div>
+	<div id="logobox">
+      <div id="logo"><img src="../images/logo.png"></div>
+      <div id="serchbox">
+        <div id="serch"><input type="text" id="serchtxt"  placeholder="请输入"></div>
+        <div id="serchbtn"><button type="button" class="btn btn-primary" id="serchbutton">搜索</button></div>
+      </div>
+      <div id="contact" class="hidden-xs">
+        <div class="phonelogo"><img src="../images/phone.png"></div>
+        <div class="phonetxt"><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></div>
+      </div>
+    </div>
 
 
 	<!--nav部分 -->
@@ -76,9 +76,55 @@
                 <div class="col-md-5 info-right">
                     <div class="title"><p>屏山牧场一日游</p></div>
                     <div class="content hidden-md hidden-sm hidden-xs"> 
-                    走过的路途是成长，留下的足迹是生命
-                    走过的路途是成长，留下的足迹是生命
-                    走过的路途是成长，留下的足迹是生命
+                      <div id="content_title">走过的路途是成长，留下的足迹是生命
+                      走过的路途是成长，留下的足迹是生命
+                      走过的路途是成长，留下的足迹是生命</div>
+                      <div id="confirm">
+                        <div id="goods">
+                            <div id="goods_price"><img src="../icon/rmb.png"><span style="color: red;font-size: 24px;">99.9</span></div>
+                            <!--<div id="goods_shoucang">
+                              <span>喜欢就收藏我吧</span>
+                              <span id="goods_coolect">
+                                <img src="../icon/喜欢.png" id="collect_dis"><img src="../icon/喜欢2.png" id="collect_hid" style="display: none;">
+                              </span>
+                            </div>-->
+                        </div>
+                        <form id="order_confirm" action="#" method="post">
+                          <div id="box">
+                            <div id="date">
+                              <div class="date">出发日期：</div>
+                              <div class="chose"><select>
+                                <option value="0">2018-12-12</option>
+                                <option value="1">2018-12-13</option>
+                                <option value="2">2018-12-14</option>
+                                <option value="3">2018-12-15</option>
+                              </select></div>
+                            </div>
+
+                            <div id="number">
+                              <div id="person_number">出游人数：</div>
+                              <div id="adult">
+                                <div class="dec" onclick="numDec()" style="width: 30px;border: solid 1px gray;height: 30px;"><span >-</span></div>
+                                <div><input type="text" id="quantity" style="width: 40px;height: 30px;text-align: center;" /></div>
+                                <div class="add" onclick="numAdd()" style="width: 30px;border: solid 1px gray;height: 30px;margin-right: 20px;"><span>+</span></div>
+                              </div>
+                              
+                            </div>
+                            <div id="sum">
+                                <p class="sdsd">总价格: <span id="totalPrice"style="color: red;font-size: 20px;">00.00</span></p>
+                                <input type="hidden" value="99.99" id="price" /><!--单价-->
+                              </div>
+                          </div>
+                          <div class="reserve_box">
+                        <div class="reserve_l"><button id="reserve">立即预定</button></div>
+                        <div class="reserve_r">
+                          <div class="txt">喜欢就收藏我吧</div>
+                          <div class="like"></div>
+                        </div>
+                      </div>
+                        </form>
+                      </div>
+                      
                     </div>
                 </div>
             </div>
@@ -93,30 +139,46 @@
         <ul id="myTab" class="nav nav-tabs">
             <li class="active"><a href="#notice" data-toggle="tab">详情信息</a></li>
             <li><a href="#evaluate" data-toggle="tab">驴友评价</a></li>
+
         </ul>
+
         <div id="myTabContent" class="tab-content">
+
             <div class="tab-pane fade in active" id="notice">
               <p>屏山牧场是........一起欣赏一下屏山美景吧</p>
               <img src="../images/bg-3.jpg" style="width: 80%;">
             </div>
+
+            <!--驴友评价 -->
             <div class="tab-pane fade" id="evaluate">
-               <div class="person">
-               	 <div class="touxiang">
-               	 	<img class="img-circle image-responsive" src="../images/wu.jpg">
-               	 </div>
-               	 <div class="user">
-               	 	<div class="username">起个名字真难</div>
-               	 	<div class="text">屏山牧场是........一起欣赏一下屏山美景吧</div>
-               	 	<div class="reply">
-               	 		<span class="replytext"><img src="../images/评论小.png" alt=""> 评论</span>
-               	 		<span class="zan"><img src="../images/赞2.png" alt=""><span class="count">点赞</span></span>
-               	 	</div>
-               	 </div>
-               </div>
+              
+            <div id="comment">
+              <div id="header">
+                <span class="l">驴友评论</span>
+                <span class="r">(已有<input type="text" id="comment_number" value="0" style="border: 0;width: 2%;" />条评论)</span>
+                <input type="hidden" value="1" id="count" />
+              </div>
+
+              <div id="publish">
+                <div id="wirte_box">
+                  <img src="../icon/write.png"><span>发表评论</span>
+                  <div>
+                    <textarea id="wirte_txt" rows="10" cols="30"></textarea>
+                    <button type="button" id="report" class="btn btn-primary">发表</button>
+                  </div>
+                  
+                </div>
+              </div>
+
+              <h5>精彩评论</h5>
+              <div id="comment_txt">
+
+              </div>
             </div>
         </div>
    </div>
-    </div>
+  </div>
+
 	</div>
     <div class="toTop">
       <a href="#wellcome"><span class="glyphicon glyphicon-chevron-up"></span></a>
@@ -129,7 +191,19 @@
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script> 
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-
+       $(document).ready(function(){
+            var onOff=true;
+            var p=$(".like");
+            p.click(function(){  
+              if (p.onOff) {
+               p.css({"background-image":'url(../icon/喜欢.png)'});
+               p.onOff = false;
+              } else {
+               p.css({"background-image":'url(../icon/喜欢2.png)'});
+               p.onOff = true;
+              }
+             });
+        });
     </script>
 
 </body>

@@ -5,6 +5,8 @@ public class Way {
 
     private String wayName;
 
+    private String wayPic;
+
     private String wayContent;
 
     public Integer getWayId() {
@@ -21,6 +23,14 @@ public class Way {
 
     public void setWayName(String wayName) {
         this.wayName = wayName == null ? null : wayName.trim();
+    }
+
+    public String getWayPic() {
+        return wayPic;
+    }
+
+    public void setWayPic(String wayPic) {
+        this.wayPic = wayPic == null ? null : wayPic.trim();
     }
 
     public String getWayContent() {

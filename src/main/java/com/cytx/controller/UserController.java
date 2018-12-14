@@ -3,7 +3,6 @@ package com.cytx.controller;
 import com.cytx.pojo.User;
 import com.cytx.service.UserService;
 import com.cytx.utils.GetMessageCode;
-import com.cytx.utils.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -74,14 +73,81 @@ public class UserController {
         String phone=req.getParameter("phonenum");
         //根据获取到的手机号发送验证码
         String code= GetMessageCode.getCode(phone);
+
         System.out.println(code);
         resp.getWriter().print(code);
     }
     @RequestMapping(value = "/phoneIsRegister",method = RequestMethod.POST)
-    public boolean PhoneIsRegister(HttpServletRequest req,HttpServletResponse resp){
+    public String PhoneIsRegister(HttpServletRequest req,HttpServletResponse resp,Model model){
         String phone=req.getParameter("phonenum");
         Boolean isRegister = userService.phoneIsExist(phone);
-        return isRegister;
+
+            if (isRegister){
+                return "redirect:/user";
+            }else {
+                model.addAttribute("loginInfo","该手机号未注册！");
+                return"user/login";
+            }
 
     }
+
+    /**
+     * 用户注册
+     */
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String userRegister(Model model,HttpServletRequest request, HttpSession session, User user){
+        String phone = request.getParameter("phone");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String email = request.getParameter("email");
+        user.setUserPhone(phone);
+        user.setUserName(username);
+        user.setUserPassword(password);
+        user.setUserEmail(email);
+
+        int j=userService.checkUsernane(user.getUserName());
+        if (j==0){
+            int k = userService.checkPhone(user.getUserPhone());
+            if(k==0) {
+                int i = userService.userRegister(user);
+                if (i > 0) {
+                    return "user/login";//注册成功到登陆界面
+                }
+                model.addAttribute("errorInfo","注册用户失败！");
+                return "user/register";//插入注册数据失败
+            }
+            model.addAttribute("errorInfo","手机号已经存在！");
+            return "user/register";//手机号已经存在
+        }
+        model.addAttribute("errorInfo","用户名已经存在！");
+        return "user/register";//用户名已经存在
+
+        }
+
+    /**
+     * 用户退出
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session = request.getSession();
+        //从session中将user删除
+        session.removeAttribute("user");
+
+        //将存储在客户端的cookie删除掉
+        Cookie cookie_username = new Cookie("cookie_username","");
+        cookie_username.setMaxAge(0);
+        //创建存储密码的cookie
+        Cookie cookie_password = new Cookie("cookie_password","");
+        cookie_password.setMaxAge(0);
+
+        response.addCookie(cookie_username);
+        response.addCookie(cookie_password);
+
+        return "user/login";
+    }
+
 }
+

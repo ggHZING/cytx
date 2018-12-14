@@ -615,6 +615,126 @@ public class OrderExample {
             addCriterion("pay_serials_number not between", value1, value2, "paySerialsNumber");
             return (Criteria) this;
         }
+
+        public Criteria andSidIsNull() {
+            addCriterion("sid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidIsNotNull() {
+            addCriterion("sid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidEqualTo(Integer value) {
+            addCriterion("sid =", value, "sid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidNotEqualTo(Integer value) {
+            addCriterion("sid <>", value, "sid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidGreaterThan(Integer value) {
+            addCriterion("sid >", value, "sid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sid >=", value, "sid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidLessThan(Integer value) {
+            addCriterion("sid <", value, "sid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidLessThanOrEqualTo(Integer value) {
+            addCriterion("sid <=", value, "sid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidIn(List<Integer> values) {
+            addCriterion("sid in", values, "sid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidNotIn(List<Integer> values) {
+            addCriterion("sid not in", values, "sid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidBetween(Integer value1, Integer value2) {
+            addCriterion("sid between", value1, value2, "sid");
+            return (Criteria) this;
+        }
+
+        public Criteria andSidNotBetween(Integer value1, Integer value2) {
+            addCriterion("sid not between", value1, value2, "sid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidIsNull() {
+            addCriterion("uid is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidIsNotNull() {
+            addCriterion("uid is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidEqualTo(Integer value) {
+            addCriterion("uid =", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidNotEqualTo(Integer value) {
+            addCriterion("uid <>", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidGreaterThan(Integer value) {
+            addCriterion("uid >", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("uid >=", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidLessThan(Integer value) {
+            addCriterion("uid <", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidLessThanOrEqualTo(Integer value) {
+            addCriterion("uid <=", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidIn(List<Integer> values) {
+            addCriterion("uid in", values, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidNotIn(List<Integer> values) {
+            addCriterion("uid not in", values, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidBetween(Integer value1, Integer value2) {
+            addCriterion("uid between", value1, value2, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidNotBetween(Integer value1, Integer value2) {
+            addCriterion("uid not between", value1, value2, "uid");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

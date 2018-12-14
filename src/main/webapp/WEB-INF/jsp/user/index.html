@@ -10,24 +10,23 @@
 
 </head>
 <body>
+  <input type="hidden" id="baseUrl" value="${pageContext.request.contextPath }/" />
 	<!--欢迎框 -->
 	<div class="wellcome" id="wellcome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好，<span class="user_id">xxx</span>，欢迎来到畅游天下</div>
 
 
 	<!--logo部分 -->
-	<div class="logo">
-		<div class="logo-both">
-			<div class="logo-l"><span><img src="../images/logo.png"><span></span></div>
-	    	<div class="logo-c">
-	    		<input type="text" class="serch" placeholder="请输入...">
-		        <button class="btn">搜索</button>
-	    	</div>
-	    </div>
-		<div class="logo-r">
-			<img src="../images/phone.png"><span><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></span>
-		</div>
-		<div class="clear"></div>
-	</div>
+	<div id="logobox">
+      <div id="logo"><img src="../images/logo.png"></div>
+      <div id="serchbox">
+        <div id="serch"><input type="text" id="serchtxt"  placeholder="请输入"></div>
+        <div id="serchbtn"><button type="button" class="btn btn-primary" id="serchbutton">搜索</button></div>
+      </div>
+      <div id="contact" class="hidden-xs">
+        <div class="phonelogo"><img src="../images/phone.png"></div>
+        <div class="phonetxt"><p>咨询热线</p><h4 style="color: blue;font-size: 26px;">134201xxxxx</h4></div>
+      </div>
+    </div>
 
 
 	<!--nav部分 -->
@@ -148,24 +147,24 @@
     </div>
     <div id="hot-infomation">
         <div class="infomation_l">
-            <div class="img"><img src="../images/l-5.jpg" alt=""></div>
+            <div class="img"><img src="../images/l-5.jpg" id="img1"></div>
             <div class="title">欢乐海洋之旅</div>
             <div class="content">带你玩转秦皇岛、山海关、南戴河，惊爆价出游</div>
-            <div class="money"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
+            <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
         </div>
 
         <div class="infomation_c">
             <div class="img"><img src="../images/l-5.jpg" alt=""></div>
             <div class="title">欢乐海洋之旅</div>
             <div class="content">带你玩转秦皇岛、山海关、南戴河，惊爆价出游</div>
-            <div class="money"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
+            <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
         </div>
 
         <div class="infomation_r">
             <div class="img"><img src="../images/l-5.jpg" alt=""></div>
             <div class="title">欢乐海洋之旅</div>
             <div class="content">带你玩转秦皇岛、山海关、南戴河，惊爆价出游</div>
-            <div class="money"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
+            <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
         </div>
     </div>
 
@@ -176,34 +175,34 @@
              <span class="line-text">热门攻略</span>
         </div>
     </div>
-    <div id="hot-strategy" onmouseover ="return Checkover()" onmouseout="return Checkout()">
-       <div id="strategy_1" onmouseover="disp()"; onmouseout="hid();">
-           <div id="title">
+    <div id="hot-strategy">
+       <div id="strategy_1">
+           <div id="title1">
             <h3>繁华香港</h3>
-           <p id="introduce">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+           <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
            </div>
-           <div id="check" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
+           <div id="check1" style="display: none;"><a href="strategy_detail.html" title=""><button id="chenkinfomation" >查看详情</button></a></div>
        </div>
        <div id="strategy_2">
-           <div id="title">
+           <div id="title2">
             <h3>繁华香港</h3>
-           <p id="introduce">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+           <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
            </div>
-           <div id="check"><button id="chenkinfomation">查看详情</button></div>
+           <div id="check2" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
        </div>
        <div id="strategy_3">
-           <div id="title">
+           <div id="title3">
             <h3>繁华香港</h3>
-           <p id="introduce">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+           <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
            </div>
-           <div id="check"><button id="chenkinfomation">查看详情</button></div>
+           <div id="check3" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
        </div>
        <div id="strategy_4">
-           <div id="title">
+           <div id="title4">
             <h3>繁华香港</h3>
-           <p id="introduce">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+           <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
            </div>
-           <div id="check"><button id="chenkinfomation">查看详情</button></div>
+           <div id="check4" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
        </div>
     </div>
     <div class="toTop">
