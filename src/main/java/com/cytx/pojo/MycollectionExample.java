@@ -165,62 +165,62 @@ public class MycollectionExample {
         }
 
         public Criteria andMycollectionScenicIdIsNull() {
-            addCriterion("\"mycollection_scenic _id\" is null");
+            addCriterion("\"mycollection_scenic_id\" is null");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdIsNotNull() {
-            addCriterion("\"mycollection_scenic _id\" is not null");
+            addCriterion("\"mycollection_scenic_id\" is not null");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdEqualTo(Integer value) {
-            addCriterion("\"mycollection_scenic _id\" =", value, "mycollectionScenicId");
+            addCriterion("\"mycollection_scenic_id\" =", value, "mycollectionScenicId");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdNotEqualTo(Integer value) {
-            addCriterion("\"mycollection_scenic _id\" <>", value, "mycollectionScenicId");
+            addCriterion("\"mycollection_scenic_id\" <>", value, "mycollectionScenicId");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdGreaterThan(Integer value) {
-            addCriterion("\"mycollection_scenic _id\" >", value, "mycollectionScenicId");
+            addCriterion("\"mycollection_scenic_id\" >", value, "mycollectionScenicId");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("\"mycollection_scenic _id\" >=", value, "mycollectionScenicId");
+            addCriterion("\"mycollection_scenic_id\" >=", value, "mycollectionScenicId");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdLessThan(Integer value) {
-            addCriterion("\"mycollection_scenic _id\" <", value, "mycollectionScenicId");
+            addCriterion("\"mycollection_scenic_id\" <", value, "mycollectionScenicId");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdLessThanOrEqualTo(Integer value) {
-            addCriterion("\"mycollection_scenic _id\" <=", value, "mycollectionScenicId");
+            addCriterion("\"mycollection_scenic_id\" <=", value, "mycollectionScenicId");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdIn(List<Integer> values) {
-            addCriterion("\"mycollection_scenic _id\" in", values, "mycollectionScenicId");
+            addCriterion("\"mycollection_scenic_id\" in", values, "mycollectionScenicId");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdNotIn(List<Integer> values) {
-            addCriterion("\"mycollection_scenic _id\" not in", values, "mycollectionScenicId");
+            addCriterion("\"mycollection_scenic_id\" not in", values, "mycollectionScenicId");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdBetween(Integer value1, Integer value2) {
-            addCriterion("\"mycollection_scenic _id\" between", value1, value2, "mycollectionScenicId");
+            addCriterion("\"mycollection_scenic_id\" between", value1, value2, "mycollectionScenicId");
             return (Criteria) this;
         }
 
         public Criteria andMycollectionScenicIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("\"mycollection_scenic _id\" not between", value1, value2, "mycollectionScenicId");
+            addCriterion("\"mycollection_scenic_id\" not between", value1, value2, "mycollectionScenicId");
             return (Criteria) this;
         }
 

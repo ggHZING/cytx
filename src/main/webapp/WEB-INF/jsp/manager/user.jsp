@@ -93,7 +93,7 @@
                                 <td>${row.userId}</td>
                                 <td>${row.userName}</td>
                                 <td width="100px">
-                                    <img width="100%" height="15%"
+                                    <img width="100%" height="100%"
                                          src="${pageContext.request.contextPath }/${row.userPhoto}"/>
                                 </td>
                                 <td>${row.userPassword}</td>

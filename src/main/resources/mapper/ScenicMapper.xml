@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cytx.dao.ScenicMapper">
   <resultMap id="BaseResultMap" type="com.cytx.pojo.Scenic">
-    <id column="scenic _id" jdbcType="INTEGER" property="scenicId" />
+    <id column="scenic_id" jdbcType="INTEGER" property="scenicId" />
     <result column="scenic_name" jdbcType="VARCHAR" property="scenicName" />
     <result column="scenic_addr" jdbcType="VARCHAR" property="scenicAddr" />
     <result column="scenic_link" jdbcType="VARCHAR" property="scenicLink" />
@@ -73,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    "scenic _id", scenic_name, scenic_addr, scenic_link, scenic_tel, scenic_ticket, scenic_charge, 
+    scenic_id, scenic_name, scenic_addr, scenic_link, scenic_tel, scenic_ticket, scenic_charge, 
     scenic_picture
   </sql>
   <sql id="Blob_Column_List">
@@ -108,6 +108,9 @@
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
+    <if test="start != null &amp;&amp; count != null">
+      limit ${start},${count}
+    </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
@@ -115,11 +118,11 @@
     ,
     <include refid="Blob_Column_List" />
     from scenic
-    where "scenic _id" = #{scenicId,jdbcType=INTEGER}
+    where scenic_id = #{scenicId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from scenic
-    where "scenic _id" = #{scenicId,jdbcType=INTEGER}
+    where scenic_id = #{scenicId,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.cytx.pojo.ScenicExample">
     delete from scenic
@@ -128,7 +131,7 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cytx.pojo.Scenic">
-    insert into scenic ("scenic _id", scenic_name, scenic_addr, 
+    insert into scenic (scenic_id, scenic_name, scenic_addr, 
       scenic_link, scenic_tel, scenic_ticket, 
       scenic_charge, scenic_picture, scenic_intro
       )
@@ -141,7 +144,7 @@
     insert into scenic
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="scenicId != null">
-        "scenic _id",
+        scenic_id,
       </if>
       <if test="scenicName != null">
         scenic_name,
@@ -208,7 +211,7 @@
     update scenic
     <set>
       <if test="record.scenicId != null">
-        "scenic _id" = #{record.scenicId,jdbcType=INTEGER},
+        scenic_id = #{record.scenicId,jdbcType=INTEGER},
       </if>
       <if test="record.scenicName != null">
         scenic_name = #{record.scenicName,jdbcType=VARCHAR},
@@ -241,7 +244,7 @@
   </update>
   <update id="updateByExampleWithBLOBs" parameterType="map">
     update scenic
-    set "scenic _id" = #{record.scenicId,jdbcType=INTEGER},
+    set scenic_id = #{record.scenicId,jdbcType=INTEGER},
       scenic_name = #{record.scenicName,jdbcType=VARCHAR},
       scenic_addr = #{record.scenicAddr,jdbcType=VARCHAR},
       scenic_link = #{record.scenicLink,jdbcType=VARCHAR},
@@ -256,7 +259,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update scenic
-    set "scenic _id" = #{record.scenicId,jdbcType=INTEGER},
+    set scenic_id = #{record.scenicId,jdbcType=INTEGER},
       scenic_name = #{record.scenicName,jdbcType=VARCHAR},
       scenic_addr = #{record.scenicAddr,jdbcType=VARCHAR},
       scenic_link = #{record.scenicLink,jdbcType=VARCHAR},
@@ -296,7 +299,7 @@
         scenic_intro = #{scenicIntro,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where "scenic _id" = #{scenicId,jdbcType=INTEGER}
+    where scenic_id = #{scenicId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cytx.pojo.Scenic">
     update scenic
@@ -308,7 +311,7 @@
       scenic_charge = #{scenicCharge,jdbcType=DOUBLE},
       scenic_picture = #{scenicPicture,jdbcType=VARCHAR},
       scenic_intro = #{scenicIntro,jdbcType=LONGVARCHAR}
-    where "scenic _id" = #{scenicId,jdbcType=INTEGER}
+    where scenic_id = #{scenicId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cytx.pojo.Scenic">
     update scenic
@@ -319,6 +322,6 @@
       scenic_ticket = #{scenicTicket,jdbcType=VARCHAR},
       scenic_charge = #{scenicCharge,jdbcType=DOUBLE},
       scenic_picture = #{scenicPicture,jdbcType=VARCHAR}
-    where "scenic _id" = #{scenicId,jdbcType=INTEGER}
+    where scenic_id = #{scenicId,jdbcType=INTEGER}
   </update>
 </mapper>

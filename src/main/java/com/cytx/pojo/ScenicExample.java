@@ -4,6 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScenicExample {
+    private int start;
+    private int count;
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
     protected String orderByClause;
 
     protected boolean distinct;
@@ -105,62 +122,62 @@ public class ScenicExample {
         }
 
         public Criteria andScenicIdIsNull() {
-            addCriterion("\"scenic _id\" is null");
+            addCriterion("scenic_id is null");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdIsNotNull() {
-            addCriterion("\"scenic _id\" is not null");
+            addCriterion("scenic_id is not null");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdEqualTo(Integer value) {
-            addCriterion("\"scenic _id\" =", value, "scenicId");
+            addCriterion("scenic_id =", value, "scenicId");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdNotEqualTo(Integer value) {
-            addCriterion("\"scenic _id\" <>", value, "scenicId");
+            addCriterion("scenic_id <>", value, "scenicId");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdGreaterThan(Integer value) {
-            addCriterion("\"scenic _id\" >", value, "scenicId");
+            addCriterion("scenic_id >", value, "scenicId");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("\"scenic _id\" >=", value, "scenicId");
+            addCriterion("scenic_id >=", value, "scenicId");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdLessThan(Integer value) {
-            addCriterion("\"scenic _id\" <", value, "scenicId");
+            addCriterion("scenic_id <", value, "scenicId");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdLessThanOrEqualTo(Integer value) {
-            addCriterion("\"scenic _id\" <=", value, "scenicId");
+            addCriterion("scenic_id <=", value, "scenicId");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdIn(List<Integer> values) {
-            addCriterion("\"scenic _id\" in", values, "scenicId");
+            addCriterion("scenic_id in", values, "scenicId");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdNotIn(List<Integer> values) {
-            addCriterion("\"scenic _id\" not in", values, "scenicId");
+            addCriterion("scenic_id not in", values, "scenicId");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdBetween(Integer value1, Integer value2) {
-            addCriterion("\"scenic _id\" between", value1, value2, "scenicId");
+            addCriterion("scenic_id between", value1, value2, "scenicId");
             return (Criteria) this;
         }
 
         public Criteria andScenicIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("\"scenic _id\" not between", value1, value2, "scenicId");
+            addCriterion("scenic_id not between", value1, value2, "scenicId");
             return (Criteria) this;
         }
 

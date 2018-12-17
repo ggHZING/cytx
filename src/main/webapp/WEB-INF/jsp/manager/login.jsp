@@ -36,7 +36,7 @@
                     <input name="autoLogin" type="checkbox" value="" checked><span>下次自动登录</span>
 
                 </div>
-                <button type="submit" class="btn btn-primary pwdLogin" id="denglu" onclick="check()">登录</button>
+                <button type="submit" class="btn btn-primary pwdLogin"  id="denglu" onclick="check()">登录</button>
             </form>
 
 

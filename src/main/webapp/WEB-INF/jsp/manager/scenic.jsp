@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>保定旅行咨询网</title>
+        <title>畅游天下旅游网</title>
         <link rel="shortcut icon" href="../image/logo1.png" type="image/x-icon" />
         <!-- Bootstrap Core CSS -->
         <link href="<%=basePath%>css/bootstrap.min.css" rel="stylesheet">
@@ -64,31 +64,7 @@
                                 <label for="name">景点名称</label>
                                 <input stytype="text" class="form-control" id="name" value="${name }" name="name">
                             </div>
-                            <div class="form-group">
-                                <label for="addr">区县名称</label>
-                                <input type="text" class="form-control" id="addr" value="${addr }" name="addr">
-                            </div>
-                            <div class="form-group">
-                                <label for="edit_theme">景点主题</label>
-                                    <select	class="form-control" id="edit_theme" placeholder="景点主题" name="theme">
-                                        <option value="">--请选择--</option>
-                                        <option value="湖光山色" <c:if test="${theme == '湖光山色'}"> selected</c:if>>
-                                            湖光山色
-                                        </option>
-                                        <option value="登山徒步" <c:if test="${theme == '登山徒步'}"> selected</c:if>>
-                                            登山徒步
-                                        </option>
-                                        <option value="田园度假" <c:if test="${theme == '田园度假'}"> selected</c:if>>
-                                            田园度假
-                                        </option>
-                                        <option value="主题乐园" <c:if test="${theme == '主题乐园'}"> selected</c:if>>
-                                            主题乐园
-                                        </option>
-                                        <option value="古迹遗址" <c:if test="${theme == '古迹遗址'}"> selected</c:if>>
-                                            古迹遗址
-                                        </option>
-                                    </select>
-                            </div>
+
                             <button type="submit" class="btn btn-primary">查询</button>
                             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addDialog">添加</a>
                         </form>
@@ -104,27 +80,29 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>景点名称</th>
-                                    <th>主题</th>
                                     <th>地址</th>
-                                    <th>景点特色</th>
-                                    <th>销售量</th>
+                                    <th>联系人</th>
+                                    <th>联系电话</th>
+                                    <th>购票类型</th>
+                                    <th>收费金额</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${page.rows}" var="row">
                                     <tr>
-                                        <td>${row.id}</td>
+                                        <td>${row.scenicId}</td>
                                         <td>
-                                            <a href="${pageContext.request.contextPath }/${row.pic}" target="_Blank">${row.name}</a>
+                                            <a href="${pageContext.request.contextPath }/${row.scenicPicture}" target="_Blank">${row.scenicName}</a>
                                         </td>
-                                        <td>${row.theme}</td>
-                                        <td>${row.addr}</td>
-                                        <td>${row.feature}</td>
-                                        <td>${row.sales}</td>
+                                        <td>${row.scenicAddr}</td>
+                                        <td>${row.scenicLink}</td>
+                                        <td>${row.scenicTel}</td>
+                                        <td>${row.scenicTicket}</td>
+                                        <td>${row.scenicCharge}</td>
                                         <td>
-                                            <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editDialog" onclick="editScenic(${row.id})">修改</a>
-                                            <a href="#" class="btn btn-danger btn-xs" onclick="deleteScenic(${row.id})">删除</a>
+                                            <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editDialog" onclick="editScenic(${row.scenicId})">修改</a>
+                                            <a href="#" class="btn btn-danger btn-xs" onclick="deleteScenic(${row.scenicId})">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -142,6 +120,7 @@
             </div>
         </div>
 
+
         <!-- 新增弹框 -->
         <div class="modal fade" id="addDialog" tabindex="-1" role="dialog"
              aria-labelledby="myModalLabel">
@@ -154,114 +133,55 @@
                         <h4 class="modal-title" id="myModalLabel">新增景点信息</h4>
                     </div>
                     <form action="${pageContext.request.contextPath }/addScenic" class="form-horizontal" id="add_form" method="post" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <input type="hidden" id="add_id" name="id" value="0"/>
-                        <div class="form-group">
+                        <div class="modal-body">
+                            <div class="form-group">
                                 <label for="add_name" class="col-sm-2 control-label">景点名称</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="add_name" placeholder="景点名称" name="name">
+                                    <input type="text" class="form-control" id="add_name" placeholder="景点名称" name="scenicName">
                                 </div>
                             </div>
-                        <div class="form-group">
-                                <label for="add_theme" style="float:left;padding:7px 15px 0 27px;">景点主题</label>
-                                <div class="col-sm-10">
-                                    <select	class="form-control" id=add_type" placeholder="景点主题" name="theme">
-                                        <option value="">--请选择--</option>
-                                        <option value="湖光山色" <c:if test="${type == '湖光山色'}"> selected</c:if>>
-                                            湖光山色
-                                        </option>
-                                        <option value="登山徒步" <c:if test="${type == '登山徒步'}"> selected</c:if>>
-                                            登山徒步
-                                        </option>
-                                        <option value="田园度假" <c:if test="${type == '田园度假'}"> selected</c:if>>
-                                            田园度假
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                        <div class="form-group">
+                            <div class="form-group">
                                 <label for="add_addr" class="col-sm-2 control-label">景点地址</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="add_addr" placeholder="景点地址" name="addr">
-                                </div>
-                            </div>
-                        <div class="form-group">
-                            <label for="add_feature" class="col-sm-2 control-label">景点特色</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="add_feature" placeholder="景点特色" name="feature">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="add_scenicImage" class="col-sm-2 control-label">景点图片</label>
-                            <div class="col-sm-10">
-                                <input type="file" name="scenicImage"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <input type="submit" class="btn btn-primary">
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <!-- 修改弹框 -->
-        <div class="modal fade" id="editDialog" tabindex="-1" role="dialog"
-             aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel">修改景点信息</h4>
-                    </div>
-                    <form action="${pageContext.request.contextPath }/updateScenic" class="form-horizontal" id="add_form" method="post" enctype="multipart/form-data">
-                        <div class="modal-body">
-                            <input type="hidden" id="edit_id" name="id" value="0"/>
-                            <div class="form-group">
-                                <label for="edit_name" class="col-sm-2 control-label">景点名称</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="edit_name" placeholder="景点名称" name="name">
+                                    <input type="text" class="form-control" id="add_addr" placeholder="景点地址" name="scenicAddr">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="edit_theme" style="float:left;padding:7px 15px 0 27px;">景点主题</label>
+                                <label for="add_link" class="col-sm-2 control-label">联系人</label>
                                 <div class="col-sm-10">
-                                    <select	class="form-control" id=edit_theme" placeholder="景点主题" name="theme">
-                                        <option value="">--请选择--</option>
-                                        <option value="湖光山色" <c:if test="${theme == '湖光山色'}"> selected</c:if>>
-                                            湖光山色
-                                        </option>
-                                        <option value="登山徒步" <c:if test="${theme == '登山徒步'}"> selected</c:if>>
-                                            登山徒步
-                                        </option>
-                                        <option value="田园度假" <c:if test="${theme == '田园度假'}"> selected</c:if>>
-                                            田园度假
-                                        </option>
-                                    </select>
+                                    <input type="text" class="form-control" id="add_link" placeholder="联系人" name="scenicLink">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="edit_addr" class="col-sm-2 control-label">景点地址</label>
+                                <label for="add_tel" class="col-sm-2 control-label">联系电话</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="edit_addr" placeholder="景点地址" name="addr">
+                                    <input type="text" class="form-control" id="add_tel" placeholder="联系电话" name="scenicTel">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="edit_feature" class="col-sm-2 control-label">景点特色</label>
+                                <label for="add_ticket" class="col-sm-2 control-label">购票类型</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="edit_feature" placeholder="景点特色" name="feature">
+                                    <input type="text" class="form-control" id="add_ticket" placeholder="购票类型" name="scenicTicket">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="edit_scenicImage" class="col-sm-2 control-label">景点图片</label>
+                                <label for="add_charge" class="col-sm-2 control-label">收费金额</label>
                                 <div class="col-sm-10">
-                                    <input type="file" name="scenicImage"/>
+                                    <input type="text" class="form-control" id="add_charge" placeholder="收费金额" name="scenicCharge">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label for="add_intro" class="col-sm-2 control-label">景区介绍</label>
+                                <div class="col-sm-10">
+                                    <textarea rows="15" cols="50" id="add_intro" name="scenicIntro"></textarea>
+                                </div>
+                            </div>
+                            <%--<div class="form-group">--%>
+                                <%--<label for="add_scenicImage" class="col-sm-2 control-label">景点图片</label>--%>
+                                <%--<div class="col-sm-10">--%>
+                                    <%--<input type="file" id="add_scenicImage" name="scenicPicture"/>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -271,11 +191,12 @@
                 </div>
             </div>
         </div>
+
     </body>
     <script type="text/javascript">
         function deleteScenic(id) {
             if(confirm('您确定要删除该景点信息吗?')) {
-                $.post("<%=basePath%>/deleteScenic",{"id":id},function(data){
+                $.post("${pageContext.request.contextPath }/deleteScenic",{"id":id},function(data){
                     alert("景点信息删除成功！");
                     window.location.reload();
                 });
