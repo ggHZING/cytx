@@ -176,12 +176,12 @@
                                     <textarea rows="15" cols="50" id="add_intro" name="scenicIntro"></textarea>
                                 </div>
                             </div>
-                            <%--<div class="form-group">--%>
-                                <%--<label for="add_scenicImage" class="col-sm-2 control-label">景点图片</label>--%>
-                                <%--<div class="col-sm-10">--%>
-                                    <%--<input type="file" id="add_scenicImage" name="scenicPicture"/>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
+                            <div class="form-group">
+                                <label for="add_scenicImage" class="col-sm-2 control-label">景点图片</label>
+                                <div class="col-sm-10">
+                                    <input type="file" id="add_scenicImage" name="scenicImage"/>
+                                </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
