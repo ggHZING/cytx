@@ -1,9 +1,11 @@
 package com.cytx.service.Impl;
 
 import com.cytx.dao.UserMapper;
+import com.cytx.pojo.QueryVo;
 import com.cytx.pojo.User;
 import com.cytx.pojo.UserExample;
 import com.cytx.service.UserService;
+import com.cytx.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,6 +72,46 @@ public class UserServiceImpl implements UserService {
         int count =(int) userMapper.countByExample(example);
 
         return count;
+    }
+
+
+
+    @Override
+    public void deleteById(Integer id) {
+        userMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Page<User> selectPageByQueryVo(QueryVo vo) {
+        Page<User> page = new Page<User>();
+        //每页数
+        page.setSize(5);
+        vo.setSize(5);
+        if (null != vo) {
+            if(null != vo.getName() && !"".equals(vo.getName().trim())){
+                vo.setName(vo.getName().trim());
+            }
+            // 判断当前页
+            if (null != vo.getPage()) {
+                page.setPage(vo.getPage());
+                vo.setStartRow((vo.getPage() -1)*vo.getSize());
+            }
+            //总条数
+            UserExample example = new UserExample();
+            int count =(int) userMapper.countByExample(example);
+            page.setTotal(count);
+
+            UserExample example1 = new UserExample();
+            UserExample.Criteria criteria = example1.createCriteria();
+            criteria.andUserNameLike("%"+vo.getName()+"%");
+            example1.setOrderByClause("user_id asc");
+            example1.setStart(vo.getStartRow());
+            example1.setCount(vo.getSize());
+            List<User> list = userMapper.selectByExample(example1);
+
+            page.setRows(list);
+        }
+        return page;
     }
 
 

@@ -63,7 +63,7 @@
                 <span class="errorTips" id="msg"></span>
 
                 <div id="zidong">
-                    <input name="" type="checkbox" name="autoLogin" value="" checked><span>下次自动登录</span>
+                    <input  type="checkbox" name="autoLogin" value="" checked><span>下次自动登录</span>
                     <a href="#">忘记密码？</a>
                 </div>
                 <button type="submit" class="btn btn-primary" id="denglu1">登录</button>

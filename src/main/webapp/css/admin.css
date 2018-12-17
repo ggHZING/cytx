@@ -1,6 +1,7 @@
 .admin{
 	width: 100%;
-	height: 500px;
+	height: 600px;
+	margin-top: 5%;
 }
 .admin .selection{
 	width: 20%;
@@ -45,16 +46,19 @@
 	text-align: center;
 }
 .userInfo .headImg{
-	width: 20%;
+	width: 15%;
 }
 .userInfo .userName{
-	width: 20%;
+	width: 15%;
+}
+.userInfo .userPassword{
+	width: 15%;
 }
 .userInfo .email{
 	width: 20%;
 }
 .userInfo .phoneNum{
-	width: 20%;
+	width: 15%;
 }
 .userInfo .operation{
 	width: 20%;
@@ -135,6 +139,28 @@
 	width: 20%;
 }
 .orderInfo .operation{
+	width: 20%;
+}
+
+/*攻略资讯*/
+.strategy{
+	margin-top: 1%;
+	width: 90%;
+}
+.strategy td{
+	padding-top: 1%;
+	text-align: center;
+}
+.strategy th{
+	text-align: center;
+}
+.strategy .title{
+	width: 60%;
+}
+.strategy .photo{
+	width: 20%;
+}
+.strategy .operation{
 	width: 20%;
 }
 

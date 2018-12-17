@@ -34,4 +34,22 @@ public class IndexController {
     public String testUserIndex(){
         return "user/index";
     }
+
+    /**
+     * 管理员登陆界面
+     * @return
+     */
+    @RequestMapping(value = "/managerLoginPage")
+    public String toManagerLoginPage(){
+        return "manager/login";
+    }
+
+    /**
+     * 加载管理员首页
+     * @return
+     */
+    @RequestMapping(value = "/manager")
+    public String testManagerIndex(){
+        return "manager/index";
+    }
 }

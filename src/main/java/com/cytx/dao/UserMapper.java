@@ -1,5 +1,6 @@
 package com.cytx.dao;
 
+import com.cytx.pojo.QueryVo;
 import com.cytx.pojo.User;
 import com.cytx.pojo.UserExample;
 import java.util.List;
@@ -27,4 +28,6 @@ public interface UserMapper {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+
 }

@@ -1,14 +1,18 @@
 package com.cytx.controller;
 
+import com.cytx.pojo.QueryVo;
 import com.cytx.pojo.User;
 import com.cytx.service.UserService;
 import com.cytx.utils.GetMessageCode;
+import com.cytx.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.mail.Session;
 import javax.servlet.http.*;
 import java.io.IOException;
 
@@ -149,5 +153,32 @@ public class UserController {
         return "user/login";
     }
 
+    /**
+     * 管理员管理用户信息
+     * @param model
+     * @param vo
+     * @return
+     */
+
+    @RequestMapping(value="/manageUser")
+    public String getPageTest(QueryVo vo,Model model){
+        Page<User> page = userService.selectPageByQueryVo(vo);
+        model.addAttribute("page", page);
+        model.addAttribute("name",vo.getName());
+        return "manager/user";
+    }
+
+    /**
+     * 管理员删除用户
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/deleteUser")
+    public @ResponseBody
+    String deleteScenic(Integer id){
+        //删除
+        userService.deleteById(id);
+        return "OK";
+    }
 }
 
