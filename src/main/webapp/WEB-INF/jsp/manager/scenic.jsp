@@ -192,6 +192,79 @@
             </div>
         </div>
 
+
+
+        <!-- 修改弹框 -->
+        <div class="modal fade" id="editDialog" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">修改景点信息</h4>
+                    </div>
+                    <form action="${pageContext.request.contextPath }/updateScenic" class="form-horizontal" id="add_form" method="post" enctype="multipart/form-data">
+                        <div class="modal-body">
+                            <input type="hidden" id="edit_id" name="scenicId" value="0"/>
+                            <div class="form-group">
+                                <label for="edit_name" class="col-sm-2 control-label">景点名称</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="edit_name" placeholder="景点名称" name="scenicName">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit_addr" class="col-sm-2 control-label">景点地址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="edit_addr" placeholder="景点地址" name="scenicAddr">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit_link" class="col-sm-2 control-label">联系人</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="edit_link" placeholder="联系人" name="scenicLink">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit_tel" class="col-sm-2 control-label">联系电话</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="edit_tel" placeholder="联系电话" name="scenicTel">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit_ticket" class="col-sm-2 control-label">购票类型</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="edit_ticket" placeholder="购票类型" name="scenicTicket">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit_charge" class="col-sm-2 control-label">收费金额</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="edit_charge" placeholder="收费金额" name="scenicCharge">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit_intro" class="col-sm-2 control-label">景区介绍</label>
+                                <div class="col-sm-10">
+                                    <textarea rows="15" cols="50" id="edit_intro" name="scenicIntro"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit_scenicImage" class="col-sm-2 control-label">景点图片</label>
+                                <div class="col-sm-10">
+                                    <input type="file" id="edit_scenicImage" name="scenicImage"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <input type="submit" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
     <script type="text/javascript">
         function deleteScenic(id) {
@@ -214,11 +287,14 @@
                 url:"${pageContext.request.contextPath }/getScenicById",
                 data:{"id":id},
                 success:function(data) {
-                    $("#edit_id").val(data.id);
-                    $("#edit_name").val(data.name);
-                    $("#edit_theme").val(data.theme);
-                    $("#edit_addr").val(data.addr);
-                    $("#edit_feature").val(data.feature);
+                    $("#edit_id").val(data.scenicId);
+                    $("#edit_name").val(data.scenicName);
+                    $("#edit_addr").val(data.scenicAddr);
+                    $("#edit_link").val(data.scenicLink);
+                    $("#edit_tel").val(data.scenicTel);
+                    $("#edit_ticket").val(data.scenicTicket);
+                    $("#edit_charge").val(data.scenicCharge);
+                    $("#edit_intro").val(data.scenicIntro);
                 }
             });
         }

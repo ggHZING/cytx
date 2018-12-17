@@ -10,4 +10,8 @@ public interface ScenicService {
     void deleteById(Integer id);
 
     void addScenic(Scenic scenic);
+
+    Scenic getScenicById(Integer id);
+
+    void updateScenic(Scenic scenic);
 }

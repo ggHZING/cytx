@@ -60,6 +60,17 @@ public class ScenicServiceImpl implements ScenicService {
 
     @Override
     public void addScenic(Scenic scenic) {
-        int insert = scenicMapper.insert(scenic);
+        scenicMapper.insert(scenic);
+    }
+
+    @Override
+    public Scenic getScenicById(Integer id) {
+        Scenic scenic = scenicMapper.selectByPrimaryKey(id);
+        return scenic;
+    }
+
+    @Override
+    public void updateScenic(Scenic scenic) {
+        scenicMapper.updateByPrimaryKey(scenic);
     }
 }
