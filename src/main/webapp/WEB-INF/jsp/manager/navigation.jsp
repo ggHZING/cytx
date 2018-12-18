@@ -53,9 +53,9 @@
                 </li>
                 <li><a href="${pageContext.request.contextPath }/manageScenic"><i
                         class="fa fa-dashboard fa-fw"></i> 景点管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/manageTicket"><i
+                <li><a href="${pageContext.request.contextPath }/manageEnter"><i
                         class="fa fa-dashboard fa-fw"></i> 入驻管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/manageFood"><i
+                <li><a href="${pageContext.request.contextPath }/manageWay"><i
                         class="fa fa-dashboard fa-fw"></i> 攻略管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/manageOrder"><i
                         class="fa fa-dashboard fa-fw"></i> 订单管理</a></li>

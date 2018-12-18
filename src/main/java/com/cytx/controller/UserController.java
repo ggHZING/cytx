@@ -99,7 +99,7 @@ public class UserController {
      * 用户注册
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String userRegister(Model model,HttpServletRequest request, HttpSession session, User user){
+    public String userRegister(Model model,HttpServletRequest request, User user){
         String phone = request.getParameter("phone");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -108,6 +108,8 @@ public class UserController {
         user.setUserName(username);
         user.setUserPassword(password);
         user.setUserEmail(email);
+        user.setUserPhoto("image/tx/moren.png");
+        user.setUserState(0);
 
         int j=userService.checkUsernane(user.getUserName());
         if (j==0){

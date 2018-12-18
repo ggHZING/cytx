@@ -59,9 +59,9 @@
                 <!-- /.row -->
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <form class="form-inline" action="${pageContext.request.contextPath }/manageFood" method="post">
+                        <form class="form-inline" action="${pageContext.request.contextPath }/manageWay" method="post">
                             <div class="form-group">
-                                <label for="name">美食名称</label>
+                                <label for="name">攻略名称</label>
                                 <input type="text" class="form-control" id="name" value="${name }" name="name">
                             </div>
                             <button type="submit" class="btn btn-primary">查询</button>
@@ -72,39 +72,33 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">美食信息列表</div>
+                            <div class="panel-heading">攻略信息列表</div>
                             <!-- /.panel-heading -->
                             <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>美食名称</th>
-                                    <th width="100px">图片信息</th>
-                                    <th>美食介绍</th>
-                                    <th>推荐餐馆</th>
+                                    <th>攻略名称</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${page.rows}" var="row">
                                     <tr>
-                                        <td>${row.id}</td>
-                                        <td>${row.name}</td>
-                                        <td width="100px">
-                                            <img width="100%" height="15%" src="${pageContext.request.contextPath }/${row.pic}"/>
-                                        </td>
-                                        <td>${row.describe}</td>
-                                        <td>${row.commend}</td>
+                                        <td>${row.wayId}</td>
                                         <td>
-                                            <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editDialog" onclick="editFood(${row.id})">修改</a>
-                                            <a href="#" class="btn btn-danger btn-xs" onclick="deleteFood(${row.id})">删除</a>
+                                            <a href="${pageContext.request.contextPath }/${row.wayPic}" target="_Blank">${row.wayName}</a>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#editDialog" onclick="editWay(${row.wayId})">修改</a>
+                                            <a href="#" class="btn btn-danger btn-xs" onclick="deleteWay(${row.wayId})">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
                             <div class="col-md-12 text-right" style="text-align:center">
-                                <p:page url="${pageContext.request.contextPath }/manageFood" />
+                                <p:page url="${pageContext.request.contextPath }/manageWay" />
                             </div>
                             <!-- /.panel-body -->
                         </div>
@@ -115,6 +109,9 @@
             </div>
         </div>
 
+
+
+
         <!-- 新增弹框 -->
         <div class="modal fade" id="addDialog" tabindex="-1" role="dialog"
              aria-labelledby="myModalLabel">
@@ -124,33 +121,27 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">新增美食信息</h4>
+                        <h4 class="modal-title" id="myModalLabel">新增攻略信息</h4>
                     </div>
-                    <form action="${pageContext.request.contextPath }/addFood" class="form-horizontal" id="add_form" method="post" enctype="multipart/form-data">
+                    <form action="${pageContext.request.contextPath }/addWay" class="form-horizontal" id="add_form" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
-                            <input type="hidden" id="add_id" name="id" value="0"/>
                             <div class="form-group">
-                                <label for="add_name" class="col-sm-2 control-label">美食名称</label>
+                                <label for="add_name" class="col-sm-2 control-label">攻略名称</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="add_name" placeholder="美食名称" name="name">
+                                    <input type="text" class="form-control" id="add_name" placeholder="攻略名称" name="wayName">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="add_content" class="col-sm-2 control-label">攻略内容</label>
+                                <div class="col-sm-10">
+                                    <textarea rows="15" cols="50" id="add_content" name="wayContent"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="add_describe" class="col-sm-2 control-label">美食介绍</label>
+                                <label for="add_wayImage" class="col-sm-2 control-label">图片</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="add_describe" placeholder="美食介绍" name="describe">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="add_commend" class="col-sm-2 control-label">推荐餐馆</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="add_commend" placeholder="推荐餐馆" name="commend">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="add_foodImage" class="col-sm-2 control-label">美食图片</label>
-                                <div class="col-sm-10">
-                                    <input type="file" name="foodImage"/>
+                                    <input type="file" id="add_wayImage" name="wayImage"/>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +154,9 @@
             </div>
         </div>
 
-        <!--修改弹框 -->
+
+
+        <!-- 修改弹框 -->
         <div class="modal fade" id="editDialog" tabindex="-1" role="dialog"
              aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -172,33 +165,27 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">修改美食信息</h4>
+                        <h4 class="modal-title" id="myModalLabel">修改攻略信息</h4>
                     </div>
-                    <form action="${pageContext.request.contextPath }/updateFood" class="form-horizontal" id="edit_form" method="post" enctype="multipart/form-data">
+                    <form action="${pageContext.request.contextPath }/updateWay" class="form-horizontal" id="update_form" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
-                            <input type="hidden" id="edit_id" name="id"/>
+                            <input type="hidden" id="edit_id" name="wayId" value="0"/>
                             <div class="form-group">
-                                <label for="edit_name" class="col-sm-2 control-label">美食名称</label>
+                                <label for="edit_name" class="col-sm-2 control-label">攻略名称</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="edit_name" placeholder="美食名称" name="name">
+                                    <input type="text" class="form-control" id="edit_name" placeholder="景点名称" name="wayName">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="edit_describe" class="col-sm-2 control-label">美食介绍</label>
+                                <label for="edit_content" class="col-sm-2 control-label">攻略内容</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="edit_describe" placeholder="美食介绍" name="describe">
+                                    <textarea rows="15" cols="50" id="edit_content" name="wayContent"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="edit_commend" class="col-sm-2 control-label">推荐餐馆</label>
+                                <label for="edit_wayImage" class="col-sm-2 control-label">图片</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="edit_commend" placeholder="推荐餐馆" name="commend">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="edit_foodImage" class="col-sm-2 control-label">美食图片</label>
-                                <div class="col-sm-10">
-                                    <input type="file" name="foodImage"/>
+                                    <input type="file" id="edit_wayImage" name="wayImage"/>
                                 </div>
                             </div>
                         </div>
@@ -210,28 +197,29 @@
                 </div>
             </div>
         </div>
+
     </body>
     <script type="text/javascript">
-        function deleteFood(id) {
-            if(confirm('您确定要删除该美食信息吗?')) {
-                $.post("<%=basePath%>/deleteFood",{"id":id},function(data){
-                    alert("美食信息删除成功！");
+        function deleteWay(id) {
+            if(confirm('您确定要删除该攻略信息吗?')) {
+                $.post("${pageContext.request.contextPath }/deleteWay",{"id":id},function(data){
+                    alert("攻略信息删除成功！");
                     window.location.reload();
                 });
             }
         }
 
 
-        function editFood(id) {
+        function editWay(id) {
             $.ajax({
                 type:"get",
-                url:"${pageContext.request.contextPath }/getFoodById",
+                url:"${pageContext.request.contextPath }/getWayById",
                 data:{"id":id},
                 success:function(data) {
-                    $("#edit_id").val(data.id);
-                    $("#edit_name").val(data.name);
-                    $("#edit_commend").val(data.commend);
-                    $("#edit_describe").val(data.describe);
+                    $("#edit_id").val(data.wayId);
+                    $("#edit_name").val(data.wayName);
+                    $("#edit_content").val(data.wayContent);
+
                 }
             });
         }
