@@ -18,4 +18,6 @@ public interface UserService {
     void deleteById(Integer id);
 
     Page<User> selectPageByQueryVo(QueryVo vo);
+
+    User getUserByPhone(String phone);
 }

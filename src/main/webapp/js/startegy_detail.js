@@ -32,16 +32,5 @@ window.onload=function ()
         otxt.value = "";
 	}
 
-
-	var like = document.getElementById('like');
-	var like1 = document.getElementById('like1');
-	var like2 = document.getElementById('like2');
-//alert("你好");
-	like1.onclick = function(){
-        like1.display = 'none';
-        like2.display = 'block';
-        alert("你好");
-	}
-
 }
 

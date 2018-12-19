@@ -24,6 +24,8 @@
         <link href="<%=basePath%>css/dataTables.bootstrap.css" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="<%=basePath%>css/sb-admin-2.css" rel="stylesheet">
+        <%--Bootstrap下拉框--%>
+        <script src="<%=basePath%>css/bootstrap-select.css"></script>
         <!-- Custom Fonts -->
         <link href="<%=basePath%>css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="<%=basePath%>css/boot-crm.css" rel="stylesheet" type="text/css">
@@ -42,6 +44,8 @@
         <!-- DataTables JavaScript -->
         <script src="<%=basePath%>js/jquery.dataTables.min.js"></script>
         <script src="<%=basePath%>js/dataTables.bootstrap.min.js"></script>
+        <%--Bootstrap下拉框--%>
+        <script src="<%=basePath%>js/bootstrap-select.js"></script>
         <!-- Custom Theme JavaScript -->
         <script src="<%=basePath%>js/sb-admin-2.js"></script>
     </head>
@@ -59,7 +63,7 @@
                 <!-- /.row -->
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <form class="form-inline" action="${pageContext.request.contextPath }/manageOrder" method="post">
+                        <form class="form-inline" action="${pageContext.request.contextPath }/manageApplication" method="post">
                             <div class="form-group">
                                 <label for="name">用户名称</label>
                                 <input type="text" class="form-control" id="name" value="${name }" name="name">
@@ -71,54 +75,45 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
-                            <div class="panel-heading">订单列表</div>
+                            <div class="panel-heading">入驻申请列表</div>
                             <!-- /.panel-heading -->
                             <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>订单编号</th>
-                                    <th>景点名称</th>
-                                    <th>用户名</th>
-                                    <th>购买数量</th>
-                                    <th>总金额</th>
-                                    <th>支付状态</th>
-                                    <th>取票码</th>
-                                    <th>取票状态</th>
+                                    <th>用户名称</th>
+                                    <th>用户角色</th>
+                                    <th>审核状态</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <c:forEach items="${page.rows}" var="row">
                                     <tr>
-                                        <td>${row.orderId}</td>
-                                        <td>${row.orderNo}</td>
-                                        <td>${row.scenic.scenicName}</td>
+                                        <td>${row.id}</td>
                                         <td>${row.user.userName}</td>
-                                        <td>${row.orderAmount}</td>
-                                        <td>${row.orderTotalPrice}</td>
-                                        <c:if test="${row.orderStatus==1}">
-                                            <td>已支付</td>
+                                        <c:if test="${row.role==1}">
+                                            <td>商家</td>
                                         </c:if>
-                                        <c:if test="${row.orderStatus==0}">
-                                            <td>未支付</td>
+                                        <c:if test="${row.role==0}">
+                                            <td>普通用户</td>
                                         </c:if>
-                                        <td>${row.code}</td>
                                         <c:if test="${row.state==1}">
-                                            <td>已取票</td>
+                                            <td>已审核</td>
                                         </c:if>
                                         <c:if test="${row.state==0}">
-                                            <td>未取票</td>
+                                            <td>未审核</td>
                                         </c:if>
                                         <td>
-                                            <a href="#" class="btn btn-danger btn-xs" onclick="updateState(${row.orderId})">取票</a>
+                                            <a href="#" class="btn btn-primary btn-xs"  onclick="pass(${row.id})">通过</a>
+                                            <a href="#" class="btn btn-danger btn-xs" onclick="fail(${row.id})">不通过</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
                             <div class="col-md-12 text-right" style="text-align:center">
-                                <p:page url="${pageContext.request.contextPath }/manageOrder" />
+                                <p:page url="${pageContext.request.contextPath }/manageApplication" />
                             </div>
                             <!-- /.panel-body -->
                         </div>
@@ -128,16 +123,29 @@
                 </div>
             </div>
         </div>
+
+
+
     </body>
 
     <script type="text/javascript">
-        function updateState(id) {
-            if(confirm('您确定要更新取票状态吗?')) {
-                $.post("${pageContext.request.contextPath }/updateOrderState",{"id":id},function(data){
-                    alert("更新取票状态成功！");
+        function pass(id) {
+            if(confirm('您确定通过吗?')) {
+                $.post("${pageContext.request.contextPath }/passApplication",{"id":id},function(data){
+                    alert("操作通过！");
+                    window.location.reload();
+                });
+            }
+        }
+
+        function fail(id) {
+            if(confirm('您确定不通过吗?')) {
+                $.post("${pageContext.request.contextPath }/failApplication",{"id":id},function(data){
+                    alert("操作成功！");
                     window.location.reload();
                 });
             }
         }
     </script>
+
 </html>

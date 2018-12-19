@@ -53,7 +53,7 @@
                 </li>
                 <li><a href="${pageContext.request.contextPath }/manageScenic"><i
                         class="fa fa-dashboard fa-fw"></i> 景点管理</a></li>
-                <li><a href="${pageContext.request.contextPath }/manageEnter"><i
+                <li><a href="${pageContext.request.contextPath }/manageApplication"><i
                         class="fa fa-dashboard fa-fw"></i> 入驻管理</a></li>
                 <li><a href="${pageContext.request.contextPath }/manageWay"><i
                         class="fa fa-dashboard fa-fw"></i> 攻略管理</a></li>

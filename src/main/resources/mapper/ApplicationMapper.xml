@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cytx.dao.ApplicationMapper">
+  <resultMap id="BaseResultMap" type="com.cytx.pojo.Application">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="role" jdbcType="INTEGER" property="role" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <association property="user" javaType="com.cytx.pojo.User">
+      <id property="userId" column="uid"/>
+      <result property="userName" column="user_name" javaType="String" jdbcType="VARCHAR"/>
+    </association>
+  </resultMap>
+  <select id="postCountByQueryVo" parameterType="com.cytx.pojo.QueryVo" resultType="int">
+        select count(id) from `application`
+    </select>
+
+  <select id="selectPostListByQueryVo" parameterType="com.cytx.pojo.QueryVo" resultMap="BaseResultMap">
+    select
+    a.id,u.user_name,a.role,a.state
+    from `application` a
+    left join user u on u.user_id=a.uid
+    <where>
+      <if test="name != null and name != ''">
+        u.user_name like "%"#{name}"%"
+      </if>
+
+    </where>
+    order by a.id
+    limit #{startRow},#{size}
+  </select>
+
+  <update id="pass" parameterType="Integer">
+        update `application`
+        set role = 1,state=1
+        where id = #{id}
+    </update>
+  <update id="fail" parameterType="Integer">
+        update `application`
+        set role = 0,state=1
+        where id = #{id}
+    </update>
+</mapper>

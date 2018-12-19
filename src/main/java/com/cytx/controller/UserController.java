@@ -35,7 +35,6 @@ public class UserController {
         String inputVerifyCode=request.getParameter("verifyCode");
         String verifyCodeValue=(String) session.getAttribute("verifyCodeValue");
         if(verifyCodeValue.equals(inputVerifyCode.toUpperCase())){
-            user.setUserPassword(user.getUserPassword());
             User u = userService.confirmUser(user);
             if(u==null){
                 model.addAttribute("errorInfo","用户名或密码错误！");
@@ -82,11 +81,13 @@ public class UserController {
         resp.getWriter().print(code);
     }
     @RequestMapping(value = "/phoneIsRegister",method = RequestMethod.POST)
-    public String PhoneIsRegister(HttpServletRequest req,HttpServletResponse resp,Model model){
+    public String PhoneIsRegister(HttpServletRequest req,HttpServletResponse resp,Model model,HttpSession session){
         String phone=req.getParameter("phonenum");
         Boolean isRegister = userService.phoneIsExist(phone);
 
             if (isRegister){
+               User user =userService.getUserByPhone(phone);
+                session.setAttribute("user", user);
                 return "redirect:/user";
             }else {
                 model.addAttribute("loginInfo","该手机号未注册！");
@@ -99,34 +100,36 @@ public class UserController {
      * 用户注册
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String userRegister(Model model,HttpServletRequest request, User user){
-        String phone = request.getParameter("phone");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String email = request.getParameter("email");
-        user.setUserPhone(phone);
-        user.setUserName(username);
-        user.setUserPassword(password);
-        user.setUserEmail(email);
+    public String userRegister(Model model, User user){
+
         user.setUserPhoto("image/tx/moren.png");
         user.setUserState(0);
 
-        int j=userService.checkUsernane(user.getUserName());
-        if (j==0){
-            int k = userService.checkPhone(user.getUserPhone());
-            if(k==0) {
-                int i = userService.userRegister(user);
-                if (i > 0) {
-                    return "user/login";//注册成功到登陆界面
+        if (user.getUserName() != null && !"".equals(user.getUserName())){
+            if (user.getUserPassword() != null && !"".equals(user.getUserPassword())){
+                int j=userService.checkUsernane(user.getUserName());
+                if (j==0){
+                    int k = userService.checkPhone(user.getUserPhone());
+                    if(k==0) {
+                        int i = userService.userRegister(user);
+                        if (i > 0) {
+                            return "user/login";//注册成功到登陆界面
+                        }
+                        model.addAttribute("errorInfo","注册用户失败！");
+                        return "user/register";//插入注册数据失败
+                    }
+                    model.addAttribute("errorInfo","手机号已经存在！");
+                    return "user/register";//手机号已经存在
                 }
-                model.addAttribute("errorInfo","注册用户失败！");
-                return "user/register";//插入注册数据失败
+                model.addAttribute("errorInfo","用户名已经存在！");
+                return "user/register";//用户名已经存在
             }
-            model.addAttribute("errorInfo","手机号已经存在！");
-            return "user/register";//手机号已经存在
+            model.addAttribute("errorInfo","请您完善信息！");
+            return "user/register";//密码非""
         }
-        model.addAttribute("errorInfo","用户名已经存在！");
-        return "user/register";//用户名已经存在
+
+        model.addAttribute("errorInfo","请您完善信息！");
+        return "user/register";//账号非""
 
         }
 

@@ -3,9 +3,9 @@
 <mapper namespace="com.cytx.dao.MycollectionMapper">
   <resultMap id="BaseResultMap" type="com.cytx.pojo.Mycollection">
     <id column="mycollection_id" jdbcType="INTEGER" property="mycollectionId" />
-    <result column="mycollection_scenic _id" jdbcType="INTEGER" property="mycollectionScenicId" />
-    <result column="mycollection_ scenic_name" jdbcType="VARCHAR" property="mycollectionScenicName" />
-    <result column="mycollection_ scenic_picture" jdbcType="VARCHAR" property="mycollectionScenicPicture" />
+    <result column="mycollection_scenic_id" jdbcType="INTEGER" property="mycollectionScenicId" />
+    <result column="mycollection_scenic_name" jdbcType="VARCHAR" property="mycollectionScenicName" />
+    <result column="mycollection_scenic_picture" jdbcType="VARCHAR" property="mycollectionScenicPicture" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    mycollection_id, "mycollection_scenic _id", "mycollection_ scenic_name", "mycollection_ scenic_picture"
+    mycollection_id, mycollection_scenic_id, mycollection_scenic_name, mycollection_scenic_picture
   </sql>
   <select id="selectByExample" parameterType="com.cytx.pojo.MycollectionExample" resultMap="BaseResultMap">
     select
@@ -99,8 +99,8 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cytx.pojo.Mycollection">
-    insert into mycollection (mycollection_id, "mycollection_scenic _id", 
-      "mycollection_ scenic_name", "mycollection_ scenic_picture"
+    insert into mycollection (mycollection_id, mycollection_scenic_id, 
+      mycollection_scenic_name, mycollection_scenic_picture
       )
     values (#{mycollectionId,jdbcType=INTEGER}, #{mycollectionScenicId,jdbcType=INTEGER}, 
       #{mycollectionScenicName,jdbcType=VARCHAR}, #{mycollectionScenicPicture,jdbcType=VARCHAR}
@@ -113,13 +113,13 @@
         mycollection_id,
       </if>
       <if test="mycollectionScenicId != null">
-        "mycollection_scenic _id",
+        mycollection_scenic_id,
       </if>
       <if test="mycollectionScenicName != null">
-        "mycollection_ scenic_name",
+        mycollection_scenic_name,
       </if>
       <if test="mycollectionScenicPicture != null">
-        "mycollection_ scenic_picture",
+        mycollection_scenic_picture,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -150,13 +150,13 @@
         mycollection_id = #{record.mycollectionId,jdbcType=INTEGER},
       </if>
       <if test="record.mycollectionScenicId != null">
-        "mycollection_scenic _id" = #{record.mycollectionScenicId,jdbcType=INTEGER},
+        mycollection_scenic_id = #{record.mycollectionScenicId,jdbcType=INTEGER},
       </if>
       <if test="record.mycollectionScenicName != null">
-        "mycollection_ scenic_name" = #{record.mycollectionScenicName,jdbcType=VARCHAR},
+        mycollection_scenic_name = #{record.mycollectionScenicName,jdbcType=VARCHAR},
       </if>
       <if test="record.mycollectionScenicPicture != null">
-        "mycollection_ scenic_picture" = #{record.mycollectionScenicPicture,jdbcType=VARCHAR},
+        mycollection_scenic_picture = #{record.mycollectionScenicPicture,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -166,9 +166,9 @@
   <update id="updateByExample" parameterType="map">
     update mycollection
     set mycollection_id = #{record.mycollectionId,jdbcType=INTEGER},
-      "mycollection_scenic _id" = #{record.mycollectionScenicId,jdbcType=INTEGER},
-      "mycollection_ scenic_name" = #{record.mycollectionScenicName,jdbcType=VARCHAR},
-      "mycollection_ scenic_picture" = #{record.mycollectionScenicPicture,jdbcType=VARCHAR}
+      mycollection_scenic_id = #{record.mycollectionScenicId,jdbcType=INTEGER},
+      mycollection_scenic_name = #{record.mycollectionScenicName,jdbcType=VARCHAR},
+      mycollection_scenic_picture = #{record.mycollectionScenicPicture,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -177,22 +177,22 @@
     update mycollection
     <set>
       <if test="mycollectionScenicId != null">
-        "mycollection_scenic _id" = #{mycollectionScenicId,jdbcType=INTEGER},
+        mycollection_scenic_id = #{mycollectionScenicId,jdbcType=INTEGER},
       </if>
       <if test="mycollectionScenicName != null">
-        "mycollection_ scenic_name" = #{mycollectionScenicName,jdbcType=VARCHAR},
+        mycollection_scenic_name = #{mycollectionScenicName,jdbcType=VARCHAR},
       </if>
       <if test="mycollectionScenicPicture != null">
-        "mycollection_ scenic_picture" = #{mycollectionScenicPicture,jdbcType=VARCHAR},
+        mycollection_scenic_picture = #{mycollectionScenicPicture,jdbcType=VARCHAR},
       </if>
     </set>
     where mycollection_id = #{mycollectionId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cytx.pojo.Mycollection">
     update mycollection
-    set "mycollection_scenic _id" = #{mycollectionScenicId,jdbcType=INTEGER},
-      "mycollection_ scenic_name" = #{mycollectionScenicName,jdbcType=VARCHAR},
-      "mycollection_ scenic_picture" = #{mycollectionScenicPicture,jdbcType=VARCHAR}
+    set mycollection_scenic_id = #{mycollectionScenicId,jdbcType=INTEGER},
+      mycollection_scenic_name = #{mycollectionScenicName,jdbcType=VARCHAR},
+      mycollection_scenic_picture = #{mycollectionScenicPicture,jdbcType=VARCHAR}
     where mycollection_id = #{mycollectionId,jdbcType=INTEGER}
   </update>
 </mapper>

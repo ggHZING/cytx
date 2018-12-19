@@ -21,17 +21,25 @@ public class UserServiceImpl implements UserService {
     @Override
     public User confirmUser(User user) {
         UserExample example = new UserExample();
-        example.or().andUserNameEqualTo(user.getUserName()).andUserPasswordEqualTo(user.getUserPassword());
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andUserNameEqualTo(user.getUserName()).andUserPasswordEqualTo(user.getUserPassword());
+        example.setStart(0);
+        example.setCount(5);
         List<User> result = userMapper.selectByExample(example);
-        if (result.isEmpty())
+        if (result.isEmpty()){
             return null;
-        return result.get(0);
+        }
+        User user1 = result.get(0);
+        return user1;
     }
 
     @Override
     public Boolean phoneIsExist(String phone) {
         UserExample example = new UserExample();
-        example.or().andUserPhoneEqualTo(phone);
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andUserPhoneEqualTo(phone);
+        example.setStart(0);
+        example.setCount(5);
         List<User> result = userMapper.selectByExample(example);
         if (result.isEmpty()){
             return false;
@@ -54,10 +62,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public int userRegister(User user) {
 
-        user.setUserName(user.getUserName());
-        user.setUserPassword(user.getUserPassword());
-        user.setUserEmail(user.getUserEmail());
-        user.setUserPhone(user.getUserPhone());
 
         int i = userMapper.insert(user);
 
@@ -112,6 +116,18 @@ public class UserServiceImpl implements UserService {
             page.setRows(list);
         }
         return page;
+    }
+
+    @Override
+    public User getUserByPhone(String phone) {
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andUserPhoneEqualTo(phone);
+        example.setStart(0);
+        example.setCount(5);
+        List<User> result = userMapper.selectByExample(example);
+        User user = result.get(0);
+        return user;
     }
 
 

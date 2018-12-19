@@ -48,13 +48,13 @@
                     </tr>
                     <tr>
                         <td class="txt">用户名</td>
-                        <td><input type="text" id="username" name="username"  onkeyup="checkusername();" placeholder="请输入用户名"></td>
+                        <td><input type="text" id="username" name="userName"  onkeyup="checkusername();" placeholder="请输入用户名"></td>
                         <td><span id="userMsg" style="margin-left: 15px;"></span>
                             <font color="#999999"></font></td>
                     </tr>
                     <tr>
                         <td class="txt">登录密码</td>
-                        <td><input type="password" id="password" name="password" onkeyup="checkpassword();" placeholder="请输入密码"></td>
+                        <td><input type="password" id="password" name="userPassword" onkeyup="checkpassword();" placeholder="请输入密码"></td>
                         <td><span id="passwordMsg" style="margin-left: 15px;"></span>
                             <font color="#999999"></font></td>
                     </tr>
@@ -66,14 +66,14 @@
                     </tr>
                     <tr>
                         <td class="txt">邮箱</td>
-                        <td><input type="email" name="email"  id="email" onkeyup="checkemail();" placeholder="邮箱"></td>
+                        <td><input type="email" name="userEmail"  id="email" onkeyup="checkemail();" placeholder="邮箱"></td>
                         <td><span id="emailMsg" style="margin-left: 15px;"></span>
                             <font color="#999999"></font></td>
 
                     </tr>
                     <tr>
                         <td class="txt">手机号码</td>
-                        <td><input type="text" name="phone" id="phone" onkeyup="checkphone();"  placeholder="手机号"></td>
+                        <td><input type="text" name="userPhone" id="phone" onkeyup="checkphone();"  placeholder="手机号"></td>
                         <td><span id="phoneMsg" style="margin-left: 15px;"></span>
                             <font color="#999999"></font></td>
                     </tr>

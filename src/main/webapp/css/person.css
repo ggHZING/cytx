@@ -4,32 +4,44 @@
 }
 .person .selection{
 	width: 20%;
+	height: 100%;
 	text-align: center;
 	float: left;
+	background-color: #1E90FF;
 }
 .person .selection .select{
 	list-style: none;
-	width: 70%;
-	margin-left: 10%;
-	margin-top: 5%;
+	width: 100%;
 	padding-top: 5%;
 	padding-bottom: 5%;
-	border: solid 1px;
-	background-color: #ddd;
 	cursor: pointer;
 }
-.person .selection .select:hover,.person .selection .active{
-	background-color: #1E90FF;
+.person .selection .select:hover{
+	background-color: #1874CD;
+}
+.person .selection .active{
+	background-color: #1874CD;
+	font-size: 130%;
 }
 .info{
-	width: 75%;
+	width: 80%;
 	height: 100%;
 	float: left;
-	margin-left: 2%;
 	display: none;
+	background-color: #CAE1FF;
+	padding-left: 2%;
 }
 .info.active{
 	display: block;
+}
+
+.strategy td,.order td,.goods td{
+	text-align: center;
+}
+
+#add,#addStrategy{
+	margin-left: 5%;
+	margin-top: 2%;
 }
 
 /*个人信息*/

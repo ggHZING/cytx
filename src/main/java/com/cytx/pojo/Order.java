@@ -14,16 +14,36 @@ public class Order {
 
     private BigDecimal orderTotalPrice;
 
-    private String orderPayMode;
-
     private Date orderCreateTime;
-
-    private String paySerialsNumber;
 
     private Integer sid;
 
     private Integer uid;
 
+    private String code;
+
+    private Integer state;
+
+
+
+    private User user;
+    private Scenic scenic;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Scenic getScenic() {
+        return scenic;
+    }
+
+    public void setScenic(Scenic scenic) {
+        this.scenic = scenic;
+    }
     public Integer getOrderId() {
         return orderId;
     }
@@ -64,28 +84,12 @@ public class Order {
         this.orderTotalPrice = orderTotalPrice;
     }
 
-    public String getOrderPayMode() {
-        return orderPayMode;
-    }
-
-    public void setOrderPayMode(String orderPayMode) {
-        this.orderPayMode = orderPayMode == null ? null : orderPayMode.trim();
-    }
-
     public Date getOrderCreateTime() {
         return orderCreateTime;
     }
 
     public void setOrderCreateTime(Date orderCreateTime) {
         this.orderCreateTime = orderCreateTime;
-    }
-
-    public String getPaySerialsNumber() {
-        return paySerialsNumber;
-    }
-
-    public void setPaySerialsNumber(String paySerialsNumber) {
-        this.paySerialsNumber = paySerialsNumber == null ? null : paySerialsNumber.trim();
     }
 
     public Integer getSid() {
@@ -102,5 +106,21 @@ public class Order {
 
     public void setUid(Integer uid) {
         this.uid = uid;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

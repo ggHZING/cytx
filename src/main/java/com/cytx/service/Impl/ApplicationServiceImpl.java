@@ -1,25 +1,21 @@
 package com.cytx.service.Impl;
 
-import com.cytx.dao.OrderMapper;
-import com.cytx.dao.UserMapper;
-import com.cytx.pojo.*;
-import com.cytx.service.OrderService;
+import com.cytx.dao.ApplicationMapper;
+import com.cytx.pojo.Application;
+import com.cytx.pojo.QueryVo;
+import com.cytx.service.ApplicationService;
 import com.cytx.utils.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class OrderServiceImpl implements OrderService {
+public class ApplicationServiceImpl implements ApplicationService {
     @Autowired
-    OrderMapper orderMapper;
-    @Autowired
-    UserMapper userMapper;
+    ApplicationMapper applicationMapper;
 
     @Override
-    public Page<Order> selectOrderPageByQueryVo(QueryVo vo) {
-        Page<Order> page = new Page<Order>();
+    public Page<Application> selectApplicationPageByQueryVo(QueryVo vo) {
+        Page<Application> page = new Page<Application>();
         //每页数
         page.setSize(5);
         vo.setSize(5);
@@ -34,14 +30,19 @@ public class OrderServiceImpl implements OrderService {
             }
 
             //总条数
-            page.setTotal(orderMapper.postCountByQueryVo(vo));
-            page.setRows(orderMapper.selectPostListByQueryVo(vo));
+            page.setTotal(applicationMapper.postCountByQueryVo(vo));
+            page.setRows(applicationMapper.selectPostListByQueryVo(vo));
         }
         return page;
     }
 
     @Override
-    public void updateStateById(Integer id) {
-        orderMapper.updateStateById(id);
+    public void pass(Integer id) {
+        applicationMapper.pass(id);
+    }
+
+    @Override
+    public void fail(Integer id) {
+        applicationMapper.fail(id);
     }
 }
