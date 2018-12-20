@@ -2,8 +2,9 @@ package com.cytx.dao;
 
 import com.cytx.pojo.Scenic;
 import com.cytx.pojo.ScenicExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ScenicMapper {
     long countByExample(ScenicExample example);
@@ -16,21 +17,15 @@ public interface ScenicMapper {
 
     int insertSelective(Scenic record);
 
-    List<Scenic> selectByExampleWithBLOBs(ScenicExample example);
-
     List<Scenic> selectByExample(ScenicExample example);
 
     Scenic selectByPrimaryKey(Integer scenicId);
 
     int updateByExampleSelective(@Param("record") Scenic record, @Param("example") ScenicExample example);
 
-    int updateByExampleWithBLOBs(@Param("record") Scenic record, @Param("example") ScenicExample example);
-
     int updateByExample(@Param("record") Scenic record, @Param("example") ScenicExample example);
 
     int updateByPrimaryKeySelective(Scenic record);
-
-    int updateByPrimaryKeyWithBLOBs(Scenic record);
 
     int updateByPrimaryKey(Scenic record);
 }

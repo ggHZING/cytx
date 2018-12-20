@@ -5,9 +5,9 @@ public class Way {
 
     private String wayName;
 
-    private String wayPic;
-
     private String wayContent;
+
+    private String wayPic;
 
     public Integer getWayId() {
         return wayId;
@@ -25,19 +25,19 @@ public class Way {
         this.wayName = wayName == null ? null : wayName.trim();
     }
 
-    public String getWayPic() {
-        return wayPic;
-    }
-
-    public void setWayPic(String wayPic) {
-        this.wayPic = wayPic == null ? null : wayPic.trim();
-    }
-
     public String getWayContent() {
         return wayContent;
     }
 
     public void setWayContent(String wayContent) {
         this.wayContent = wayContent == null ? null : wayContent.trim();
+    }
+
+    public String getWayPic() {
+        return wayPic;
+    }
+
+    public void setWayPic(String wayPic) {
+        this.wayPic = wayPic == null ? null : wayPic.trim();
     }
 }

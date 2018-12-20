@@ -4,10 +4,8 @@
   <resultMap id="BaseResultMap" type="com.cytx.pojo.Way">
     <id column="way_id" jdbcType="INTEGER" property="wayId" />
     <result column="way_name" jdbcType="VARCHAR" property="wayName" />
+    <result column="way_content" jdbcType="VARCHAR" property="wayContent" />
     <result column="way_pic" jdbcType="VARCHAR" property="wayPic" />
-  </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cytx.pojo.Way">
-    <result column="way_content" jdbcType="LONGVARCHAR" property="wayContent" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,27 +66,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    way_id, way_name, way_pic
+    way_id, way_name, way_content, way_pic
   </sql>
-  <sql id="Blob_Column_List">
-    way_content
-  </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.cytx.pojo.WayExample" resultMap="ResultMapWithBLOBs">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
-    from way
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
   <select id="selectByExample" parameterType="com.cytx.pojo.WayExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -106,11 +85,9 @@
       limit ${start},${count}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from way
     where way_id = #{wayId,jdbcType=INTEGER}
   </select>
@@ -125,10 +102,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cytx.pojo.Way">
-    insert into way (way_id, way_name, way_pic, 
-      way_content)
-    values (#{wayId,jdbcType=INTEGER}, #{wayName,jdbcType=VARCHAR}, #{wayPic,jdbcType=VARCHAR}, 
-      #{wayContent,jdbcType=LONGVARCHAR})
+    insert into way (way_id, way_name, way_content, 
+      way_pic)
+    values (#{wayId,jdbcType=INTEGER}, #{wayName,jdbcType=VARCHAR}, #{wayContent,jdbcType=VARCHAR}, 
+      #{wayPic,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.cytx.pojo.Way">
     insert into way
@@ -139,11 +116,11 @@
       <if test="wayName != null">
         way_name,
       </if>
-      <if test="wayPic != null">
-        way_pic,
-      </if>
       <if test="wayContent != null">
         way_content,
+      </if>
+      <if test="wayPic != null">
+        way_pic,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -153,11 +130,11 @@
       <if test="wayName != null">
         #{wayName,jdbcType=VARCHAR},
       </if>
+      <if test="wayContent != null">
+        #{wayContent,jdbcType=VARCHAR},
+      </if>
       <if test="wayPic != null">
         #{wayPic,jdbcType=VARCHAR},
-      </if>
-      <if test="wayContent != null">
-        #{wayContent,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -176,23 +153,13 @@
       <if test="record.wayName != null">
         way_name = #{record.wayName,jdbcType=VARCHAR},
       </if>
+      <if test="record.wayContent != null">
+        way_content = #{record.wayContent,jdbcType=VARCHAR},
+      </if>
       <if test="record.wayPic != null">
         way_pic = #{record.wayPic,jdbcType=VARCHAR},
       </if>
-      <if test="record.wayContent != null">
-        way_content = #{record.wayContent,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExampleWithBLOBs" parameterType="map">
-    update way
-    set way_id = #{record.wayId,jdbcType=INTEGER},
-      way_name = #{record.wayName,jdbcType=VARCHAR},
-      way_pic = #{record.wayPic,jdbcType=VARCHAR},
-      way_content = #{record.wayContent,jdbcType=LONGVARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -201,6 +168,7 @@
     update way
     set way_id = #{record.wayId,jdbcType=INTEGER},
       way_name = #{record.wayName,jdbcType=VARCHAR},
+      way_content = #{record.wayContent,jdbcType=VARCHAR},
       way_pic = #{record.wayPic,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -212,25 +180,19 @@
       <if test="wayName != null">
         way_name = #{wayName,jdbcType=VARCHAR},
       </if>
+      <if test="wayContent != null">
+        way_content = #{wayContent,jdbcType=VARCHAR},
+      </if>
       <if test="wayPic != null">
         way_pic = #{wayPic,jdbcType=VARCHAR},
       </if>
-      <if test="wayContent != null">
-        way_content = #{wayContent,jdbcType=LONGVARCHAR},
-      </if>
     </set>
-    where way_id = #{wayId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.cytx.pojo.Way">
-    update way
-    set way_name = #{wayName,jdbcType=VARCHAR},
-      way_pic = #{wayPic,jdbcType=VARCHAR},
-      way_content = #{wayContent,jdbcType=LONGVARCHAR}
     where way_id = #{wayId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cytx.pojo.Way">
     update way
     set way_name = #{wayName,jdbcType=VARCHAR},
+      way_content = #{wayContent,jdbcType=VARCHAR},
       way_pic = #{wayPic,jdbcType=VARCHAR}
     where way_id = #{wayId,jdbcType=INTEGER}
   </update>

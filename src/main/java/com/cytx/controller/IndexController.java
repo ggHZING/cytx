@@ -1,10 +1,23 @@
 package com.cytx.controller;
 
+import com.cytx.pojo.Scenic;
+import com.cytx.pojo.Way;
+import com.cytx.service.ScenicService;
+import com.cytx.service.WayService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class IndexController {
+    @Autowired
+    ScenicService scenicService;
+
+    @Autowired
+    WayService wayService;
     /**
      * 用户登录界面
      * @return
@@ -31,7 +44,20 @@ public class IndexController {
      * @return
      */
     @RequestMapping(value = "/user")
-    public String testUserIndex(){
+    public String testUserIndex(Model model){
+        List<Scenic> list =  scenicService.selectScenicList();
+        List<Way> listWay=wayService.selectWayList();
+        list = list.subList(0, 3);
+        List<Way> listWay1=listWay.subList(0,1);
+        List<Way> listWay2=listWay.subList(1,2);
+        List<Way> listWay3=listWay.subList(2,3);
+        List<Way> listWay4=listWay.subList(3,4);
+
+        model.addAttribute("list",list);
+        model.addAttribute("listWay1",listWay1);
+        model.addAttribute("listWay2",listWay2);
+        model.addAttribute("listWay3",listWay3);
+        model.addAttribute("listWay4",listWay4);
         return "user/index";
     }
 
@@ -51,5 +77,25 @@ public class IndexController {
     @RequestMapping(value = "/manager")
     public String testManagerIndex(){
         return "manager/index";
+    }
+
+    /**
+     * 加载资讯页面
+     * @return
+     */
+    @RequestMapping(value = "/informationPage")
+    public String toInformationPage(){
+        return "user/information";
+    }
+
+
+
+    /**
+     * 加载路线页面
+     * @return
+     */
+    @RequestMapping(value = "/routePage")
+    public String toRoutePage(){
+        return "user/route";
     }
 }

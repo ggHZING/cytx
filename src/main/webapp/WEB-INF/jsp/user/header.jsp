@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+%>
 <!DOCTYPE html>
 <input type="hidden" id="baseUrl" value="${pageContext.request.contextPath }/" />
 <!--欢迎框 -->
@@ -19,11 +23,19 @@
 </div>
 
 
+<div id="background"></div>
 <!--logo部分 -->
 <div id="logobox">
     <div id="logo"><img src="../images/logo.png"></div>
     <div id="serchbox">
-        <div id="serch"><input type="text" id="serchtxt"  placeholder="请输入"></div>
+        <div id="serch" ><input type="text" id="serchtxt"  placeholder="请输入">
+            <!--搜索提示 -->
+            <div id="serch_tip">
+                <ul>
+
+                </ul>
+            </div>
+        </div>
         <div id="serchbtn"><button type="button" class="btn btn-primary" id="serchbutton">搜索</button></div>
     </div>
     <div id="contact" class="hidden-xs">
@@ -45,8 +57,8 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right" style="padding: 0px;">
-                    <li class="active"><a href="index.html"><span class="glyphicon glyphicon-home"></span>首页</a></li>
-                    <li class="dropdown"><a href="infomation.html"><span class="glyphicon glyphicon-th-list"></span>最新资讯</a>
+                    <li class="active"><a href="<%=basePath%>user"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+                    <li class="dropdown"><a href="<%=basePath%>informationPage"><span class="glyphicon glyphicon-th-list"></span>最新资讯</a>
                         <ul class="dropdown-content">
                             <li><a href="#">凤凰古城</a></li>
                             <li><a href="#">北京故宫</a></li>
@@ -56,11 +68,10 @@
                             <li><a href="#">港澳风情</a></li>
                         </ul>
                     </li>
-                    <li><a href="strategy.html"><span class="glyphicon glyphicon-fire"></span>热门攻略</a>
-                    <li><a href="route.html"><span class="glyphicon glyphicon-flag"></span>特价路线</a></li>
+                    <li><a href="<%=basePath%>strategyPage"><span class="glyphicon glyphicon-fire"></span>热门攻略</a>
+                    <li><a href="<%=basePath%>routePage"><span class="glyphicon glyphicon-flag"></span>特价路线</a></li>
                     <li><a href="person.html"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>
                     <li><a href="collection.html"><span class="glyphicon glyphicon-heart"></span>我的收藏</a></li>
-
                 </ul>
             </div>
         </div>

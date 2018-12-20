@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
 @Controller
 public class WayController {
 
@@ -82,6 +84,12 @@ public class WayController {
     }
 
 
+    /**
+     * 修改攻略
+     * @param way
+     * @param wayImage
+     * @return
+     */
     @RequestMapping(value = "/updateWay")
     public String update(Way way,MultipartFile wayImage){
         //当上传的图片不为空的时候才去存储路径,否则不存
@@ -95,5 +103,23 @@ public class WayController {
         //插入
         wayService.updateWay(way);
         return "redirect:/manageWay";
+    }
+
+    /**
+     * 加载攻略页面
+     * @return
+     */
+    @RequestMapping(value = "/strategyPage")
+    public String toStrategyPage(Model model,QueryVo queryVo){
+        List<Way> listWay=wayService.selectWayList();
+        Page<Way> page = wayService.selectPageByQuery(queryVo);
+
+        List<Way> listWay1 = listWay.subList(0, 3);
+        List<Way> listWay2 = listWay.subList(3, 6);
+
+        model.addAttribute("listWay1",listWay1);
+        model.addAttribute("listWay2",listWay2);
+        model.addAttribute("page", page);
+        return "user/strategy";
     }
 }

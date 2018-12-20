@@ -66,7 +66,7 @@
                     <input  type="checkbox" name="autoLogin" value="" checked><span>下次自动登录</span>
                     <a href="#">忘记密码？</a>
                 </div>
-                <button type="submit" class="btn btn-primary" id="denglu1">登录</button>
+                <button type="submit" class="btn btn-primary" id="denglu1" style="width: 90%;height: 40px;margin-left: 20px;">登录</button>
             </form>
             <div class="register"><p>还没有账号？<a href="${pageContext.request.contextPath }/registerPage">立即注册</a></p></div>
 
@@ -83,7 +83,7 @@
                     <span><input type="button" name="yz" class="btn btn-primary" id="yz"  value="获取验证码" onclick="sendMessage()"></span>
                 </div>
                 <span class="errorTips"></span>
-                <button type="submit" class="btn btn-primary" id="denglu2">登录</button>
+                <button type="submit" class="btn btn-primary" id="denglu2" style="width: 90%;height: 40px;margin-left: 20px;">登录</button>
             </form>
             <div class="register"><p>还没有账号？<a href="<%=basePath%>registerPage">立即注册</a></p></div>
         </div>

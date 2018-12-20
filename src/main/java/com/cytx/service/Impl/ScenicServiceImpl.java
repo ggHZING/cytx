@@ -73,4 +73,14 @@ public class ScenicServiceImpl implements ScenicService {
     public void updateScenic(Scenic scenic) {
         scenicMapper.updateByPrimaryKey(scenic);
     }
+
+    @Override
+    public List<Scenic> selectScenicList() {
+        ScenicExample example = new ScenicExample();
+        example.setOrderByClause("scenic_id desc");
+        example.setStart(0);
+        example.setCount(1000);
+        List<Scenic> scenics = scenicMapper.selectByExample(example);
+        return scenics;
+    }
 }

@@ -5,6 +5,8 @@ public class Scenic {
 
     private String scenicName;
 
+    private String scenicIntro;
+
     private String scenicAddr;
 
     private String scenicLink;
@@ -16,8 +18,6 @@ public class Scenic {
     private Double scenicCharge;
 
     private String scenicPicture;
-
-    private String scenicIntro;
 
     public Integer getScenicId() {
         return scenicId;
@@ -33,6 +33,14 @@ public class Scenic {
 
     public void setScenicName(String scenicName) {
         this.scenicName = scenicName == null ? null : scenicName.trim();
+    }
+
+    public String getScenicIntro() {
+        return scenicIntro;
+    }
+
+    public void setScenicIntro(String scenicIntro) {
+        this.scenicIntro = scenicIntro == null ? null : scenicIntro.trim();
     }
 
     public String getScenicAddr() {
@@ -81,13 +89,5 @@ public class Scenic {
 
     public void setScenicPicture(String scenicPicture) {
         this.scenicPicture = scenicPicture == null ? null : scenicPicture.trim();
-    }
-
-    public String getScenicIntro() {
-        return scenicIntro;
-    }
-
-    public void setScenicIntro(String scenicIntro) {
-        this.scenicIntro = scenicIntro == null ? null : scenicIntro.trim();
     }
 }

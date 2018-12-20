@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="/WEB-INF/tld/myTag.tld" prefix="lyz" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -13,163 +15,178 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="<%=basePath%>css/index.css">
     <script type="text/javascript" src="<%=basePath%>js/index.js"></script>
+    <script type="text/javascript" src="<%=basePath%>js/index.serch.js"></script>
 
 </head>
 <body>
-<!-- 引入header.jsp -->
-<jsp:include page="header.jsp"></jsp:include>
 
 
-<!--轮播图 -->
-<div class="lunbo">
+<div class="main">
+    <!-- 引入header.jsp -->
+    <jsp:include page="header.jsp"></jsp:include>
 
-    <div class="row">
-        <div class="lun">
-            <div id="myCarousel" class="carousel slide">
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="item active lunbo-img">
-                        <a href="#"><img src="../images/l-1.jpg"></a>
+
+    <!--轮播图 -->
+    <div class="lunbo">
+
+        <div class="row">
+            <div class="lun">
+                <div id="myCarousel" class="carousel slide">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active lunbo-img">
+                            <a href="#"><img src="../images/l-1.jpg"></a>
+                        </div>
+                        <div class="item lunbo-img">
+                            <a href="#"><img src="../images/l-2.jpg"></a>
+                        </div>
+                        <div class="item lunbo-img">
+                            <a href="#"><img src="../images/l-1.jpg"></a>
+                        </div>
                     </div>
-                    <div class="item lunbo-img">
-                        <a href="#"><img src="../images/l-2.jpg"></a>
-                    </div>
-                    <div class="item lunbo-img">
-                        <a href="#"><img src="../images/l-1.jpg"></a>
-                    </div>
+
                 </div>
-
             </div>
         </div>
     </div>
-</div>
-<!-- <div id="list">
-    <div id="list-l" class="list-l" onmouseover="display()" onmouseout="hid()">
-       <table class="list-table">
-           <tr class="active">
-               <td id="pictrue"><img src="../icon/release.png" alt="" ></span></td>
-               <td id="cont"><a href="#">休闲度假</a><img src="../icon/right.png"></td>
-           </tr>
-           <tr>
-               <td id="pictrue"><img src="../icon/spot.png"></td>
-               <td id="cont"><a href="#">热门景点</a><img src="../icon/right.png"></td>
-           </tr>
-           <tr>
-               <td id="pictrue"><img src="../icon/beach.png"></td>
-               <td id="cont"><a href="#">情侣蜜游</a><img src="../icon/right.png"></td>
-           </tr>
-           <tr>
-               <td id="pictrue"><img src="../icon/account.png"></td>
-               <td id="cont"><a href="#">毕业旅行</a><img src="../icon/right.png"></td>
-           </tr>
-           <tr>
-               <td id="pictrue"><img src="../icon/changyou.png"></td>
-               <td id="cont"><a href="#">畅游港澳台</a><img src="../icon/right.png"></td>
-           </tr>
-       </table>
-    </div>
-    <div id="list-r" class="list-r" onmouseover="display()" onmouseout="hid()" style="display: none;">333</div>
-</div>-->
-
-
-<!--消息滚动 -->
-<!--<div class="gundong">
-    <div class="box1">
-    <div class="manyi container"><img src="../icon/赞.png" alt="" style="width: 30px;height: 30px;"><span style="display: block;float: right; margin-top: 3px;margin-right: 1px;">满意度<span style="color: red;font-size: 20px;padding-left: 0px;">98%</span></span></div>
-    <div class="content" id="scrollBox" style="overflow: hidden;text-align: left;">
-        <ul id="con1">
-            <li> 四川--九寨沟--云南大理西双版纳双人三日游</li>
-            <li>香港--九龙--迪士尼乐园三日游</li>
-            <li>广州--广州塔--广州的小蛮腰</li>
-        </ul>
-         <div id="con2" style="text-align: left"></div>
-    </div>
-   </div>
-</div>-->
-
-
-
-
-<!--资讯部分 -->
-<!--分割线 -->
-<div class="line">
-    <div class="middle-line">
-        <span class="line-text">最新资讯</span>
-    </div>
-</div>
-<div id="hot-infomation">
-    <div class="infomation_l">
-        <div class="img"><img src="../images/l-5.jpg" id="img1"></div>
-        <div class="title">欢乐海洋之旅</div>
-        <div class="content">带你玩转秦皇岛、山海关、南戴河，惊爆价出游</div>
-        <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
-    </div>
-
-    <div class="infomation_c">
-        <div class="img"><img src="../images/l-5.jpg" alt=""></div>
-        <div class="title">欢乐海洋之旅</div>
-        <div class="content">带你玩转秦皇岛、山海关、南戴河，惊爆价出游</div>
-        <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
-    </div>
-
-    <div class="infomation_r">
-        <div class="img"><img src="../images/l-5.jpg" alt=""></div>
-        <div class="title">欢乐海洋之旅</div>
-        <div class="content">带你玩转秦皇岛、山海关、南戴河，惊爆价出游</div>
-        <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">99.9元</span></div>
-    </div>
-</div>
-
-<!--攻略部分 -->
-<!--分割线 -->
-<div class="line">
-    <div class="middle-line">
-        <span class="line-text">热门攻略</span>
-    </div>
-</div>
-<div id="hot-strategy">
-    <div id="strategy_1" style="background-image: url(<%=path%>/images/ttd.jpg);">
-        <div id="title1">
-            <h3>繁华香港</h3>
-            <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+    <!-- <div id="list">
+        <div id="list-l" class="list-l" onmouseover="display()" onmouseout="hid()">
+           <table class="list-table">
+               <tr class="active">
+                   <td id="pictrue"><img src="../icon/release.png" alt="" ></span></td>
+                   <td id="cont"><a href="#">休闲度假</a><img src="../icon/right.png"></td>
+               </tr>
+               <tr>
+                   <td id="pictrue"><img src="../icon/spot.png"></td>
+                   <td id="cont"><a href="#">热门景点</a><img src="../icon/right.png"></td>
+               </tr>
+               <tr>
+                   <td id="pictrue"><img src="../icon/beach.png"></td>
+                   <td id="cont"><a href="#">情侣蜜游</a><img src="../icon/right.png"></td>
+               </tr>
+               <tr>
+                   <td id="pictrue"><img src="../icon/account.png"></td>
+                   <td id="cont"><a href="#">毕业旅行</a><img src="../icon/right.png"></td>
+               </tr>
+               <tr>
+                   <td id="pictrue"><img src="../icon/changyou.png"></td>
+                   <td id="cont"><a href="#">畅游港澳台</a><img src="../icon/right.png"></td>
+               </tr>
+           </table>
         </div>
-        <div id="check1" style="display: none;"><a href="strategy_detail.html" title=""><button id="chenkinfomation" >查看详情</button></a></div>
-    </div>
-    <div id="strategy_2" style="background-image: url(<%=path%>/images/ttd.jpg);">
-        <div id="title2">
-            <h3>繁华香港</h3>
-            <p id="introduce1" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+        <div id="list-r" class="list-r" onmouseover="display()" onmouseout="hid()" style="display: none;">333</div>
+    </div>-->
+
+
+    <!--消息滚动 -->
+    <!--<div class="gundong">
+        <div class="box1">
+        <div class="manyi container"><img src="../icon/赞.png" alt="" style="width: 30px;height: 30px;"><span style="display: block;float: right; margin-top: 3px;margin-right: 1px;">满意度<span style="color: red;font-size: 20px;padding-left: 0px;">98%</span></span></div>
+        <div class="content" id="scrollBox" style="overflow: hidden;text-align: left;">
+            <ul id="con1">
+                <li> 四川--九寨沟--云南大理西双版纳双人三日游</li>
+                <li>香港--九龙--迪士尼乐园三日游</li>
+                <li>广州--广州塔--广州的小蛮腰</li>
+            </ul>
+             <div id="con2" style="text-align: left"></div>
         </div>
-        <div id="check2" style="display: none;"><button id="chenkinfomation1">查看详情</button></div>
-    </div>
-    <div id="strategy_3" style="background-image: url(<%=path%>/images/ttd.jpg);">
-        <div id="title3">
-            <h3>繁华香港</h3>
-            <p id="introduce2" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+       </div>
+    </div>-->
+
+
+
+
+    <!--资讯部分 -->
+    <!--分割线 -->
+    <div class="line">
+        <div class="middle-line">
+            <span class="line-text">最新资讯</span>
         </div>
-        <div id="check3" style="display: none;"><button id="chenkinfomation2">查看详情</button></div>
     </div>
-    <div id="strategy_4" style="background-image: url(<%=path%>/images/ttd.jpg);">
-        <div id="title4">
-            <h3>繁华香港</h3>
-            <p id="introduce3" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;石板街上老旧的小摊，叮叮车里质朴的香港人，都爹利街里上演的浪漫依旧。如果你肯放慢脚步，你就能发现另一个不一样的香港城。</p>
+
+
+    <div id="hot-infomation">
+        <c:forEach items="${list}" var="scenic">
+            <div class="infomation_l">
+                <div class="img"><img src="../${scenic.scenicPicture}" id="img1"></div>
+                <div class="title">${scenic.scenicName}</div>
+                <div class="content"><lyz:htmlFilter>${scenic.scenicIntro}</lyz:htmlFilter>......</div>
+                <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">${scenic.scenicCharge}元</span></div>
+            </div>
+        </c:forEach>
+
+
+
+    </div>
+
+
+    <!--攻略部分 -->
+    <!--分割线 -->
+    <div class="line">
+        <div class="middle-line">
+            <span class="line-text">热门攻略</span>
         </div>
-        <div id="check4" style="display: none;"><button id="chenkinfomation3">查看详情</button></div>
     </div>
+    <c:forEach items="${listWay1}" var="way">
+        <div id="hot-strategy">
+            <div id="strategy_1" style="background-image: url(<%=basePath%>/${way.wayPic})">
+            <div id="title1">
+                <h3>${way.wayName}</h3>
+                <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+            </div>
+            <div id="check1" style="display: none;"><a href="strategy_detail.html" title=""><button id="chenkinfomation" >查看详情</button></a></div>
+        </div>
+    </c:forEach>
+
+    <c:forEach items="${listWay2}" var="way">
+        <div id="strategy_2" style="background-image: url(<%=basePath%>/${way.wayPic})">
+            <div id="title2">
+                <h3>${way.wayName}</h3>
+                <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+            </div>
+            <div id="check2" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
+        </div>
+    </c:forEach>
+
+    <c:forEach items="${listWay3}" var="way">
+        <div id="strategy_3" style="background-image: url(<%=basePath%>/${way.wayPic})">
+            <div id="title3">
+                <h3>${way.wayName}</h3>
+                <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+            </div>
+            <div id="check3" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
+        </div>
+    </c:forEach>
+
+    <c:forEach items="${listWay4}" var="way">
+        <div id="strategy_4">
+            <div id="title4" style="background-image: url(<%=basePath%>/${way.wayPic})">
+                <h3>${way.wayName}</h3>
+                <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+            </div>
+            <div id="check4" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
+        </div>
+    </c:forEach>
+
+
+
+
+    </div>
+
+    <div class="toTop">
+        <a href="#wellcome"><span class="glyphicon glyphicon-chevron-up"></span></a>
+    </div>
+
+
+
+
+    <!-- 引入footer.jsp -->
+    <jsp:include page="footer.jsp"></jsp:include>
 </div>
-<div class="toTop">
-    <a href="#wellcome"><span class="glyphicon glyphicon-chevron-up"></span></a>
-</div>
-
-
-
-<!-- 引入footer.jsp -->
-<jsp:include page="footer.jsp"></jsp:include>
-
 
 
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -181,6 +198,121 @@
         interval:4000,
         wrap:true
     });
+
+    //alert("hello");
+
+    function oSearchSuggest(searchFuc)
+    {
+        var input = $('#serchtxt');
+        var suggestWrap = $('#serch_tip');
+        var key = "";
+        var init = function(){
+            input.bind('keyup',sendKeyWord);
+            input.bind('blur',function(){setTimeout(hideSuggest,100);})
+        }
+        var hideSuggest = function(){
+            suggestWrap.hide();
+        }
+        //发送请求，根据关键字到后台查询
+        var sendKeyWord = function(event){
+            //键盘选择下拉项
+            if(suggestWrap.css('display')=='block'&&event.keyCode == 38||event.keyCode == 40)
+            {
+                var current = suggestWrap.find('li.hover');
+                if(event.keyCode == 38)
+                {
+                    if(current.length>0)
+                    {
+                        var prevLi = current.removeClass('hover').prev();
+                        if(prevLi.length>0)
+                        {
+                            prevLi.addClass('hover');
+                            input.val(prevLi.html());
+                        }
+                    }
+                    else
+                    {
+                        var last = suggestWrap.find('li:last');
+                        last.addClass('hover');
+                        input.val(last.html());
+                    }
+                }
+                else if(event.keyCode == 40)
+                {
+                    if(current.length>0)
+                    {
+                        var nextLi = current.removeClass('hover').next();
+                        if(nextLi.length>0)
+                        {
+                            nextLi.addClass('hover');
+                            input.val(nextLi.html());
+                        }
+                    }
+                    else
+                    {
+                        var first = suggestWrap.find('li:first');
+                        first.addClass('hover');
+                        input.val(first.html());
+                    }
+                }
+                //输入字符
+            }
+            else
+            {
+                var valText = $.trim(input.val());
+                if(valText ==''||valText==key)
+                {
+                    return;
+                }
+                searchFuc(valText);
+                key = valText;
+            }
+        }
+        //请求返回后，执行数据展示
+        this.dataDisplay = function(data){
+            if(data.length<=0)
+            {
+                suggestWrap.hide();
+                return;
+            }
+            //往搜索框下拉建议显示栏中添加条目并显示
+            var li;
+            var tmpFrag = document.createDocumentFragment();
+            suggestWrap.find('ul').html('');
+            for(var i=0; i<data.length; i++)
+            {
+                li = document.createElement('LI');
+                li.innerHTML = data[i];
+                tmpFrag.appendChild(li);
+            }
+            suggestWrap.find('ul').append(tmpFrag);
+            suggestWrap.show();
+            //为下拉选项绑定鼠标事件
+            suggestWrap.find('li').hover(function(){
+                suggestWrap.find('li').removeClass('hover');
+                $(this).addClass('hover');
+            },function(){
+                $(this).removeClass('hover');
+            }).bind('click',function(){
+                $(this).find("span").remove();
+                input.val(this.innerHTML);
+                suggestWrap.hide();
+            });
+        }
+        init();
+    };
+    //实例化输入提示的JS,参数为进行查询操作时要调用的函数名
+    var searchSuggest = new oSearchSuggest(sendKeyWordToBack);
+    //这是一个模似函数，实现向后台发送ajax查询请求，并返回一个查询结果数据，传递给前台的JS,再由前台JS来展示数据。本函数由程序员进行修改实现查询的请求
+    //参数为一个字符串，是搜索输入框中当前的内容
+    function sendKeyWordToBack(keyword){
+        var aData = [];
+        aData.push('<span class="num_right">约15条关于</span>'+keyword+'资讯');
+        aData.push('<span class="num_right">约10条关于</span>'+keyword+'攻略');
+        aData.push('<span class="num_right">约100条关于</span>'+keyword+'评价');
+        aData.push('<span class="num_right">约80张关于</span>'+keyword+'图片');
+        searchSuggest.dataDisplay(aData);
+    }
 </script>
 
 </body>

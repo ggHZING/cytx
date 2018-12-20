@@ -81,4 +81,46 @@ public class WayServiceImpl implements WayService {
     public void updateWay(Way way) {
         wayMapper.updateByPrimaryKey(way);
     }
+
+    @Override
+    public List<Way> selectWayList() {
+        WayExample example = new WayExample();
+        example.setOrderByClause("way_id desc");
+        example.setStart(0);
+        example.setCount(1000);
+        List<Way> way = wayMapper.selectByExample(example);
+        return way;
+    }
+
+    @Override
+    public Page<Way> selectPageByQuery(QueryVo vo) {
+        Page<Way> page = new Page<Way>();
+        //每页数
+        page.setSize(3);
+        vo.setSize(3);
+        if (null != vo) {
+            // 判断当前页
+            if (null != vo.getPage()) {
+                page.setPage(vo.getPage());
+                vo.setStartRow((vo.getPage() - 1) * vo.getSize());
+            }
+
+
+            //总条数
+            WayExample example = new WayExample();
+            int count =(int) wayMapper.countByExample(example);
+            page.setTotal(count);
+
+            WayExample example1 = new WayExample();
+            example1.setOrderByClause("way_id asc");
+            example1.setStart(vo.getStartRow());
+            example1.setCount(vo.getSize());
+            List<Way> list = wayMapper.selectByExample(example1);
+
+            page.setRows(list);
+        }
+        return page;
+        }
+
+
 }

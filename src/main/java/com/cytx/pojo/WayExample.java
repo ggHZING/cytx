@@ -251,6 +251,76 @@ public class WayExample {
             return (Criteria) this;
         }
 
+        public Criteria andWayContentIsNull() {
+            addCriterion("way_content is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentIsNotNull() {
+            addCriterion("way_content is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentEqualTo(String value) {
+            addCriterion("way_content =", value, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentNotEqualTo(String value) {
+            addCriterion("way_content <>", value, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentGreaterThan(String value) {
+            addCriterion("way_content >", value, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentGreaterThanOrEqualTo(String value) {
+            addCriterion("way_content >=", value, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentLessThan(String value) {
+            addCriterion("way_content <", value, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentLessThanOrEqualTo(String value) {
+            addCriterion("way_content <=", value, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentLike(String value) {
+            addCriterion("way_content like", value, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentNotLike(String value) {
+            addCriterion("way_content not like", value, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentIn(List<String> values) {
+            addCriterion("way_content in", values, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentNotIn(List<String> values) {
+            addCriterion("way_content not in", values, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentBetween(String value1, String value2) {
+            addCriterion("way_content between", value1, value2, "wayContent");
+            return (Criteria) this;
+        }
+
+        public Criteria andWayContentNotBetween(String value1, String value2) {
+            addCriterion("way_content not between", value1, value2, "wayContent");
+            return (Criteria) this;
+        }
+
         public Criteria andWayPicIsNull() {
             addCriterion("way_pic is null");
             return (Criteria) this;

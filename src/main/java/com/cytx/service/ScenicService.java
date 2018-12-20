@@ -4,6 +4,8 @@ import com.cytx.pojo.QueryVo;
 import com.cytx.pojo.Scenic;
 import com.cytx.utils.Page;
 
+import java.util.List;
+
 public interface ScenicService {
     Page<Scenic> selectPageByQueryVo(QueryVo vo);
 
@@ -14,4 +16,6 @@ public interface ScenicService {
     Scenic getScenicById(Integer id);
 
     void updateScenic(Scenic scenic);
+
+    List<Scenic> selectScenicList();
 }

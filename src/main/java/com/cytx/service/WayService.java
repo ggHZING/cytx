@@ -4,6 +4,8 @@ import com.cytx.pojo.QueryVo;
 import com.cytx.pojo.Way;
 import com.cytx.utils.Page;
 
+import java.util.List;
+
 public interface WayService {
     Page<Way> selectPageByQueryVo(QueryVo vo);
 
@@ -14,4 +16,8 @@ public interface WayService {
     Way getWayById(Integer id);
 
     void updateWay(Way way);
+
+    List<Way> selectWayList();
+
+    Page<Way> selectPageByQuery(QueryVo queryVo);
 }
