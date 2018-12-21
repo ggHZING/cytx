@@ -71,50 +71,38 @@
 		<div class="container box">
 
             <div class="row">
+              <form id="order_confirm" action="#" method="post">
                 <div class="col-md-7">
-                    <img src="../images/planting-2.jpg" class="img-responsive" alt="">
+                  <img src="${pageContext.request.contextPath }/${scenic.scenicPicture}" class="img-responsive" alt="">
                 </div>
                 <div class="col-md-5 info-right">
-                    <div class="title"><p>屏山牧场一日游</p></div>
+                  <div class="title"><p>${scenic.scenicName}</p></div>
                     <div class="content hidden-md hidden-sm hidden-xs"> 
-                      <div id="content_title">走过的路途是成长，留下的足迹是生命
-                      走过的路途是成长，留下的足迹是生命
-                      走过的路途是成长，留下的足迹是生命</div>
+                      <div id="address">详细地址:<span>${scenic.scenicAddr}</span></div>
                       <div id="confirm">
                         <div id="goods">
-                            <div id="goods_price"><img src="../icon/rmb.png"><span style="color: red;font-size: 24px;">99.9</span></div>
-                            <!--<div id="goods_shoucang">
-                              <span>喜欢就收藏我吧</span>
-                              <span id="goods_coolect">
-                                <img src="../icon/喜欢.png" id="collect_dis"><img src="../icon/喜欢2.png" id="collect_hid" style="display: none;">
-                              </span>
-                            </div>-->
+                          <div id="goods_price"><img src="../icon/rmb.png"><span style="color: red;font-size: 24px;">${scenic.scenicCharge}</span></div>
                         </div>
-                        <form id="order_confirm" action="#" method="post">
-                          <div id="box">
-                            <div id="date">
-                              <div class="date">出发日期：</div>
-                              <div class="chose"><select>
-                                <option value="0">2018-12-12</option>
-                                <option value="1">2018-12-13</option>
-                                <option value="2">2018-12-14</option>
-                                <option value="3">2018-12-15</option>
-                              </select></div>
-                            </div>
-
-                            <div id="number">
-                              <div id="person_number">出游人数：</div>
+                        <div id="box">
+                          <div class="contact">
+                              <h4>联系人：</h4><span>${scenic.scenicLink}</span>
+                              <h4>联系电话：</h4><span>${scenic.scenicTel}</span>
+                          </div>
+                          <div>
+                            <h4>购票类型：</h4><span>${scenic.scenicTicket}</span>
+                          </div>
+                          <div id="number">
+                            <div id="person_number">出游人数：</div>
                               <div id="adult">
                                 <div class="dec" onclick="numDec()" style="width: 30px;border: solid 1px gray;height: 30px;"><span >-</span></div>
                                 <div><input type="text" id="quantity" style="width: 40px;height: 30px;text-align: center;" /></div>
                                 <div class="add" onclick="numAdd()" style="width: 30px;border: solid 1px gray;height: 30px;margin-right: 20px;"><span>+</span></div>
                               </div>
-                              
                             </div>
                             <div id="sum">
                                 <p class="sdsd">总价格: <span id="totalPrice"style="color: red;font-size: 20px;">00.00</span></p>
                                 <input type="hidden" value="99.99" id="price" /><!--单价-->
-                              </div>
+                            </div>
                           </div>
                           <div class="reserve_box">
                         <div class="reserve_l"><button id="reserve">立即预定</button></div>
@@ -146,8 +134,8 @@
         <div id="myTabContent" class="tab-content">
 
             <div class="tab-pane fade in active" id="notice">
-              <p>屏山牧场是........一起欣赏一下屏山美景吧</p>
-              <img src="../images/bg-3.jpg" style="width: 80%;">
+              <p>${scenic.scenicIntro}</p>
+              <img src="${pageContext.request.contextPath }/${scenic.scenicPicture}" style="width: 80%;">
             </div>
 
             <!--驴友评价 -->

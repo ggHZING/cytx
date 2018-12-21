@@ -1,9 +1,7 @@
 package com.cytx.dao;
 
 import com.cytx.pojo.Order;
-import com.cytx.pojo.OrderExample;
 import com.cytx.pojo.QueryVo;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,4 +13,10 @@ public interface OrderMapper {
     List<Order> selectPostListByQueryVo(QueryVo vo);
 
     void updateStateById(Integer id);
+
+    int insertOrder(Order order);
+
+    Order getOrderByNo(String no);
+
+    void updateStatusToPayById(Integer id);
 }

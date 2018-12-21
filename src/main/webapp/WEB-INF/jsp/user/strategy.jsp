@@ -38,7 +38,7 @@
                     <div class="content_img"><img src="../${way.wayPic}"></div>
                     <div class="title"><p>${way.wayName}</p></div>
                     <div class="text"><h5>&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</h5></div>
-                    <button type="button" id="detail" class="btn btn-primary">查看详情</button>
+                    <button type="button" id="detail" class="btn btn-primary" onclick="getWay(${way.wayId})">查看详情</button>
                 </div>
             </c:forEach>
 
@@ -50,7 +50,7 @@
                     <div class="content_img"><img src="../${way.wayPic}"></div>
                     <div class="title"><p>${way.wayName}</p></div>
                     <div class="text"><h5>&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</h5></div>
-                    <button type="button" id="detail" class="btn btn-primary">查看详情</button>
+                    <button type="button" id="detail" class="btn btn-primary" onclick="getWay(${way.wayId})">查看详情</button>
                 </div>
             </c:forEach>
     </div>
@@ -72,7 +72,7 @@
                     <div class="content_img"><img src="../${way.wayPic}"></div>
                     <div class="title"><p>${way.wayName}</p></div>
                     <div class="text"><h5>&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</h5></div>
-                    <button type="button" id="detail" class="btn btn-primary">查看详情</button>
+                    <button type="button" id="detail" class="btn btn-primary" onclick="getWay(${way.wayId})">查看详情</button>
                 </div>
             </c:forEach>
 
@@ -81,7 +81,9 @@
         <div class="col-md-12 text-right" style="text-align:center">
             <p:page url="${pageContext.request.contextPath }/strategyPage" />
         </div>
+
     </div>
+
     <div class="toTop">
         <a href="#wellcome"><span class="glyphicon glyphicon-chevron-up"></span></a>
     </div>
@@ -97,7 +99,18 @@
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+    function getWay(id) {
+        $.ajax({
+            type:"get",
+            url:"${pageContext.request.contextPath }/selectWayById",
+            data:{"id":id},
+            success:function() {
+                window.location.href="<%=basePath%>toStrategyDetailPage";
 
+            }
+
+        });
+    }
 </script>
 
 </body>

@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/WEB-INF/tld/myTag.tld" prefix="lyz" %>
+<%@ taglib prefix="p" uri="http://commonutils.cn/tld/" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -37,65 +39,44 @@
     </div>
 
     <div id="introduce">
-        <div class="introduce-l">
-            <div class="img">
-                <img src="../images/yangsuo.jpg">
-                <button><span id="discount">8.5</span>折</button>
+
+        <c:forEach items="${list}" var="scenic">
+            <div class="introduce-l">
+                <div class="img">
+                    <button type="button" onclick="getScenic(${scenic.scenicId})"><img src="../${scenic.scenicPicture}"></button>
+                    <button><span id="discount">8.5</span>折</button>
+                </div>
+                <div class="title">${scenic.scenicName}</div>
+                <div class="content hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${scenic.scenicIntro}</lyz:htmlFilter>......</div>
+                <div class="money">优惠价<img src="../icon/rmb.png" id="rmb"><span id="sum">${scenic.scenicCharge}</span></div>
             </div>
-            <div class="title">广西桂林山水甲天下</div>
-            <div class="content hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;桂林山水甲天下,阳朔山水甲桂林。阳朔是一个绝佳的山水旅游地方.....</div>
-            <div class="money">优惠价<img src="../icon/rmb.png" id="rmb"><span id="sum">99.9</span></div>
-        </div>
+        </c:forEach>
 
-        <div class="introduce-c">
-            <div class="img"><img src="../images/yangsuo.jpg">
-                <button><span id="discount">8.5</span>折</button></div>
-            <div class="title">广西桂林山水甲天下</div>
-            <div class="content hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;桂林山水甲天下,阳朔山水甲桂林。阳朔是一个绝佳的山水旅游地方.....</div>
-            <div class="money">优惠价<img src="../icon/rmb.png" id="rmb"><span id="sum">99.9</span></div>
-        </div>
 
-        <div class="introduce-r">
-            <div class="img"><img src="../images/yangsuo.jpg">
-                <button><span id="discount">8.5</span>折</button></div>
-            <div class="title">广西桂林山水甲天下</div>
-            <div class="content hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;桂林山水甲天下,阳朔山水甲桂林。阳朔是一个绝佳的山水旅游地方.....</div>
-            <div class="money">优惠价<img src="../icon/rmb.png" id="rmb"><span id="sum">99.9</span></div>
-        </div>
+
     </div>
 
 
     <!--分割线 -->
     <div class="line">
         <div class="middle-line">
-            <span class="line-text">所有特价</span>
+            <span class="line-text">所有景区</span>
         </div>
     </div>
 
     <div id="all_strategy">
-        <div class="strategy_1">
-            <div class="strategy_img"><img src="../images/yancheng.jpg"></div>
-            <div class="strategy_title">盐城</div>
-            <div class="strategy_money">优惠价<img src="../icon/rmb.png" id="rmb"><span id="sum">99.9</span></div>
-        </div>
+        <c:forEach items="${page.rows}" var="scenic">
+            <div class="strategy_1">
+                <div class="strategy_img"><button type="button" onclick="getScenic(${scenic.scenicId})"><img src="../${scenic.scenicPicture}"></button></div>
+                <div class="strategy_title">${scenic.scenicName}</div>
+                <div class="strategy_money">价格<img src="../icon/rmb.png" id="rmb"><span id="sum">${scenic.scenicCharge}</span></div>
+            </div>
+        </c:forEach>
 
-        <div class="strategy_2">
-            <div class="strategy_img"><img src="../images/yancheng.jpg"></div>
-            <div class="strategy_title">盐城</div>
-            <div class="strategy_money">优惠价<img src="../icon/rmb.png" id="rmb"><span id="sum">99.9</span></div>
-        </div>
 
-        <div class="strategy_3">
-            <div class="strategy_img"><img src="../images/yancheng.jpg"></div>
-            <div class="strategy_title">盐城</div>
-            <div class="strategy_money">优惠价<img src="../icon/rmb.png" id="rmb"><span id="sum">99.9</span></div>
-        </div>
-
-        <div class="strategy_4">
-            <div class="strategy_img"><img src="../images/yancheng.jpg"></div>
-            <div class="strategy_title">盐城</div>
-            <div class="strategy_money">优惠价<img src="../icon/rmb.png" id="rmb"><span id="sum">99.9</span></div>
-        </div>
+    </div>
+    <div class="col-md-12 text-right" style="text-align:center">
+        <p:page url="${pageContext.request.contextPath }/routePage" />
     </div>
     <div class="toTop">
         <a href="#wellcome"><span class="glyphicon glyphicon-chevron-up"></span></a>
@@ -118,6 +99,20 @@
         interval:4000,
         wrap:true
     });
+
+
+    function getScenic(id) {
+        $.ajax({
+            type:"get",
+            url:"${pageContext.request.contextPath }/selectScenicById",
+            data:{"id":id},
+            success:function() {
+                window.location.href="<%=basePath%>toScenicDetailPage";
+
+            }
+
+        });
+    }
 </script>
 
 </body>

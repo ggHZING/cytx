@@ -1,6 +1,5 @@
 package com.cytx.pojo;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -366,52 +365,52 @@ public class OrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andOrderTotalPriceEqualTo(BigDecimal value) {
+        public Criteria andOrderTotalPriceEqualTo(Double value) {
             addCriterion("order_total_price =", value, "orderTotalPrice");
             return (Criteria) this;
         }
 
-        public Criteria andOrderTotalPriceNotEqualTo(BigDecimal value) {
+        public Criteria andOrderTotalPriceNotEqualTo(Double value) {
             addCriterion("order_total_price <>", value, "orderTotalPrice");
             return (Criteria) this;
         }
 
-        public Criteria andOrderTotalPriceGreaterThan(BigDecimal value) {
+        public Criteria andOrderTotalPriceGreaterThan(Double value) {
             addCriterion("order_total_price >", value, "orderTotalPrice");
             return (Criteria) this;
         }
 
-        public Criteria andOrderTotalPriceGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andOrderTotalPriceGreaterThanOrEqualTo(Double value) {
             addCriterion("order_total_price >=", value, "orderTotalPrice");
             return (Criteria) this;
         }
 
-        public Criteria andOrderTotalPriceLessThan(BigDecimal value) {
+        public Criteria andOrderTotalPriceLessThan(Double value) {
             addCriterion("order_total_price <", value, "orderTotalPrice");
             return (Criteria) this;
         }
 
-        public Criteria andOrderTotalPriceLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andOrderTotalPriceLessThanOrEqualTo(Double value) {
             addCriterion("order_total_price <=", value, "orderTotalPrice");
             return (Criteria) this;
         }
 
-        public Criteria andOrderTotalPriceIn(List<BigDecimal> values) {
+        public Criteria andOrderTotalPriceIn(List<Double> values) {
             addCriterion("order_total_price in", values, "orderTotalPrice");
             return (Criteria) this;
         }
 
-        public Criteria andOrderTotalPriceNotIn(List<BigDecimal> values) {
+        public Criteria andOrderTotalPriceNotIn(List<Double> values) {
             addCriterion("order_total_price not in", values, "orderTotalPrice");
             return (Criteria) this;
         }
 
-        public Criteria andOrderTotalPriceBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andOrderTotalPriceBetween(Double value1, Double value2) {
             addCriterion("order_total_price between", value1, value2, "orderTotalPrice");
             return (Criteria) this;
         }
 
-        public Criteria andOrderTotalPriceNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andOrderTotalPriceNotBetween(Double value1, Double value2) {
             addCriterion("order_total_price not between", value1, value2, "orderTotalPrice");
             return (Criteria) this;
         }

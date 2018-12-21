@@ -26,33 +26,36 @@
     <jsp:include page="header.jsp"></jsp:include>
 
 
-    <!--轮播图 -->
-    <div class="lunbo">
 
-        <div class="row">
-            <div class="lun">
-                <div id="myCarousel" class="carousel slide">
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="item active lunbo-img">
-                            <a href="#"><img src="../images/l-1.jpg"></a>
+
+
+        <!--轮播图 -->
+        <div class="lunbo">
+
+            <div class="row">
+                <div class="lun">
+                    <div id="myCarousel" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active lunbo-img">
+                                <a href="#"><img src="<%=basePath%>/images/l-1.jpg"></a>
+                            </div>
+                            <div class="item lunbo-img">
+                                <a href="#"><img src="<%=basePath%>/images/l-2.jpg"></a>
+                            </div>
+                            <div class="item lunbo-img">
+                                <a href="#"><img src="<%=basePath%>/images/l-1.jpg"></a>
+                            </div>
                         </div>
-                        <div class="item lunbo-img">
-                            <a href="#"><img src="../images/l-2.jpg"></a>
-                        </div>
-                        <div class="item lunbo-img">
-                            <a href="#"><img src="../images/l-1.jpg"></a>
-                        </div>
+
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
     <!-- <div id="list">
         <div id="list-l" class="list-l" onmouseover="display()" onmouseout="hid()">
            <table class="list-table">
@@ -112,10 +115,10 @@
     <div id="hot-infomation">
         <c:forEach items="${list}" var="scenic">
             <div class="infomation_l">
-                <div class="img"><img src="../${scenic.scenicPicture}" id="img1"></div>
+                <div class="img"><button type="button" onclick="getScenic(${scenic.scenicId})"><img src="<%=basePath%>/${scenic.scenicPicture}" id="img1"></button></div>
                 <div class="title">${scenic.scenicName}</div>
                 <div class="content"><lyz:htmlFilter>${scenic.scenicIntro}</lyz:htmlFilter>......</div>
-                <div class="money hidden-xs"><img src="../icon/rmb.png" id="rmb"><span id="sum">${scenic.scenicCharge}元</span></div>
+                <div class="money hidden-xs"><img src="<%=basePath%>/icon/rmb.png" class="rmb"><span id="sum">${scenic.scenicCharge}元</span></div>
             </div>
         </c:forEach>
 
@@ -131,49 +134,46 @@
             <span class="line-text">热门攻略</span>
         </div>
     </div>
-    <c:forEach items="${listWay1}" var="way">
-        <div id="hot-strategy">
-            <div id="strategy_1" style="background-image: url(<%=basePath%>/${way.wayPic})">
-            <div id="title1">
-                <h3>${way.wayName}</h3>
-                <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+    <div id="hot-strategy">
+        <c:forEach items="${listWay1}" var="way">
+            <div id="strategy_1" class="strategy" style="background-image: url(<%=basePath%>/${way.wayPic})">
+                <div id="title1">
+                    <h3>${way.wayName}</h3>
+                    <p class="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+                </div>
+                <div id="check1" style="display: none;"><button class="chenkinfomation" onclick="getWay(${way.wayId})">查看详情</button></div>
             </div>
-            <div id="check1" style="display: none;"><a href="strategy_detail.html" title=""><button id="chenkinfomation" >查看详情</button></a></div>
-        </div>
-    </c:forEach>
+        </c:forEach>
 
-    <c:forEach items="${listWay2}" var="way">
-        <div id="strategy_2" style="background-image: url(<%=basePath%>/${way.wayPic})">
-            <div id="title2">
-                <h3>${way.wayName}</h3>
-                <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+        <c:forEach items="${listWay2}" var="way">
+            <div id="strategy_2" class="strategy" style="background-image: url(<%=basePath%>/${way.wayPic})">
+                <div id="title2">
+                    <h3>${way.wayName}</h3>
+                    <p class="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+                </div>
+                <div id="check2" style="display: none;"><button class="chenkinfomation" onclick="getWay(${way.wayId})">查看详情</button></div>
             </div>
-            <div id="check2" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
-        </div>
-    </c:forEach>
+        </c:forEach>
 
-    <c:forEach items="${listWay3}" var="way">
-        <div id="strategy_3" style="background-image: url(<%=basePath%>/${way.wayPic})">
-            <div id="title3">
-                <h3>${way.wayName}</h3>
-                <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+        <c:forEach items="${listWay3}" var="way">
+            <div id="strategy_3" class="strategy" style="background-image: url(<%=basePath%>/${way.wayPic})">
+                <div id="title3">
+                    <h3>${way.wayName}</h3>
+                    <p class="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+                </div>
+                <div id="check3" style="display: none;"><button class="chenkinfomation" onclick="getWay(${way.wayId})">查看详情</button></div>
             </div>
-            <div id="check3" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
-        </div>
-    </c:forEach>
+        </c:forEach>
 
-    <c:forEach items="${listWay4}" var="way">
-        <div id="strategy_4">
-            <div id="title4" style="background-image: url(<%=basePath%>/${way.wayPic})">
-                <h3>${way.wayName}</h3>
-                <p id="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+        <c:forEach items="${listWay4}" var="way">
+            <div id="strategy_4" class="strategy" style="background-image: url(<%=basePath%>/${way.wayPic})">
+                <div id="title4">
+                    <h3>${way.wayName}</h3>
+                    <p class="introduce" class="hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</p>
+                </div>
+                <div id="check4" style="display: none;"><button class="chenkinfomation" onclick="getWay(${way.wayId})">查看详情</button></div>
             </div>
-            <div id="check4" style="display: none;"><button id="chenkinfomation">查看详情</button></div>
-        </div>
-    </c:forEach>
-
-
-
+        </c:forEach>
 
     </div>
 
@@ -312,6 +312,33 @@
         aData.push('<span class="num_right">约100条关于</span>'+keyword+'评价');
         aData.push('<span class="num_right">约80张关于</span>'+keyword+'图片');
         searchSuggest.dataDisplay(aData);
+    }
+
+
+    function getWay(id) {
+        $.ajax({
+            type:"get",
+            url:"${pageContext.request.contextPath }/selectWayById",
+            data:{"id":id},
+            success:function() {
+                window.location.href="<%=basePath%>toStrategyDetailPage";
+
+            }
+
+        });
+    }
+
+    function getScenic(id) {
+        $.ajax({
+            type:"get",
+            url:"${pageContext.request.contextPath }/selectScenicById",
+            data:{"id":id},
+            success:function() {
+                window.location.href="<%=basePath%>toScenicDetailPage";
+
+            }
+
+        });
     }
 </script>
 

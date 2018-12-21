@@ -16,7 +16,7 @@
             <li ><a href="${pageContext.request.contextPath }/registerPage">注册</a></li>
         </c:if>
         <c:if test="${!empty user }">
-            <li style="color:red;margin-left:120px;">欢迎您，${user.userName }</li>
+            <li style="color:greenyellow;margin-left:120px;">欢迎您，${user.userName }</li>
             <li><a href="${pageContext.request.contextPath }/logout">退出</a></li>
         </c:if>
     </ol>

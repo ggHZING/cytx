@@ -1,6 +1,5 @@
 package com.cytx.pojo;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 public class Order {
@@ -12,7 +11,7 @@ public class Order {
 
     private Integer orderStatus;
 
-    private BigDecimal orderTotalPrice;
+    private Double orderTotalPrice;
 
     private Date orderCreateTime;
 
@@ -26,8 +25,17 @@ public class Order {
 
 
 
-    private User user;
     private Scenic scenic;
+
+    private User user;
+
+    public Scenic getScenic() {
+        return scenic;
+    }
+
+    public void setScenic(Scenic scenic) {
+        this.scenic = scenic;
+    }
 
     public User getUser() {
         return user;
@@ -37,13 +45,6 @@ public class Order {
         this.user = user;
     }
 
-    public Scenic getScenic() {
-        return scenic;
-    }
-
-    public void setScenic(Scenic scenic) {
-        this.scenic = scenic;
-    }
     public Integer getOrderId() {
         return orderId;
     }
@@ -76,11 +77,11 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public BigDecimal getOrderTotalPrice() {
+    public Double getOrderTotalPrice() {
         return orderTotalPrice;
     }
 
-    public void setOrderTotalPrice(BigDecimal orderTotalPrice) {
+    public void setOrderTotalPrice(Double orderTotalPrice) {
         this.orderTotalPrice = orderTotalPrice;
     }
 

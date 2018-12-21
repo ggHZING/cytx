@@ -2,6 +2,7 @@ package com.cytx.controller;
 
 import com.cytx.pojo.QueryVo;
 import com.cytx.pojo.Scenic;
+import com.cytx.pojo.Way;
 import com.cytx.service.ScenicService;
 import com.cytx.utils.Page;
 import com.cytx.utils.UploadUtil;
@@ -11,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class ScenicController {
@@ -94,5 +98,47 @@ public class ScenicController {
         //插入
         scenicService.updateScenic(scenic);
         return "redirect:/manageScenic";
+    }
+
+    /**
+     * 加载资讯页面
+     * @return
+     */
+    @RequestMapping(value = "/informationPage")
+    public String toInformationPage(Model model){
+        List<Scenic> list=scenicService.selectScenicList();
+        List<Scenic> list1=scenicService.selectScenicListAsc();
+        list = list.subList(0, 3);
+        list1 = list1.subList(0, 3);
+        model.addAttribute("list",list);
+        model.addAttribute("list1",list1);
+        return "user/information";
+    }
+
+    /**
+     * 加载路线页面
+     * @return
+     */
+    @RequestMapping(value = "/routePage")
+    public String toRoutePage(Model model,QueryVo queryVo){
+        List<Scenic> list=scenicService.selectScenicListByPrice();
+        Page<Scenic> page = scenicService.selectPageByQuery(queryVo);
+        list = list.subList(0, 3);
+        model.addAttribute("list",list);
+        model.addAttribute("page", page);
+        return "user/route";
+    }
+
+    @RequestMapping(value = "/selectScenicById")
+    public  String selectScenicById(Integer id, HttpSession session){
+        Scenic scenic = scenicService.getScenicById(id);
+        session.setAttribute("scenics",scenic);
+        return "redirect:/toScenicDetailPage";
+    }
+
+    @RequestMapping(value = "/toScenicDetailPage")
+    public  String toStrategyDetailPage(){
+
+        return "user/ScenicDetail";
     }
 }

@@ -6,7 +6,7 @@
     <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
     <result column="order_amount" jdbcType="INTEGER" property="orderAmount" />
     <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
-    <result column="order_total_price" jdbcType="DECIMAL" property="orderTotalPrice" />
+      <result column="order_total_price" jdbcType="DOUBLE" property="orderTotalPrice" />
     <result column="order_create_time" jdbcType="TIMESTAMP" property="orderCreateTime" />
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="state" jdbcType="INTEGER" property="state" />
@@ -43,6 +43,47 @@
   <update id="updateStateById" parameterType="Integer">
         update `order`
         set state = 1
+        where order_id = #{id}
+    </update>
+
+  <insert id="insertOrder" parameterType="com.cytx.pojo.Order">
+        insert into `order`
+        (
+        order_no,
+        order_amount,
+        order_status,
+        order_total_price,
+        order_create_time,
+        sid,
+        uid,
+        code,
+        state
+        )
+        values(
+        #{orderNo,jdbcType=VARCHAR},
+        #{orderAmount,jdbcType=INTEGER},
+        #{orderStatus,jdbcType=INTEGER},
+        #{orderTotalPrice,jdbcType=DOUBLE},
+        #{orderCreateTime,jdbcType=TIMESTAMP},
+        #{sid,jdbcType=INTEGER},
+        #{uid,jdbcType=INTEGER},
+        #{code,jdbcType=VARCHAR},
+        #{state,jdbcType=INTEGER}
+        )
+    </insert>
+
+    <select id="getOrderByNo" parameterType="String" resultMap="OrderMap">
+        select
+        o.order_id,o.order_no,o.order_amount,o.order_status,o.order_total_price,o.order_create_time,o.code,o.state,s.scenic_name,u.user_name
+        from `order` o
+        left join scenic s on s.scenic_id=o.sid
+        left join  user u on u.user_id=o.uid
+        where o.order_no = #{no}
+    </select>
+
+    <update id="updateStatusToPayById" parameterType="Integer">
+        update `order`
+        set order_status = 1
         where order_id = #{id}
     </update>
 

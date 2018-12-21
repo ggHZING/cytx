@@ -18,4 +18,10 @@ public interface ScenicService {
     void updateScenic(Scenic scenic);
 
     List<Scenic> selectScenicList();
+
+    List<Scenic> selectScenicListAsc();
+
+    List<Scenic> selectScenicListByPrice();
+
+    Page<Scenic> selectPageByQuery(QueryVo queryVo);
 }

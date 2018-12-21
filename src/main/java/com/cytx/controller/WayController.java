@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -122,4 +123,18 @@ public class WayController {
         model.addAttribute("page", page);
         return "user/strategy";
     }
+
+    @RequestMapping(value = "/selectWayById")
+    public  String selectWayById(Integer id, HttpSession session){
+        Way way = wayService.getWayById(id);
+        session.setAttribute("myway",way);
+        return "redirect:/toStrategyDetailPage";
+    }
+
+    @RequestMapping(value = "/toStrategyDetailPage")
+    public  String toStrategyDetailPage(){
+
+        return "user/strategyDetail";
+    }
+
 }

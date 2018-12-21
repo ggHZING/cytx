@@ -83,4 +83,54 @@ public class ScenicServiceImpl implements ScenicService {
         List<Scenic> scenics = scenicMapper.selectByExample(example);
         return scenics;
     }
+
+    @Override
+    public List<Scenic> selectScenicListAsc() {
+        ScenicExample example = new ScenicExample();
+        example.setOrderByClause("scenic_id asc");
+        example.setStart(0);
+        example.setCount(1000);
+        List<Scenic> scenics = scenicMapper.selectByExample(example);
+        return scenics;
+    }
+
+    @Override
+    public List<Scenic> selectScenicListByPrice() {
+        ScenicExample example = new ScenicExample();
+        example.setOrderByClause("scenic_charge asc");
+        example.setStart(0);
+        example.setCount(1000);
+        List<Scenic> scenics = scenicMapper.selectByExample(example);
+        return scenics;
+    }
+
+    @Override
+    public Page<Scenic> selectPageByQuery(QueryVo vo) {
+        Page<Scenic> page = new Page<Scenic>();
+        //每页数
+        page.setSize(4);
+        vo.setSize(4);
+        if (null != vo) {
+            // 判断当前页
+            if (null != vo.getPage()) {
+                page.setPage(vo.getPage());
+                vo.setStartRow((vo.getPage() - 1) * vo.getSize());
+            }
+
+
+            //总条数
+            ScenicExample example = new ScenicExample();
+            int count =(int) scenicMapper.countByExample(example);
+            page.setTotal(count);
+
+            ScenicExample example1 = new ScenicExample();
+            example1.setOrderByClause("scenic_id asc");
+            example1.setStart(vo.getStartRow());
+            example1.setCount(vo.getSize());
+            List<Scenic> list = scenicMapper.selectByExample(example1);
+
+            page.setRows(list);
+        }
+        return page;
+    }
 }

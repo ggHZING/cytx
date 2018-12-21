@@ -1,9 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/WEB-INF/tld/myTag.tld" prefix="lyz" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,30 +90,18 @@
                     <div class="col-md-7">
                         <div class="left_title"><h3>最热资讯</h3></div>
                         <div class="container-fluid">
-                            <div class="row info-content">
-                                <div class="col-md-7 col-sm-7 col xs-7"><a href="infomation_detail.html"><img src="../images/10.jpg" class="img-responsive"></a></div>
-                                <div class="col-md-5 col-sm-5 col xs-5">
-                                    <h3>畅游韩国</h3>
-                                    <p class="hidden-xs">简介：天灵大陆,在这片神奇的大陆上,修炼的不是斗气亦非魔法,而是幻灵力。大陆上的职业又分为:战灵师</p>
-                                    <div class="money"><img src="../icon/rmb.png"><span id="sum">99.9</span></div>
+
+                            <c:forEach items="${list}" var="scenic">
+                                <div class="row info-content">
+                                    <div class="col-md-7 col-sm-7 col xs-7"><button type="button" onclick="getScenic(${scenic.scenicId})"><img src="../${scenic.scenicPicture}" class="img-responsive"></button></div>
+                                    <div class="col-md-5 col-sm-5 col xs-5">
+                                        <h3>${scenic.scenicName}</h3>
+                                        <p class="hidden-xs"><lyz:htmlFilter>${scenic.scenicIntro}</lyz:htmlFilter>......</p>
+                                        <div class="money"><img src="../icon/rmb.png"><span id="sum">${scenic.scenicCharge}</span></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row info-content">
-                                <div class="col-md-7 col-sm-7 col xs-7"><a href="#"><img src="../images/10.jpg" class="img-responsive"></a></div>
-                                <div class="col-md-5 col-sm-5 col xs-5">
-                                    <h3>畅游韩国</h3>
-                                    <p class="hidden-xs">简介：天灵大陆,在这片神奇的大陆上,修炼的不是斗气亦非魔法,而是幻灵力。大陆上的职业又分为:战灵师</p>
-                                    <div class="money"><img src="../icon/rmb.png"><span id="sum">99.9</span></div>
-                                </div>
-                            </div>
-                            <div class="row info-content">
-                                <div class="col-md-7 col-sm-7 col xs-7"><a href="#"><img src="../images/10.jpg" class="img-responsive" ></a></div>
-                                <div class="col-md-5 col-sm-5 col xs-5">
-                                    <h3>畅游韩国</h3>
-                                    <p class="hidden-xs">简介：天灵大陆,在这片神奇的大陆上,修炼的不是斗气亦非魔法,而是幻灵力。大陆上的职业又分为:战灵师</p>
-                                    <div class="money"><img src="../icon/rmb.png"><span id="sum">99.9</span></div>
-                                </div>
-                            </div>
+                            </c:forEach>
+
 
                         </div>
                     </div>
@@ -120,32 +110,18 @@
                     <div class="col-md-5 info-right">
                         <div class="right_title"><h3>商家推荐</h3></div>
                         <div class="container-fluid">
-                            <div class="row right_content">
-                                <div class="col-md-5 col-sm-5 col xs-5" style="margin: 15px 0;padding: 0;"><a href="#"><img src="../images/3.jpg" class="img-responsive"></a></div>
-                                <div class="col-md-7 col-sm-7 col xs-7" style="padding-right: 0;">
-                                    <h4>九州缥缈录</h4>
-                                    <p class="hidden-md">简介：当星辰和阳光也熄灭，沉默已久的乱世之轮重新开始运转，未来的帝王们整备了盔甲...</p>
-                                    <div class="money"><img src="../icon/rmb.png"><span id="sum">99.9</span></div>
-                                </div>
-                            </div>
 
-                            <div class="row right_content">
-                                <div class="col-md-5 col-sm-5 col xs-5" style="margin: 15px 0;padding: 0;"><a href="#"><img src="../images/3.jpg" class="img-responsive"></a></div>
-                                <div class="col-md-7 col-sm-7 col xs-7" style="padding-right: 0;">
-                                    <h4>九州缥缈录</h4>
-                                    <p class="hidden-md">简介：当星辰和阳光也熄灭，沉默已久的乱世之轮重新开始运转，未来的帝王们整备了盔甲...</p>
-                                    <div class="money"><img src="../icon/rmb.png"><span id="sum">99.9</span></div>
+                            <c:forEach items="${list1}" var="scenic">
+                                <div class="row right_content">
+                                    <div class="col-md-5 col-sm-5 col xs-5" style="margin: 15px 0;padding: 0;"><button type="button" onclick="getScenic(${scenic.scenicId})"><img src="../${scenic.scenicPicture}" class="img-responsive"></button></div>
+                                    <div class="col-md-7 col-sm-7 col xs-7" style="padding-right: 0;">
+                                        <h4>${scenic.scenicName}</h4>
+                                        <p class="hidden-md"><lyz:htmlFilter>${scenic.scenicIntro}</lyz:htmlFilter>.......</p>
+                                        <div class="money"><img src="../icon/rmb.png"><span id="sum">${scenic.scenicCharge}</span></div>
+                                    </div>
                                 </div>
-                            </div>
+                            </c:forEach>
 
-                            <div class="row right_content">
-                                <div class="col-md-5 col-sm-5 col xs-5" style="margin: 15px 0;padding: 0;"><a href="#"><img src="../images/3.jpg" class="img-responsive"></a></div>
-                                <div class="col-md-7 col-sm-7 col xs-7" style="padding-right: 0;">
-                                    <h4>九州缥缈录</h4>
-                                    <p class="hidden-md">简介：当星辰和阳光也熄灭，沉默已久的乱世之轮重新开始运转，未来的帝王们整备了盔甲...</p>
-                                    <div class="money"><img src="../icon/rmb.png"><span id="sum">99.9</span></div>
-                                </div>
-                            </div>
 
                         </div>
                     </div>
@@ -192,6 +168,20 @@ var MyMar1=setInterval(Marquee1,speedi)//设置定时器
 colee.onmouseover=function() {clearInterval(MyMar1)}
 //鼠标移开时重设定时器
 colee.onmouseout=function(){MyMar1=setInterval(Marquee1,speedi)}
+
+
+function getScenic(id) {
+    $.ajax({
+        type:"get",
+        url:"${pageContext.request.contextPath }/selectScenicById",
+        data:{"id":id},
+        success:function() {
+            window.location.href="<%=basePath%>toScenicDetailPage";
+
+        }
+
+    });
+}
 </script>
 
 </body>

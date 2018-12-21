@@ -8,4 +8,10 @@ public interface OrderService {
     Page<Order> selectOrderPageByQueryVo(QueryVo vo);
 
     void updateStateById(Integer id);
+
+    int insertOrder(Order order);
+
+    Order getOrderByNo(String no);
+
+    void updateStatusToPayById(Integer id);
 }

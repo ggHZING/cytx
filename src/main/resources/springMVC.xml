@@ -38,4 +38,22 @@
         <!--被允许的最大的内存的大小，Default is 10240 bytes -->
         <property name="maxInMemorySize" value="20480"/>
     </bean>
+
+    <!--拦截器 -->
+    <mvc:interceptors>
+        <!--多个拦截器,顺序执行 -->
+        <!-- 管理员登陆认证拦截器 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/manager"/>
+            <mvc:mapping path="/manageScenic"/>
+            <mvc:mapping path="/manageApplication"/>
+            <mvc:mapping path="/manageWay"/>
+            <mvc:mapping path="/manageOrder"/>
+            <mvc:mapping path="/manageUser"/>
+            <bean class="com.cytx.interceptor.ManagerLoginInterceptor"></bean>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
+
+
 </beans>

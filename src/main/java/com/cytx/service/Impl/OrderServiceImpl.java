@@ -44,4 +44,19 @@ public class OrderServiceImpl implements OrderService {
     public void updateStateById(Integer id) {
         orderMapper.updateStateById(id);
     }
+
+    @Override
+    public int insertOrder(Order order) {
+        return orderMapper.insertOrder(order);
+    }
+
+    @Override
+    public Order getOrderByNo(String no) {
+        return orderMapper.getOrderByNo(no);
+    }
+
+    @Override
+    public void updateStatusToPayById(Integer id) {
+        orderMapper.updateStatusToPayById(id);
+    }
 }

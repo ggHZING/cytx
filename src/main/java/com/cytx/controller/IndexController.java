@@ -79,23 +79,9 @@ public class IndexController {
         return "manager/index";
     }
 
-    /**
-     * 加载资讯页面
-     * @return
-     */
-    @RequestMapping(value = "/informationPage")
-    public String toInformationPage(){
-        return "user/information";
-    }
 
 
 
-    /**
-     * 加载路线页面
-     * @return
-     */
-    @RequestMapping(value = "/routePage")
-    public String toRoutePage(){
-        return "user/route";
-    }
+
+
 }

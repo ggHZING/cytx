@@ -12,54 +12,70 @@
 	padding-top:2%;
 	margin-left: 6%;
 }
+
 .nameBox{
 	width: 50%;
 	height: 60px;
 	text-align: center;
 }
-.timeBox{
+
+.priceBox{
 	width: 50%;
 	display: inline-block;
 }
-.timeBox h4{
+.priceBox h5{
+	margin-left: 10%;
+}
+.priceBox h4,.priceBox h5{
 	float: left;
 }
-.timeBox .dateTime{
-	float: left;
-	margin-left: 5%;
-	margin-top: 1%;
-}
+
 .numBox{
 	width: 50%;
 	display: inline-block;
 }
-.numBox h4,.numBox h5,.numBox .adult,.numBox h5,.numBox .child{
+.numBox h4,.numBox .dec,.numBox #quantity,.numBox .add{
 	float: left;
 }
 .numBox h5{
 	margin-left: 5%;
 }
-.numBox .adult,.numBox .child{
-	width: 7%;
-	margin-top: 1%;
-	margin-left: 2%;
+.numBox .dec{
+	margin-left: 11%;
 }
+.numBox .dec,.numBox .add{
+	cursor: pointer;
+}
+
 .addressBox{
 	width: 50%;
 	height: 60px;
 	text-align: center;
 }
-.contactBox{
-	width: 50%;
+
+.ticketBox{
+	width: 70%;
 	display: inline-block;
+}
+.ticketBox h4,.ticketBox h5{
+	float: left;
+}
+.ticketBox h5{
+	margin-left: 10%;
+}
+
+.contactBox{
+	width: 70%;
+	display: inline-block;
+	height: 50px;
 }
 .contactBox h4,.contactBox .contact{
 	float: left;
 }
 .contactBox .contact{
-	margin-left: 8%;
-	margin-top: 1%;
+	padding-left: 8%;
 }
+
 .contactNumBox{
 	width: 50%;
 	display: inline-block;
@@ -68,10 +84,12 @@
 	float: left;
 }
 .contactNumBox .contactNum{
-	margin-left: 5%;
+	margin-left: 11%;
 	margin-top: 1%;
 }
+
 .submitBox{
+	text-align: right;
 	position: fixed;
 	right: 0px;
 	bottom: 0px;
