@@ -19,17 +19,23 @@ public class CommentController {
     CommentService commentService;
 
 
-    @RequestMapping(value = "/getComment")
-    public String getCommentPage(Model model, QueryVo vo, HttpServletRequest request, HttpSession httpSession){
-        Way way =(Way) request.getSession().getAttribute("myway");
-        vo.setWayid(way.getWayId());
-        Page<Comment> page = commentService.getCommentByVo(vo);
-        httpSession.setAttribute("page",page);
-//        model.addAttribute("page", page);
-        return "user/strategyDetail";
-    }
+//    @RequestMapping(value = "/getComment")
+//    public String getCommentPage(Model model, QueryVo vo, HttpServletRequest request, HttpSession httpSession){
+//        Way way =(Way) request.getSession().getAttribute("myway");
+//        vo.setWayid(way.getWayId());
+//        Page<Comment> page = commentService.getCommentByVo(vo);
+//        httpSession.setAttribute("page",page);
+////        model.addAttribute("page", page);
+//        return "user/strategyDetail";
+//    }
 
 
+    /**
+     * 发表评论
+     * @param comment
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/insertComment")
     public String insert( Comment comment, HttpServletRequest request){
         User user = (User)request.getSession().getAttribute("user");
@@ -41,6 +47,13 @@ public class CommentController {
         return "user/comment";
     }
 
+    /**
+     * 加载评论页
+     * @param model
+     * @param vo
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/comment")
     public String test(Model model, QueryVo vo, HttpServletRequest request){
         Way way =(Way) request.getSession().getAttribute("myway");

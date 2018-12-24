@@ -58,6 +58,7 @@
             <mvc:mapping path="/personPage"/>
             <mvc:mapping path="/submitOrderInfo"/>
             <mvc:mapping path="/mycollectionPage"/>
+            <mvc:mapping path="/insertComment"/>
             <bean class="com.cytx.interceptor.UserLoginInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

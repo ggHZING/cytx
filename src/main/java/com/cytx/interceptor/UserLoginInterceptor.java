@@ -19,7 +19,7 @@ public class UserLoginInterceptor implements HandlerInterceptor {
             return true;
         }
         // 执行这里表示用户身份需要认证，跳转登陆页面
-        request.getRequestDispatcher("/user/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/loginPage").forward(request, response);
         return false;
     }
 
