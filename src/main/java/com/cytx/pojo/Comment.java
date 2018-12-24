@@ -5,11 +5,35 @@ import java.util.Date;
 public class Comment {
     private Integer id;
 
+    private Integer wid;
+
     private Integer uid;
 
     private String content;
 
     private Date time;
+
+
+
+    private Way way;
+
+    private User user;
+
+    public Way getWay() {
+        return way;
+    }
+
+    public void setWay(Way way) {
+        this.way = way;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Integer getId() {
         return id;
@@ -17,6 +41,14 @@ public class Comment {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getWid() {
+        return wid;
+    }
+
+    public void setWid(Integer wid) {
+        this.wid = wid;
     }
 
     public Integer getUid() {

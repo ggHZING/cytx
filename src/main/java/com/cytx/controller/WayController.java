@@ -1,8 +1,10 @@
 package com.cytx.controller;
 
+import com.cytx.pojo.Comment;
 import com.cytx.pojo.QueryVo;
 import com.cytx.pojo.Scenic;
 import com.cytx.pojo.Way;
+import com.cytx.service.CommentService;
 import com.cytx.service.WayService;
 import com.cytx.utils.Page;
 import com.cytx.utils.UploadUtil;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -21,6 +24,9 @@ public class WayController {
 
     @Autowired
     WayService wayService;
+
+    @Autowired
+    CommentService commentService;
 
     /**
      * 管理员管理所有攻略
@@ -145,13 +151,27 @@ public class WayController {
         return "user/strategy";
     }
 
+    /**
+     * 查看攻略详情
+     * @param id
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "/selectWayById")
     public  String selectWayById(Integer id, HttpSession session){
         Way way = wayService.getWayById(id);
         session.setAttribute("myway",way);
+
+
+
+
         return "redirect:/toStrategyDetailPage";
     }
 
+    /**
+     * 加载攻略详情页
+     * @return
+     */
     @RequestMapping(value = "/toStrategyDetailPage")
     public  String toStrategyDetailPage(){
 

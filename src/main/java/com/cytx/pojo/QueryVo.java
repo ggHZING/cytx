@@ -5,6 +5,7 @@ public class QueryVo {
 
 
 
+    private Integer wayid;
     private Integer userid;
     private String name;
 
@@ -53,5 +54,13 @@ public class QueryVo {
 
     public void setUserid(Integer userid) {
         this.userid = userid;
+    }
+
+    public Integer getWayid() {
+        return wayid;
+    }
+
+    public void setWayid(Integer wayid) {
+        this.wayid = wayid;
     }
 }

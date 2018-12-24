@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="p" uri="http://commonutils.cn/tld/" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -53,7 +54,7 @@
 
             <ul id="myTab" class="nav nav-tabs">
                 <li class="active"><a href="#notice" data-toggle="tab">详情路线</a></li>
-                <li><a href="#rule" data-toggle="tab">驴友评价</a></li>
+                <li ><a href="${pageContext.request.contextPath }/comment" >驴友评价</a></li>
             </ul>
             <div id="myTabContent" class="tab-content">
 
@@ -70,26 +71,44 @@
                     <div id="strategy_comment">
                         <div id="strategy_header">
                             <span class="strategy_l">驴友评论</span>
-                            <span class="strategy_r">(已有<input type="text" id="strategy_number" value="0" style="border: 0;width: 2%;" />条评论)</span>
+                            <%--<span class="strategy_r">(已有<input type="text" id="strategy_number" value="0" style="border: 0;width: 2%;" />条评论)</span>--%>
                         </div>
 
                         <div id="strategy_publish">
                             <div id="strategy_box">
                                 <img src="../icon/write.png"><span>发表评论</span>
                                 <div>
-                                    <textarea id="strategy_txt" rows="10" cols="30"></textarea>
-                                    <button type="button" id="strategy_report" class="btn btn-primary">发表</button>
+                                    <form action="${pageContext.request.contextPath }/insertComment" method="post">
+                                        <textarea id="strategy_txt" rows="10" cols="30" name="content"></textarea>
+                                        <button type="submit" id="strategy_report" class="btn btn-primary">发表</button>
+                                    </form>
+
                                 </div>
 
                             </div>
                         </div>
+                        <div id="comment_txt" style="margin-top: 20px;">
+                        <c:forEach var="comment" items="${page.rows}">
 
-                        <h5>精彩评论</h5>
-                        <div id="strategy_comment_txt">
+                                <div class="user" style="width: 30%;height: 100px;text-align: center;float: left;">
+                                    <img src="../${comment.user.userPhoto}" onerror="this.src='../images/none.jpg';this.onerror=null" style="width: 60px;height: 60px;border-radius: 100%;margin: auto;">
+                                    <h4>${comment.user.userName}</h4>
+                                </div>
+                                <div class="comment_detail" style="width: 70%;float: left;height: 100px;position:relative;">
+                                    <div style="width: 100%;height: 20px;">${comment.time}</div>
+                                    <div style="width: 100%;height: 70px;margin-top: 10px;">${comment.content}</div>
+                                </div>
 
+                        </c:forEach>
                         </div>
+                        <div class="col-md-12 text-right" style="text-align:center">
+                            <p:page url="${pageContext.request.contextPath }/getComment" />
+                        </div>
+
                     </div>
+
                 </div>
+
             </div>
         </div>
     </div>
@@ -122,6 +141,16 @@
     });
 
 
+    function getComment(wid) {
+        $.ajax({
+            type:"get",
+            url:"${pageContext.request.contextPath }/getComment",
+            data:{"wid":wid},
+            success:function(data) {
+
+            }
+        });
+    }
 
 </script>
 
