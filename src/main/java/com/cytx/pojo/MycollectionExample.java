@@ -104,263 +104,183 @@ public class MycollectionExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andMycollectionIdIsNull() {
-            addCriterion("mycollection_id is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdIsNotNull() {
-            addCriterion("mycollection_id is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdEqualTo(Integer value) {
-            addCriterion("mycollection_id =", value, "mycollectionId");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdNotEqualTo(Integer value) {
-            addCriterion("mycollection_id <>", value, "mycollectionId");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdGreaterThan(Integer value) {
-            addCriterion("mycollection_id >", value, "mycollectionId");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("mycollection_id >=", value, "mycollectionId");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdLessThan(Integer value) {
-            addCriterion("mycollection_id <", value, "mycollectionId");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdLessThanOrEqualTo(Integer value) {
-            addCriterion("mycollection_id <=", value, "mycollectionId");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdIn(List<Integer> values) {
-            addCriterion("mycollection_id in", values, "mycollectionId");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdNotIn(List<Integer> values) {
-            addCriterion("mycollection_id not in", values, "mycollectionId");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdBetween(Integer value1, Integer value2) {
-            addCriterion("mycollection_id between", value1, value2, "mycollectionId");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("mycollection_id not between", value1, value2, "mycollectionId");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdIsNull() {
-            addCriterion("mycollection_scenic_id is null");
+        public Criteria andSidIsNull() {
+            addCriterion("sid is null");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdIsNotNull() {
-            addCriterion("mycollection_scenic_id is not null");
+        public Criteria andSidIsNotNull() {
+            addCriterion("sid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdEqualTo(Integer value) {
-            addCriterion("mycollection_scenic_id =", value, "mycollectionScenicId");
+        public Criteria andSidEqualTo(Integer value) {
+            addCriterion("sid =", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdNotEqualTo(Integer value) {
-            addCriterion("mycollection_scenic_id <>", value, "mycollectionScenicId");
+        public Criteria andSidNotEqualTo(Integer value) {
+            addCriterion("sid <>", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdGreaterThan(Integer value) {
-            addCriterion("mycollection_scenic_id >", value, "mycollectionScenicId");
+        public Criteria andSidGreaterThan(Integer value) {
+            addCriterion("sid >", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("mycollection_scenic_id >=", value, "mycollectionScenicId");
+        public Criteria andSidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sid >=", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdLessThan(Integer value) {
-            addCriterion("mycollection_scenic_id <", value, "mycollectionScenicId");
+        public Criteria andSidLessThan(Integer value) {
+            addCriterion("sid <", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdLessThanOrEqualTo(Integer value) {
-            addCriterion("mycollection_scenic_id <=", value, "mycollectionScenicId");
+        public Criteria andSidLessThanOrEqualTo(Integer value) {
+            addCriterion("sid <=", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdIn(List<Integer> values) {
-            addCriterion("mycollection_scenic_id in", values, "mycollectionScenicId");
+        public Criteria andSidIn(List<Integer> values) {
+            addCriterion("sid in", values, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdNotIn(List<Integer> values) {
-            addCriterion("mycollection_scenic_id not in", values, "mycollectionScenicId");
+        public Criteria andSidNotIn(List<Integer> values) {
+            addCriterion("sid not in", values, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdBetween(Integer value1, Integer value2) {
-            addCriterion("mycollection_scenic_id between", value1, value2, "mycollectionScenicId");
+        public Criteria andSidBetween(Integer value1, Integer value2) {
+            addCriterion("sid between", value1, value2, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("mycollection_scenic_id not between", value1, value2, "mycollectionScenicId");
+        public Criteria andSidNotBetween(Integer value1, Integer value2) {
+            addCriterion("sid not between", value1, value2, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameIsNull() {
-            addCriterion("mycollection_scenic_name is null");
+        public Criteria andUidIsNull() {
+            addCriterion("uid is null");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameIsNotNull() {
-            addCriterion("mycollection_scenic_name is not null");
+        public Criteria andUidIsNotNull() {
+            addCriterion("uid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameEqualTo(String value) {
-            addCriterion("mycollection_scenic_name =", value, "mycollectionScenicName");
+        public Criteria andUidEqualTo(Integer value) {
+            addCriterion("uid =", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameNotEqualTo(String value) {
-            addCriterion("mycollection_scenic_name <>", value, "mycollectionScenicName");
+        public Criteria andUidNotEqualTo(Integer value) {
+            addCriterion("uid <>", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameGreaterThan(String value) {
-            addCriterion("mycollection_scenic_name >", value, "mycollectionScenicName");
+        public Criteria andUidGreaterThan(Integer value) {
+            addCriterion("uid >", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameGreaterThanOrEqualTo(String value) {
-            addCriterion("mycollection_scenic_name >=", value, "mycollectionScenicName");
+        public Criteria andUidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("uid >=", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameLessThan(String value) {
-            addCriterion("mycollection_scenic_name <", value, "mycollectionScenicName");
+        public Criteria andUidLessThan(Integer value) {
+            addCriterion("uid <", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameLessThanOrEqualTo(String value) {
-            addCriterion("mycollection_scenic_name <=", value, "mycollectionScenicName");
+        public Criteria andUidLessThanOrEqualTo(Integer value) {
+            addCriterion("uid <=", value, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameLike(String value) {
-            addCriterion("mycollection_scenic_name like", value, "mycollectionScenicName");
+        public Criteria andUidIn(List<Integer> values) {
+            addCriterion("uid in", values, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameNotLike(String value) {
-            addCriterion("mycollection_scenic_name not like", value, "mycollectionScenicName");
+        public Criteria andUidNotIn(List<Integer> values) {
+            addCriterion("uid not in", values, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameIn(List<String> values) {
-            addCriterion("mycollection_scenic_name in", values, "mycollectionScenicName");
+        public Criteria andUidBetween(Integer value1, Integer value2) {
+            addCriterion("uid between", value1, value2, "uid");
             return (Criteria) this;
         }
 
-        public Criteria andMycollectionScenicNameNotIn(List<String> values) {
-            addCriterion("mycollection_scenic_name not in", values, "mycollectionScenicName");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicNameBetween(String value1, String value2) {
-            addCriterion("mycollection_scenic_name between", value1, value2, "mycollectionScenicName");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicNameNotBetween(String value1, String value2) {
-            addCriterion("mycollection_scenic_name not between", value1, value2, "mycollectionScenicName");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureIsNull() {
-            addCriterion("mycollection_scenic_picture is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureIsNotNull() {
-            addCriterion("mycollection_scenic_picture is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureEqualTo(String value) {
-            addCriterion("mycollection_scenic_picture =", value, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureNotEqualTo(String value) {
-            addCriterion("mycollection_scenic_picture <>", value, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureGreaterThan(String value) {
-            addCriterion("mycollection_scenic_picture >", value, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureGreaterThanOrEqualTo(String value) {
-            addCriterion("mycollection_scenic_picture >=", value, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureLessThan(String value) {
-            addCriterion("mycollection_scenic_picture <", value, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureLessThanOrEqualTo(String value) {
-            addCriterion("mycollection_scenic_picture <=", value, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureLike(String value) {
-            addCriterion("mycollection_scenic_picture like", value, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureNotLike(String value) {
-            addCriterion("mycollection_scenic_picture not like", value, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureIn(List<String> values) {
-            addCriterion("mycollection_scenic_picture in", values, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureNotIn(List<String> values) {
-            addCriterion("mycollection_scenic_picture not in", values, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureBetween(String value1, String value2) {
-            addCriterion("mycollection_scenic_picture between", value1, value2, "mycollectionScenicPicture");
-            return (Criteria) this;
-        }
-
-        public Criteria andMycollectionScenicPictureNotBetween(String value1, String value2) {
-            addCriterion("mycollection_scenic_picture not between", value1, value2, "mycollectionScenicPicture");
+        public Criteria andUidNotBetween(Integer value1, Integer value2) {
+            addCriterion("uid not between", value1, value2, "uid");
             return (Criteria) this;
         }
     }

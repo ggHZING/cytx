@@ -2,12 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cytx.dao.CommentMapper">
   <resultMap id="BaseResultMap" type="com.cytx.pojo.Comment">
-    <id column="comment_id" jdbcType="INTEGER" property="commentId" />
-    <result column="comment_user_id" jdbcType="INTEGER" property="commentUserId" />
-    <result column="comment_user_name" jdbcType="VARCHAR" property="commentUserName" />
-    <result column="comment_user_photo" jdbcType="VARCHAR" property="commentUserPhoto" />
-    <result column="comment_content" jdbcType="VARCHAR" property="commentContent" />
-    <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,8 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    comment_id, comment_user_id, comment_user_name, comment_user_photo, comment_content, 
-    comment_time
+    id, uid, content, time
   </sql>
   <select id="selectByExample" parameterType="com.cytx.pojo.CommentExample" resultMap="BaseResultMap">
     select
@@ -89,11 +86,11 @@
     select 
     <include refid="Base_Column_List" />
     from comment
-    where comment_id = #{commentId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from comment
-    where comment_id = #{commentId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.cytx.pojo.CommentExample">
     delete from comment
@@ -102,53 +99,39 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.cytx.pojo.Comment">
-    insert into comment (comment_id, comment_user_id, comment_user_name, 
-      comment_user_photo, comment_content, comment_time
-      )
-    values (#{commentId,jdbcType=INTEGER}, #{commentUserId,jdbcType=INTEGER}, #{commentUserName,jdbcType=VARCHAR}, 
-      #{commentUserPhoto,jdbcType=VARCHAR}, #{commentContent,jdbcType=VARCHAR}, #{commentTime,jdbcType=TIMESTAMP}
-      )
+    insert into comment (id, uid, content, 
+      time)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, 
+      #{time,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.cytx.pojo.Comment">
     insert into comment
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="commentId != null">
-        comment_id,
+      <if test="id != null">
+        id,
       </if>
-      <if test="commentUserId != null">
-        comment_user_id,
+      <if test="uid != null">
+        uid,
       </if>
-      <if test="commentUserName != null">
-        comment_user_name,
+      <if test="content != null">
+        content,
       </if>
-      <if test="commentUserPhoto != null">
-        comment_user_photo,
-      </if>
-      <if test="commentContent != null">
-        comment_content,
-      </if>
-      <if test="commentTime != null">
-        comment_time,
+      <if test="time != null">
+        time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="commentId != null">
-        #{commentId,jdbcType=INTEGER},
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="commentUserId != null">
-        #{commentUserId,jdbcType=INTEGER},
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
       </if>
-      <if test="commentUserName != null">
-        #{commentUserName,jdbcType=VARCHAR},
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
       </if>
-      <if test="commentUserPhoto != null">
-        #{commentUserPhoto,jdbcType=VARCHAR},
-      </if>
-      <if test="commentContent != null">
-        #{commentContent,jdbcType=VARCHAR},
-      </if>
-      <if test="commentTime != null">
-        #{commentTime,jdbcType=TIMESTAMP},
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -161,23 +144,17 @@
   <update id="updateByExampleSelective" parameterType="map">
     update comment
     <set>
-      <if test="record.commentId != null">
-        comment_id = #{record.commentId,jdbcType=INTEGER},
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.commentUserId != null">
-        comment_user_id = #{record.commentUserId,jdbcType=INTEGER},
+      <if test="record.uid != null">
+        uid = #{record.uid,jdbcType=INTEGER},
       </if>
-      <if test="record.commentUserName != null">
-        comment_user_name = #{record.commentUserName,jdbcType=VARCHAR},
+      <if test="record.content != null">
+        content = #{record.content,jdbcType=VARCHAR},
       </if>
-      <if test="record.commentUserPhoto != null">
-        comment_user_photo = #{record.commentUserPhoto,jdbcType=VARCHAR},
-      </if>
-      <if test="record.commentContent != null">
-        comment_content = #{record.commentContent,jdbcType=VARCHAR},
-      </if>
-      <if test="record.commentTime != null">
-        comment_time = #{record.commentTime,jdbcType=TIMESTAMP},
+      <if test="record.time != null">
+        time = #{record.time,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -186,12 +163,10 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update comment
-    set comment_id = #{record.commentId,jdbcType=INTEGER},
-      comment_user_id = #{record.commentUserId,jdbcType=INTEGER},
-      comment_user_name = #{record.commentUserName,jdbcType=VARCHAR},
-      comment_user_photo = #{record.commentUserPhoto,jdbcType=VARCHAR},
-      comment_content = #{record.commentContent,jdbcType=VARCHAR},
-      comment_time = #{record.commentTime,jdbcType=TIMESTAMP}
+    set id = #{record.id,jdbcType=INTEGER},
+      uid = #{record.uid,jdbcType=INTEGER},
+      content = #{record.content,jdbcType=VARCHAR},
+      time = #{record.time,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -199,31 +174,23 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.cytx.pojo.Comment">
     update comment
     <set>
-      <if test="commentUserId != null">
-        comment_user_id = #{commentUserId,jdbcType=INTEGER},
+      <if test="uid != null">
+        uid = #{uid,jdbcType=INTEGER},
       </if>
-      <if test="commentUserName != null">
-        comment_user_name = #{commentUserName,jdbcType=VARCHAR},
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
       </if>
-      <if test="commentUserPhoto != null">
-        comment_user_photo = #{commentUserPhoto,jdbcType=VARCHAR},
-      </if>
-      <if test="commentContent != null">
-        comment_content = #{commentContent,jdbcType=VARCHAR},
-      </if>
-      <if test="commentTime != null">
-        comment_time = #{commentTime,jdbcType=TIMESTAMP},
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where comment_id = #{commentId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cytx.pojo.Comment">
     update comment
-    set comment_user_id = #{commentUserId,jdbcType=INTEGER},
-      comment_user_name = #{commentUserName,jdbcType=VARCHAR},
-      comment_user_photo = #{commentUserPhoto,jdbcType=VARCHAR},
-      comment_content = #{commentContent,jdbcType=VARCHAR},
-      comment_time = #{commentTime,jdbcType=TIMESTAMP}
-    where comment_id = #{commentId,jdbcType=INTEGER}
+    set uid = #{uid,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

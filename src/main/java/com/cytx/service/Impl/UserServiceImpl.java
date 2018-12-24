@@ -130,5 +130,10 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public void updatePerson(User user) {
+    userMapper.updateByPrimaryKey(user);
+    }
+
 
 }

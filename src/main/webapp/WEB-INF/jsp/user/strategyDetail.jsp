@@ -112,10 +112,10 @@
         var p=$(".p");
         p.click(function(){
             if (p.onOff) {
-                p.css({"background-image":'url(../icon/喜欢.png)'});
+                p.css({"background-image":'url(../icon/like.png)'});
                 p.onOff = false;
             } else {
-                p.css({"background-image":'url(../icon/喜欢2.png)'});
+                p.css({"background-image":'url(../icon/dislike.png)'});
                 p.onOff = true;
             }
         });

@@ -20,4 +20,6 @@ public interface UserService {
     Page<User> selectPageByQueryVo(QueryVo vo);
 
     User getUserByPhone(String phone);
+
+    void updatePerson(User user);
 }

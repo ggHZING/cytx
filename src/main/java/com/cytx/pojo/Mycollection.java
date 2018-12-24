@@ -1,43 +1,55 @@
 package com.cytx.pojo;
 
 public class Mycollection {
-    private Integer mycollectionId;
+    private Integer id;
 
-    private Integer mycollectionScenicId;
+    private Integer sid;
 
-    private String mycollectionScenicName;
+    private Integer uid;
 
-    private String mycollectionScenicPicture;
 
-    public Integer getMycollectionId() {
-        return mycollectionId;
+
+    private User user;
+
+    private Scenic scenic;
+
+    public User getUser() {
+        return user;
     }
 
-    public void setMycollectionId(Integer mycollectionId) {
-        this.mycollectionId = mycollectionId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Integer getMycollectionScenicId() {
-        return mycollectionScenicId;
+    public Scenic getScenic() {
+        return scenic;
     }
 
-    public void setMycollectionScenicId(Integer mycollectionScenicId) {
-        this.mycollectionScenicId = mycollectionScenicId;
+    public void setScenic(Scenic scenic) {
+        this.scenic = scenic;
     }
 
-    public String getMycollectionScenicName() {
-        return mycollectionScenicName;
+    public Integer getId() {
+        return id;
     }
 
-    public void setMycollectionScenicName(String mycollectionScenicName) {
-        this.mycollectionScenicName = mycollectionScenicName == null ? null : mycollectionScenicName.trim();
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getMycollectionScenicPicture() {
-        return mycollectionScenicPicture;
+    public Integer getSid() {
+        return sid;
     }
 
-    public void setMycollectionScenicPicture(String mycollectionScenicPicture) {
-        this.mycollectionScenicPicture = mycollectionScenicPicture == null ? null : mycollectionScenicPicture.trim();
+    public void setSid(Integer sid) {
+        this.sid = sid;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 }

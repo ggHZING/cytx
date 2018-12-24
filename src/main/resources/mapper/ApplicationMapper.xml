@@ -39,4 +39,23 @@
         set role = 0,state=1
         where id = #{id}
     </update>
+
+    <select id="selectById" parameterType="Integer" resultType="com.cytx.pojo.Application">
+       select * from application
+       where uid=#{id}
+    </select>
+
+    <insert id="insertApplication" parameterType="com.cytx.pojo.Application">
+        insert into `application`
+        (
+        uid,
+        role,
+        state
+        )
+        values(
+        #{uid,jdbcType=INTEGER},
+        #{role,jdbcType=INTEGER},
+        #{state,jdbcType=INTEGER}
+        )
+    </insert>
 </mapper>

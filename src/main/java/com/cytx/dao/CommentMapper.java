@@ -2,15 +2,16 @@ package com.cytx.dao;
 
 import com.cytx.pojo.Comment;
 import com.cytx.pojo.CommentExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CommentMapper {
     long countByExample(CommentExample example);
 
     int deleteByExample(CommentExample example);
 
-    int deleteByPrimaryKey(Integer commentId);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Comment record);
 
@@ -18,7 +19,7 @@ public interface CommentMapper {
 
     List<Comment> selectByExample(CommentExample example);
 
-    Comment selectByPrimaryKey(Integer commentId);
+    Comment selectByPrimaryKey(Integer id);
 
     int updateByExampleSelective(@Param("record") Comment record, @Param("example") CommentExample example);
 

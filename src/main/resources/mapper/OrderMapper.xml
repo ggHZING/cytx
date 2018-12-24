@@ -34,6 +34,9 @@
       <if test="name != null and name != ''">
         u.user_name like "%"#{name}"%"
       </if>
+        <if test="userid != null and userid != ''">
+            o.uid = #{userid}
+        </if>
 
     </where>
     order by o.order_id

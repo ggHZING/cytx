@@ -29,6 +29,23 @@ public class OrderController {
     OrderService orderService;
 
     /**
+     * 用户查看自己的订单列表
+     * @param model
+     * @param session
+     * @return
+     */
+    @RequestMapping(value = "/listOrder")
+    public String listOrderToUser(Model model, QueryVo vo,HttpSession session){
+        User user = (User) session.getAttribute("user");
+        //下面是不分页的获取该登陆用户下的所有订单
+        //List<Order> listOrder =  orderService.selectOrderListByFid(user.getUserId());
+        vo.setUserid(user.getUserId());
+        Page<Order> page = orderService.selectOrderPageByQueryVo(vo);
+        model.addAttribute("page", page);
+        return "user/orderList";
+    }
+
+    /**
      *管理员查看所有订单
      * @param model
      * @param vo

@@ -85,7 +85,7 @@
 
 
 
-    <!-- 引入header.jsp -->
+    <!-- 引入footer.jsp -->
     <jsp:include page="footer.jsp"></jsp:include>
 </div>
 

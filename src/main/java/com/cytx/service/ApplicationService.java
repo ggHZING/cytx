@@ -10,4 +10,8 @@ public interface ApplicationService {
     void pass(Integer id);
 
     void fail(Integer id);
+
+    Application selectById(Integer id);
+
+    void insertApplication(Application application);
 }

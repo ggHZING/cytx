@@ -1,7 +1,10 @@
 package com.cytx.controller;
 
+import com.cytx.pojo.Application;
 import com.cytx.pojo.Scenic;
+import com.cytx.pojo.User;
 import com.cytx.pojo.Way;
+import com.cytx.service.ApplicationService;
 import com.cytx.service.ScenicService;
 import com.cytx.service.WayService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -18,6 +22,9 @@ public class IndexController {
 
     @Autowired
     WayService wayService;
+
+    @Autowired
+    ApplicationService applicationService;
     /**
      * 用户登录界面
      * @return
@@ -77,6 +84,20 @@ public class IndexController {
     @RequestMapping(value = "/manager")
     public String testManagerIndex(){
         return "manager/index";
+    }
+
+
+    /**
+     * 加载个人中心
+     * @return
+     */
+    @RequestMapping(value = "/personPage")
+    public String toPersonPage(HttpServletRequest request,Model model){
+        User user = (User)request.getSession().getAttribute("user");
+        Integer id=user.getUserId();
+        Application application=applicationService.selectById(id);
+        model.addAttribute("application",application);
+        return "user/person";
     }
 
 

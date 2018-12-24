@@ -42,4 +42,18 @@ public class ApplicationController {
         applicationService.fail(id);
         return "OK";
     }
+
+
+    /**
+     * 提交申请
+     * @param application
+     * @return
+     */
+    @RequestMapping(value = "/apply")
+    public String insert(Application application){
+        application.setRole(0);
+        application.setState(0);
+        applicationService.insertApplication(application);
+        return "redirect:/personPage";
+    }
 }

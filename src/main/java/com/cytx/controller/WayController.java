@@ -58,6 +58,27 @@ public class WayController {
         return "redirect:/manageWay";
     }
 
+    /**
+     * 用户新增攻略
+     * @param way
+     * @param wayImage
+     * @return
+     */
+    @RequestMapping(value = "/addWayByUser")
+    public String insertByUser(Way way, MultipartFile wayImage){
+        //当上传的图片不为空的时候才去存储路径,否则不存
+        if (wayImage.getSize() != 0) {
+            //将上传的文件保存到磁盘中
+            String path = "E:\\ideaworkplace\\cytx\\src\\main\\webapp\\image\\way";
+            String imageName = UploadUtil.upload(wayImage,path);
+            //将图片路径封装到Scenic中
+            way.setWayPic("image/way/"+imageName);
+        }
+        //插入
+        wayService.addWay(way);
+        return "redirect:/personPage";
+    }
+
 
     /**
      * 管理员根据id删除攻略

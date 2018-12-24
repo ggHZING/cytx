@@ -52,7 +52,14 @@
             <mvc:mapping path="/manageUser"/>
             <bean class="com.cytx.interceptor.ManagerLoginInterceptor"></bean>
         </mvc:interceptor>
-
+        <!-- 用户登陆认证拦截器 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/listOrder"/>
+            <mvc:mapping path="/personPage"/>
+            <mvc:mapping path="/submitOrderInfo"/>
+            <mvc:mapping path="/mycollectionPage"/>
+            <bean class="com.cytx.interceptor.UserLoginInterceptor"></bean>
+        </mvc:interceptor>
     </mvc:interceptors>
 
 

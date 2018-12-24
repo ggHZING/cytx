@@ -2,197 +2,53 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cytx.dao.MycollectionMapper">
   <resultMap id="BaseResultMap" type="com.cytx.pojo.Mycollection">
-    <id column="mycollection_id" jdbcType="INTEGER" property="mycollectionId" />
-    <result column="mycollection_scenic_id" jdbcType="INTEGER" property="mycollectionScenicId" />
-    <result column="mycollection_scenic_name" jdbcType="VARCHAR" property="mycollectionScenicName" />
-    <result column="mycollection_scenic_picture" jdbcType="VARCHAR" property="mycollectionScenicPicture" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <association property="user" javaType="com.cytx.pojo.User">
+      <id property="userId" column="uid"/>
+      <result property="userName" column="user_name" javaType="String" jdbcType="VARCHAR"/>
+    </association>
+    <association property="scenic" javaType="com.cytx.pojo.Scenic">
+      <id property="scenicId" column="sid"/>
+        <result property="scenicId" column="scenic_id" javaType="Integer" jdbcType="INTEGER"/>
+      <result property="scenicName" column="scenic_name" javaType="String" jdbcType="VARCHAR"/>
+      <result property="scenicPicture" column="scenic_picture" javaType="String" jdbcType="VARCHAR"/>
+      <result property="scenicIntro" column="scenic_intro" javaType="String" jdbcType="VARCHAR"/>
+    </association>
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <where>
-      <foreach collection="oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <where>
-      <foreach collection="example.oredCriteria" item="criteria" separator="or">
-        <if test="criteria.valid">
-          <trim prefix="(" prefixOverrides="and" suffix=")">
-            <foreach collection="criteria.criteria" item="criterion">
-              <choose>
-                <when test="criterion.noValue">
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue">
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue">
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue">
-                  and ${criterion.condition}
-                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List">
-    mycollection_id, mycollection_scenic_id, mycollection_scenic_name, mycollection_scenic_picture
-  </sql>
-  <select id="selectByExample" parameterType="com.cytx.pojo.MycollectionExample" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from mycollection
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from mycollection
-    where mycollection_id = #{mycollectionId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from mycollection
-    where mycollection_id = #{mycollectionId,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.cytx.pojo.MycollectionExample">
-    delete from mycollection
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.cytx.pojo.Mycollection">
-    insert into mycollection (mycollection_id, mycollection_scenic_id, 
-      mycollection_scenic_name, mycollection_scenic_picture
-      )
-    values (#{mycollectionId,jdbcType=INTEGER}, #{mycollectionScenicId,jdbcType=INTEGER}, 
-      #{mycollectionScenicName,jdbcType=VARCHAR}, #{mycollectionScenicPicture,jdbcType=VARCHAR}
-      )
+
+  <insert id="addCollection" parameterType="com.cytx.pojo.Mycollection">
+  insert into `mycollection`
+  (
+  sid,
+  uid
+  )
+  values(
+  #{sid,jdbcType=INTEGER},
+  #{uid,jdbcType=INTEGER}
+  )
   </insert>
-  <insert id="insertSelective" parameterType="com.cytx.pojo.Mycollection">
-    insert into mycollection
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="mycollectionId != null">
-        mycollection_id,
+
+
+  <select id="selectCollection" parameterType="integer" resultMap="BaseResultMap">
+        select
+        s.scenic_id,s.scenic_name,s.scenic_intro,s.scenic_picture
+        from `mycollection` m
+        left join scenic s on s.scenic_id=m.sid
+        left join  user u on u.user_id=m.uid
+        where m.uid = #{userid}
+        order by m.id desc
+        limit #{startRow},#{size}
+    </select>
+
+  <select id="postCountByQueryVo" parameterType="com.cytx.pojo.QueryVo" resultType="int">
+        select count(*) from `mycollection`
+    <where>
+      <if test="userid != null and userid != ''">
+        uid=#{userid}
       </if>
-      <if test="mycollectionScenicId != null">
-        mycollection_scenic_id,
-      </if>
-      <if test="mycollectionScenicName != null">
-        mycollection_scenic_name,
-      </if>
-      <if test="mycollectionScenicPicture != null">
-        mycollection_scenic_picture,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="mycollectionId != null">
-        #{mycollectionId,jdbcType=INTEGER},
-      </if>
-      <if test="mycollectionScenicId != null">
-        #{mycollectionScenicId,jdbcType=INTEGER},
-      </if>
-      <if test="mycollectionScenicName != null">
-        #{mycollectionScenicName,jdbcType=VARCHAR},
-      </if>
-      <if test="mycollectionScenicPicture != null">
-        #{mycollectionScenicPicture,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.cytx.pojo.MycollectionExample" resultType="java.lang.Long">
-    select count(*) from mycollection
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update mycollection
-    <set>
-      <if test="record.mycollectionId != null">
-        mycollection_id = #{record.mycollectionId,jdbcType=INTEGER},
-      </if>
-      <if test="record.mycollectionScenicId != null">
-        mycollection_scenic_id = #{record.mycollectionScenicId,jdbcType=INTEGER},
-      </if>
-      <if test="record.mycollectionScenicName != null">
-        mycollection_scenic_name = #{record.mycollectionScenicName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.mycollectionScenicPicture != null">
-        mycollection_scenic_picture = #{record.mycollectionScenicPicture,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update mycollection
-    set mycollection_id = #{record.mycollectionId,jdbcType=INTEGER},
-      mycollection_scenic_id = #{record.mycollectionScenicId,jdbcType=INTEGER},
-      mycollection_scenic_name = #{record.mycollectionScenicName,jdbcType=VARCHAR},
-      mycollection_scenic_picture = #{record.mycollectionScenicPicture,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.cytx.pojo.Mycollection">
-    update mycollection
-    <set>
-      <if test="mycollectionScenicId != null">
-        mycollection_scenic_id = #{mycollectionScenicId,jdbcType=INTEGER},
-      </if>
-      <if test="mycollectionScenicName != null">
-        mycollection_scenic_name = #{mycollectionScenicName,jdbcType=VARCHAR},
-      </if>
-      <if test="mycollectionScenicPicture != null">
-        mycollection_scenic_picture = #{mycollectionScenicPicture,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where mycollection_id = #{mycollectionId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.cytx.pojo.Mycollection">
-    update mycollection
-    set mycollection_scenic_id = #{mycollectionScenicId,jdbcType=INTEGER},
-      mycollection_scenic_name = #{mycollectionScenicName,jdbcType=VARCHAR},
-      mycollection_scenic_picture = #{mycollectionScenicPicture,jdbcType=VARCHAR}
-    where mycollection_id = #{mycollectionId,jdbcType=INTEGER}
-  </update>
+
+    </where>
+
+    </select>
+
 </mapper>

@@ -5,7 +5,7 @@ public class QueryVo {
 
 
 
-    private String userid;
+    private Integer userid;
     private String name;
 
     //当前页
@@ -47,11 +47,11 @@ public class QueryVo {
         this.name = name;
     }
 
-    public String getUserid() {
+    public Integer getUserid() {
         return userid;
     }
 
-    public void setUserid(String userid) {
+    public void setUserid(Integer userid) {
         this.userid = userid;
     }
 }

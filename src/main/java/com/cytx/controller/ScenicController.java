@@ -69,6 +69,27 @@ public class ScenicController {
     }
 
     /**
+     * 用户新增景区
+     * @param scenic
+     * @param scenicImage
+     * @return
+     */
+    @RequestMapping(value = "/addScenicByUser")
+    public String insertByUser(Scenic scenic,MultipartFile scenicImage){
+        //当上传的图片不为空的时候才去存储路径,否则不存
+        if (scenicImage.getSize() != 0) {
+            //将上传的文件保存到磁盘中
+            String path = "E:\\ideaworkplace\\cytx\\src\\main\\webapp\\image\\jq";
+            String imageName = UploadUtil.upload(scenicImage,path);
+            //将图片路径封装到Scenic中
+            scenic.setScenicPicture("image/jq/"+imageName);
+        }
+        //插入
+        scenicService.addScenic(scenic);
+        return "redirect:/personPage";
+    }
+
+    /**
      * 根据id获得景点信息
      * @param id
      * @return

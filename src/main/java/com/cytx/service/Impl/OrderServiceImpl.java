@@ -32,6 +32,9 @@ public class OrderServiceImpl implements OrderService {
             if(null != vo.getName() && !"".equals(vo.getName().trim())){
                 vo.setName(vo.getName().trim());
             }
+            if(null !=vo.getUserid()&&!"".equals(vo.getUserid())){
+                vo.setUserid(vo.getUserid());
+            }
 
             //总条数
             page.setTotal(orderMapper.postCountByQueryVo(vo));

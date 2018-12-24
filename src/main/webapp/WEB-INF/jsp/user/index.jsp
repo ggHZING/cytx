@@ -56,50 +56,6 @@
                 </div>
             </div>
         </div>
-    <!-- <div id="list">
-        <div id="list-l" class="list-l" onmouseover="display()" onmouseout="hid()">
-           <table class="list-table">
-               <tr class="active">
-                   <td id="pictrue"><img src="../icon/release.png" alt="" ></span></td>
-                   <td id="cont"><a href="#">休闲度假</a><img src="../icon/right.png"></td>
-               </tr>
-               <tr>
-                   <td id="pictrue"><img src="../icon/spot.png"></td>
-                   <td id="cont"><a href="#">热门景点</a><img src="../icon/right.png"></td>
-               </tr>
-               <tr>
-                   <td id="pictrue"><img src="../icon/beach.png"></td>
-                   <td id="cont"><a href="#">情侣蜜游</a><img src="../icon/right.png"></td>
-               </tr>
-               <tr>
-                   <td id="pictrue"><img src="../icon/account.png"></td>
-                   <td id="cont"><a href="#">毕业旅行</a><img src="../icon/right.png"></td>
-               </tr>
-               <tr>
-                   <td id="pictrue"><img src="../icon/changyou.png"></td>
-                   <td id="cont"><a href="#">畅游港澳台</a><img src="../icon/right.png"></td>
-               </tr>
-           </table>
-        </div>
-        <div id="list-r" class="list-r" onmouseover="display()" onmouseout="hid()" style="display: none;">333</div>
-    </div>-->
-
-
-    <!--消息滚动 -->
-    <!--<div class="gundong">
-        <div class="box1">
-        <div class="manyi container"><img src="../icon/赞.png" alt="" style="width: 30px;height: 30px;"><span style="display: block;float: right; margin-top: 3px;margin-right: 1px;">满意度<span style="color: red;font-size: 20px;padding-left: 0px;">98%</span></span></div>
-        <div class="content" id="scrollBox" style="overflow: hidden;text-align: left;">
-            <ul id="con1">
-                <li> 四川--九寨沟--云南大理西双版纳双人三日游</li>
-                <li>香港--九龙--迪士尼乐园三日游</li>
-                <li>广州--广州塔--广州的小蛮腰</li>
-            </ul>
-             <div id="con2" style="text-align: left"></div>
-        </div>
-       </div>
-    </div>-->
-
 
 
 

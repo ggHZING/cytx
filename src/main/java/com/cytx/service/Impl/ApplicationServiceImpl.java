@@ -45,4 +45,15 @@ public class ApplicationServiceImpl implements ApplicationService {
     public void fail(Integer id) {
         applicationMapper.fail(id);
     }
+
+    @Override
+    public Application selectById(Integer id) {
+        Application application=applicationMapper.selectById(id);
+        return application;
+    }
+
+    @Override
+    public void insertApplication(Application application) {
+        applicationMapper.insertApplication(application);
+    }
 }

@@ -67,12 +67,14 @@
                                     </div>
                                     <div class="reserve_box">
                                         <div class="reserve_l"><input type="submit" id="reserve" value="购买"/></div>
-                                        <div class="reserve_r">
-                                            <div class="txt">喜欢就收藏我吧</div>
-                                            <div class="like"></div>
-                                        </div>
+
                                     </div>
                     </form>
+                    <div class="reserve_r">
+                        <%--<div class="txt">喜欢就收藏我吧</div>--%>
+                        <%--<div class="like"></div>--%>
+                        <button onclick="insertCollection(${scenics.scenicId})" class="glyphicon glyphicon-heart">收藏</button>
+                    </div>
                 </div>
 
             </div>
@@ -149,14 +151,29 @@
         var p=$(".like");
         p.click(function(){
             if (p.onOff) {
-                p.css({"background-image":'url(../icon/喜欢.png)'});
+                p.css({"background-image":'url(../icon/like.png)'});
                 p.onOff = false;
             } else {
-                p.css({"background-image":'url(../icon/喜欢2.png)'});
+                p.css({"background-image":'url(../icon/dislike.png)'});
                 p.onOff = true;
             }
         });
     });
+
+
+
+    function insertCollection(id) {
+        $.ajax({
+            type:"get",
+            url:"${pageContext.request.contextPath }/insertCollection",
+            data:{"ids":id},
+            success:function(data) {
+                alert("收藏成功")
+                window.location.reload();
+            }
+
+        });
+    }
 </script>
 
 </body>

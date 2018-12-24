@@ -50,4 +50,6 @@ public class Application {
     public void setState(Integer state) {
         this.state = state;
     }
+
+
 }

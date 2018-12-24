@@ -17,4 +17,8 @@ public interface ApplicationMapper {
     void pass(Integer id);
 
     void fail(Integer id);
+
+    Application selectById(Integer id);
+
+    void insertApplication(Application application);
 }

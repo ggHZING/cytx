@@ -70,8 +70,9 @@
                     </li>
                     <li><a href="<%=basePath%>strategyPage"><span class="glyphicon glyphicon-fire"></span>热门攻略</a>
                     <li><a href="<%=basePath%>routePage"><span class="glyphicon glyphicon-flag"></span>特价路线</a></li>
-                    <li><a href="person.html"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>
-                    <li><a href="collection.html"><span class="glyphicon glyphicon-heart"></span>我的收藏</a></li>
+                    <li><a href="<%=basePath%>personPage"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>
+                    <li><a href="<%=basePath%>mycollectionPage"><span class="glyphicon glyphicon-heart"></span>我的收藏</a></li>
+                    <li><a href="<%=basePath%>listOrder"><span class="glyphicon glyphicon-shopping-cart"></span>我的订单</a></li>
                 </ul>
             </div>
         </div>

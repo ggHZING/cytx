@@ -1,16 +1,19 @@
 package com.cytx.controller;
 
 import com.cytx.pojo.QueryVo;
+import com.cytx.pojo.Scenic;
 import com.cytx.pojo.User;
 import com.cytx.service.UserService;
 import com.cytx.utils.GetMessageCode;
 import com.cytx.utils.Page;
+import com.cytx.utils.UploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.mail.Session;
 import javax.servlet.http.*;
@@ -184,6 +187,27 @@ public class UserController {
         //删除
         userService.deleteById(id);
         return "OK";
+    }
+
+    /**
+     * 用户修改个人信息
+     * @param user
+     * @param image
+     * @return
+     */
+    @RequestMapping(value = "/updatePerson")
+    public String update(User user, MultipartFile image){
+        //当上传的图片不为空的时候才去存储路径,否则不存
+        if (image.getSize() != 0) {
+            //将上传的文件保存到磁盘中
+            String path = "E:\\ideaworkplace\\cytx\\src\\main\\webapp\\image\\tx";
+            String imageName = UploadUtil.upload(image,path);
+            //将图片路径封装到Scenic中
+            user.setUserPhoto("image/tx/"+imageName);
+        }
+        //插入
+        userService.updatePerson(user);
+        return "redirect:/personPage";
     }
 }
 

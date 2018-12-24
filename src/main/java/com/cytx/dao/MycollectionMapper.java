@@ -2,29 +2,16 @@ package com.cytx.dao;
 
 import com.cytx.pojo.Mycollection;
 import com.cytx.pojo.MycollectionExample;
-import java.util.List;
+import com.cytx.pojo.QueryVo;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface MycollectionMapper {
-    long countByExample(MycollectionExample example);
 
-    int deleteByExample(MycollectionExample example);
+    void addCollection(Mycollection mycollection);
 
-    int deleteByPrimaryKey(Integer mycollectionId);
+    List<Mycollection> selectCollection(QueryVo vo);
 
-    int insert(Mycollection record);
-
-    int insertSelective(Mycollection record);
-
-    List<Mycollection> selectByExample(MycollectionExample example);
-
-    Mycollection selectByPrimaryKey(Integer mycollectionId);
-
-    int updateByExampleSelective(@Param("record") Mycollection record, @Param("example") MycollectionExample example);
-
-    int updateByExample(@Param("record") Mycollection record, @Param("example") MycollectionExample example);
-
-    int updateByPrimaryKeySelective(Mycollection record);
-
-    int updateByPrimaryKey(Mycollection record);
+    int postCountByQueryVo(QueryVo vo);
 }

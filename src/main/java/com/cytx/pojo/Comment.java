@@ -3,63 +3,43 @@ package com.cytx.pojo;
 import java.util.Date;
 
 public class Comment {
-    private Integer commentId;
+    private Integer id;
 
-    private Integer commentUserId;
+    private Integer uid;
 
-    private String commentUserName;
+    private String content;
 
-    private String commentUserPhoto;
+    private Date time;
 
-    private String commentContent;
-
-    private Date commentTime;
-
-    public Integer getCommentId() {
-        return commentId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCommentId(Integer commentId) {
-        this.commentId = commentId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Integer getCommentUserId() {
-        return commentUserId;
+    public Integer getUid() {
+        return uid;
     }
 
-    public void setCommentUserId(Integer commentUserId) {
-        this.commentUserId = commentUserId;
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 
-    public String getCommentUserName() {
-        return commentUserName;
+    public String getContent() {
+        return content;
     }
 
-    public void setCommentUserName(String commentUserName) {
-        this.commentUserName = commentUserName == null ? null : commentUserName.trim();
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
     }
 
-    public String getCommentUserPhoto() {
-        return commentUserPhoto;
+    public Date getTime() {
+        return time;
     }
 
-    public void setCommentUserPhoto(String commentUserPhoto) {
-        this.commentUserPhoto = commentUserPhoto == null ? null : commentUserPhoto.trim();
-    }
-
-    public String getCommentContent() {
-        return commentContent;
-    }
-
-    public void setCommentContent(String commentContent) {
-        this.commentContent = commentContent == null ? null : commentContent.trim();
-    }
-
-    public Date getCommentTime() {
-        return commentTime;
-    }
-
-    public void setCommentTime(Date commentTime) {
-        this.commentTime = commentTime;
+    public void setTime(Date time) {
+        this.time = time;
     }
 }
