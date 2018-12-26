@@ -31,14 +31,14 @@
         </div>
     </div>
     <!--热门资讯列表 -->
-    <div id="infomation">
+    <div id="infomation" style="margin-left: 5%;">
         <div id="content">
             <c:forEach items="${listWay1}" var="way">
                 <div id="content-1">
-                    <div class="content_img"><img src="../${way.wayPic}"></div>
+                    <div class="content_img" style="height: 300px;"><img src="../${way.wayPic}" style="height: 300px;"></div>
                     <div class="title"><p>${way.wayName}</p></div>
                     <div class="text"><h5>&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</h5></div>
-                    <button type="button" id="detail" class="btn btn-primary" onclick="getWay(${way.wayId})">查看详情</button>
+                    <button type="button" style="margin-left: 40%;margin-top: 20px;" class="btn btn-primary" onclick="getWay(${way.wayId})">查看详情</button>
                 </div>
             </c:forEach>
 
@@ -46,11 +46,11 @@
 
         <div id="content">
             <c:forEach items="${listWay2}" var="way">
-                <div id="content-1">
-                    <div class="content_img"><img src="../${way.wayPic}"></div>
+                <div id="content-1" style="margin-top: 20px;margin-bottom: 20px;">
+                    <div class="content_img" style="height: 300px;"><img src="../${way.wayPic}" style="height: 300px;"></div>
                     <div class="title"><p>${way.wayName}</p></div>
                     <div class="text"><h5>&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</h5></div>
-                    <button type="button" id="detail" class="btn btn-primary" onclick="getWay(${way.wayId})">查看详情</button>
+                    <button type="button" style="margin-left: 40%;margin-top: 20px;"  class="btn btn-primary" onclick="getWay(${way.wayId})">查看详情</button>
                 </div>
             </c:forEach>
     </div>
@@ -64,15 +64,15 @@
     </div>
 
     <!--所有资讯列表 -->
-    <div id="all_infomation">
+    <div id="all_infomation" style="margin-left: 5%;">
 
         <div id="content">
             <c:forEach items="${page.rows}" var="way">
-                <div id="content-1">
-                    <div class="content_img"><img src="../${way.wayPic}"></div>
+                <div id="content-1" style="margin-top: 20px;margin-bottom: 20px;width: 30%;height: 450px;">
+                    <div class="content_img" style="height: 300px;"><img src="../${way.wayPic}" height="300px;"></div>
                     <div class="title"><p>${way.wayName}</p></div>
-                    <div class="text"><h5>&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</h5></div>
-                    <button type="button" id="detail" class="btn btn-primary" onclick="getWay(${way.wayId})">查看详情</button>
+                    <div class="text" style="width: 100%;height: 80px;"><h5>&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${way.wayContent}</lyz:htmlFilter>......</h5></div>
+                    <button type="button" class="btn btn-primary" style="margin-left: 40%;margin-top: 20px;" onclick="getWay(${way.wayId})">查看详情</button>
                 </div>
             </c:forEach>
 
@@ -90,7 +90,7 @@
 
 
 
-    <!-- 引入header.jsp -->
+    <!-- 引入footer.jsp -->
     <jsp:include page="footer.jsp"></jsp:include>
 
 </div>

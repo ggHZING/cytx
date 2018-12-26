@@ -13,9 +13,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>确认订单</title>
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/order.css">
-    <script type="text/javascript" src="../js/index.js"></script>
+    <link rel="stylesheet" href="<%=basePath%>css/index.css">
+    <link rel="stylesheet" href="<%=basePath%>css/order.css">
+    <script type="text/javascript" src="<%=basePath%>js/index.js"></script>
     <style>
         body {
             margin-top: 20px;

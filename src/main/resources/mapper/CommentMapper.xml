@@ -30,7 +30,7 @@
     left join way w on w.way_id=c.wid
     where
     wid=#{wayid}
-    order by c.time
+    order by c.time desc
     limit #{startRow},#{size}
   </select>
 

@@ -18,6 +18,7 @@
 
 </head>
 <body>
+<div class="main">
 <!-- 引入header.jsp -->
 <jsp:include page="header.jsp"></jsp:include>
 
@@ -26,7 +27,7 @@
             <table>
                 <tr>
                     <c:forEach items="${page.rows}" var="row">
-                        <div class="row">
+                        <div class="row" style="margin-top: 30px;">
                             <div class="col-md-7">
                                 <button type="button" onclick="getScenic(${row.scenic.scenicId})"><img src="../${row.scenic.scenicPicture}" class="img-responsive" alt=""></button>
                             </div>

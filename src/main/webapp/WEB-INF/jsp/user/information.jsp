@@ -88,16 +88,16 @@
                 <div class="row">
                     <!--左边-->
                     <div class="col-md-7">
-                        <div class="left_title"><h3>最热资讯</h3></div>
+                        <div class="left_title"><h3>最热景区</h3></div>
                         <div class="container-fluid">
 
                             <c:forEach items="${list}" var="scenic">
                                 <div class="row info-content">
-                                    <div class="col-md-7 col-sm-7 col xs-7"><button type="button" onclick="getScenic(${scenic.scenicId})"><img src="../${scenic.scenicPicture}" class="img-responsive"></button></div>
+                                    <div class="col-md-7 col-sm-7 col xs-7" style="border: 0;"><button type="button" onclick="getScenic(${scenic.scenicId})"><img src="../${scenic.scenicPicture}" class="img-responsive" style="width: 600px;height: 250px;"></button></div>
                                     <div class="col-md-5 col-sm-5 col xs-5">
                                         <h3>${scenic.scenicName}</h3>
                                         <p class="hidden-xs"><lyz:htmlFilter>${scenic.scenicIntro}</lyz:htmlFilter>......</p>
-                                        <div class="money"><img src="../icon/rmb.png"><span id="sum">${scenic.scenicCharge}</span></div>
+                                        <div class="money"><img src="../icon/rmb.png" style="width: 25px;height: 40px;margin-top: -10px;"><span id="sum">${scenic.scenicCharge}</span></div>
                                     </div>
                                 </div>
                             </c:forEach>
@@ -112,12 +112,12 @@
                         <div class="container-fluid">
 
                             <c:forEach items="${list1}" var="scenic">
-                                <div class="row right_content">
-                                    <div class="col-md-5 col-sm-5 col xs-5" style="margin: 15px 0;padding: 0;"><button type="button" onclick="getScenic(${scenic.scenicId})"><img src="../${scenic.scenicPicture}" class="img-responsive"></button></div>
-                                    <div class="col-md-7 col-sm-7 col xs-7" style="padding-right: 0;">
+                                <div class="row right_content" style="margin-top: 15px;">
+                                    <div class="col-md-5 col-sm-5 col xs-5" style="margin-top: 10px;"><button type="button" onclick="getScenic(${scenic.scenicId})"><img src="../${scenic.scenicPicture}" class="img-responsive" style="width: 250px;height: 150px;"></button></div>
+                                    <div class="col-md-7 col-sm-7 col xs-7">
                                         <h4>${scenic.scenicName}</h4>
                                         <p class="hidden-md"><lyz:htmlFilter>${scenic.scenicIntro}</lyz:htmlFilter>.......</p>
-                                        <div class="money"><img src="../icon/rmb.png"><span id="sum">${scenic.scenicCharge}</span></div>
+                                        <div class="money" style="margin-top: 15px;"><img src="../icon/rmb.png" style="width: 25px;height: 40px;margin-top: -10px;"><span id="sum">${scenic.scenicCharge}</span></div>
                                     </div>
                                 </div>
                             </c:forEach>

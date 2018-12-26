@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--底部部分 -->
-<div class="foot">
+<div class="foot" style="margin-top: 100px;height: 250px;width: 100%;">
 	<hr style="height:1px;border:none;border-top:1px solid gray;" />
 	<div>
 		<table>

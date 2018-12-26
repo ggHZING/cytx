@@ -15,121 +15,134 @@
     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="<%=basePath%>css/index.css">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/infomation_detail.css">
-    <script type="text/javascript" src="<%=basePath%>js/infomation_detail.js"></script>
     <script type="text/javascript" src="<%=basePath%>js/infomation_detail_report.js"></script>
 </head>
 <body>
 <!-- 引入header.jsp -->
 <jsp:include page="header.jsp"></jsp:include>
 
-    <div id="infomation_detail">
-        <!--详情简介 -->
-        <div id="introduce">
-            <div class="container box">
+<div id="infomation_detail">
+    <!--详情简介 -->
+    <div id="introduce">
+        <div class="container box">
 
-                <div class="row">
-                    <form id="order_confirm" action="${pageContext.request.contextPath }/submitOrderInfo" method="post">
-                        <input type="hidden" name="sid" value="${scenics.scenicId}">
-                        <div class="col-md-7">
-                            <img src="${pageContext.request.contextPath }/${scenics.scenicPicture}" class="img-responsive" alt="">
-                        </div>
-                        <div class="col-md-5 info-right">
-                            <div class="title"><p>${scenics.scenicName}</p></div>
-                            <div class="content hidden-md hidden-sm hidden-xs">
-                                <div id="address">详细地址:<span>${scenics.scenicAddr}</span></div>
-                                <div id="confirm">
-                                    <div id="goods">
-                                        <div id="goods_price"><img src="../icon/rmb.png"><span style="color: red;font-size: 24px;">${scenics.scenicCharge}</span></div>
+            <div class="row">
+                <form id="order_confirm" action="${pageContext.request.contextPath }/submitOrderInfo" method="post">
+                    <input type="hidden" name="sid" value="${scenics.scenicId}">
+                    <div class="col-md-7">
+                        <img src="${pageContext.request.contextPath }/${scenics.scenicPicture}" class="img-responsive"
+                             alt="" style="width: 1000px;height: 500px;">
+                    </div>
+                    <div class="col-md-5 info-right">
+                        <div class="title"><p>${scenics.scenicName}</p></div>
+                        <div class="content hidden-md hidden-sm hidden-xs">
+                            <div id="address">详细地址:<span>${scenics.scenicAddr}</span></div>
+                            <div id="confirm">
+                                <div id="goods">
+                                    <div id="goods_price"><img src="../icon/rmb.png"><span
+                                            style="color: red;font-size: 24px;">${scenics.scenicCharge}</span></div>
+                                </div>
+                                <div id="box">
+                                    <div class="contact">
+                                        <h4>联系人：</h4><span>${scenics.scenicLink}</span>
+                                        <h4>联系电话：</h4><span>${scenics.scenicTel}</span>
                                     </div>
-                                    <div id="box">
-                                        <div class="contact">
-                                            <h4>联系人：</h4><span>${scenics.scenicLink}</span>
-                                            <h4>联系电话：</h4><span>${scenics.scenicTel}</span>
-                                        </div>
-                                        <div>
-                                            <h4>购票类型：</h4><span>${scenics.scenicTicket}</span>
-                                        </div>
-                                        <div id="number">
-                                            <div id="person_number">购买票数：</div>
-                                            <div id="adult">
-                                                <div class="dec" onclick="numDec()" style="width: 30px;border: solid 1px gray;height: 30px;"><span >-</span></div>
-                                                <div><input type="text" id="quantity" style="width: 40px;height: 30px;text-align: center;" name="orderAmount"/></div>
-                                                <div class="add" onclick="numAdd()" style="width: 30px;border: solid 1px gray;height: 30px;margin-right: 20px;"><span>+</span></div>
+                                    <div>
+                                        <h4>购票类型：</h4><span>${scenics.scenicTicket}</span>
+                                    </div>
+                                    <div id="number">
+                                        <div id="person_number">购买票数：</div>
+                                        <div id="adult">
+                                            <div class="dec" onclick="numDec()"
+                                                 style="width: 30px;border: solid 1px gray;height: 30px;"><span>-</span>
                                             </div>
-                                        </div>
-                                        <div id="sum">
-                                            <p class="sdsd">总价格:
-                                                <span id="totalPrice"style="color: red;font-size: 20px;">00.00</span>
-
-                                            </p>
-                                            <input type="hidden" value="${scenics.scenicCharge}" id="price" name="price"/><!--单价-->
+                                            <div><input type="text" id="quantity"
+                                                        style="width: 40px;height: 30px;text-align: center;"
+                                                        name="orderAmount"/></div>
+                                            <div class="add" onclick="numAdd()"
+                                                 style="width: 30px;border: solid 1px gray;height: 30px;margin-right: 20px;">
+                                                <span>+</span></div>
                                         </div>
                                     </div>
-                                    <div class="reserve_box">
-                                        <div class="reserve_l"><input type="submit" id="reserve" value="购买"/></div>
+                                    <div id="sum">
+                                        <p class="sdsd">总价格:
+                                            <span id="totalPrice" style="color: red;font-size: 20px;">00.00</span>
 
+                                        </p>
+                                        <input type="hidden" value="${scenics.scenicCharge}" id="price" name="price"/>
+                                        <!--单价-->
                                     </div>
-                    </form>
-                    <div class="reserve_r">
-                        <%--<div class="txt">喜欢就收藏我吧</div>--%>
-                        <%--<div class="like"></div>--%>
-                        <button onclick="insertCollection(${scenics.scenicId})" class="glyphicon glyphicon-heart">收藏</button>
-                    </div>
-                </div>
+                                </div>
+                                <div class="reserve_box">
+                                    <div class="reserve_l"><input type="submit" id="reserve" value="购买"/></div>
 
-            </div>
-        </div>
-    </div>
-
-</div>
-</div>
-
-
-<!--详情信息 -->
-<div class="detail">
-
-    <ul id="myTab" class="nav nav-tabs">
-        <li class="active"><a href="#notice" data-toggle="tab">详情信息</a></li>
-        <li><a href="#evaluate" data-toggle="tab">驴友评价</a></li>
-
-    </ul>
-
-    <div id="myTabContent" class="tab-content">
-
-        <div class="tab-pane fade in active" id="notice">
-            <p>${scenics.scenicIntro}</p>
-            <%--<img src="${pageContext.request.contextPath }/${scenics.scenicPicture}" style="width: 80%;">--%>
-        </div>
-
-        <!--驴友评价 -->
-        <div class="tab-pane fade" id="evaluate">
-
-            <div id="comment">
-                <div id="header">
-                    <span class="l">驴友评论</span>
-                    <span class="r">(已有<input type="text" id="comment_number" value="0" style="border: 0;width: 2%;" />条评论)</span>
-                    <input type="hidden" value="1" id="count" />
-                </div>
-
-                <div id="publish">
-                    <div id="wirte_box">
-                        <img src="../icon/write.png"><span>发表评论</span>
-                        <div>
-                            <textarea id="wirte_txt" rows="10" cols="30"></textarea>
-                            <button type="button" id="report" class="btn btn-primary">发表</button>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
+                </form>
+
+                <div class="reserve_r">
+                    <%--<div class="txt">喜欢就收藏我吧</div>--%>
+                    <%--<div class="like"></div>--%>
+                    <%--<button onclick="insertCollection(${scenics.scenicId})" class="glyphicon glyphicon-heart">收藏--%>
+                    <%--</button>--%>
+                    <a href="${pageContext.request.contextPath }/insertCollection" style="background-color: #ec0000;width: 70px;height: 35px;text-align: center;border-radius: 100%;text-decoration: none;font-size: 150%;margin-left: 30px;color: whitesmoke;">收藏</a>
                 </div>
 
-                <h5>精彩评论</h5>
-                <div id="comment_txt">
 
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--详情信息 -->
+    <div class="detail">
+
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active"><a href="#notice" data-toggle="tab">详情信息</a></li>
+            <li><a href="#evaluate" data-toggle="tab">驴友评价</a></li>
+
+        </ul>
+
+        <div id="myTabContent" class="tab-content">
+
+            <div class="tab-pane fade in active" id="notice">
+                <p>${scenics.scenicIntro}</p>
+                <%--<img src="${pageContext.request.contextPath }/${scenics.scenicPicture}" style="width: 80%;">--%>
+            </div>
+
+            <!--驴友评价 -->
+            <div class="tab-pane fade" id="evaluate">
+
+                <div id="comment">
+                    <div id="header">
+                        <span class="l">驴友评论</span>
+                        <span class="r">(已有<input type="text" id="comment_number" value="0"
+                                                  style="border: 0;width: 2%;"/>条评论)</span>
+                        <input type="hidden" value="1" id="count"/>
+                    </div>
+
+                    <div id="publish">
+                        <div id="wirte_box">
+                            <img src="../icon/write.png"><span>发表评论</span>
+                            <div>
+                                <textarea id="wirte_txt" rows="10" cols="30"></textarea>
+                                <button type="button" id="report" class="btn btn-primary">发表</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <h5>精彩评论</h5>
+                    <div id="comment_txt">
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 </div>
 <div class="toTop">
@@ -141,39 +154,103 @@
 <jsp:include page="footer.jsp"></jsp:include>
 
 
-
-
 <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(){
-        var onOff=true;
-        var p=$(".like");
-        p.click(function(){
+    $(document).ready(function () {
+        var onOff = true;
+        var p = $(".like");
+        p.click(function () {
             if (p.onOff) {
-                p.css({"background-image":'url(../icon/like.png)'});
+                p.css({"background-image": 'url(../icon/like.png)'});
                 p.onOff = false;
             } else {
-                p.css({"background-image":'url(../icon/dislike.png)'});
+                p.css({"background-image": 'url(../icon/dislike.png)'});
                 p.onOff = true;
             }
         });
+        var quantity = document.getElementById("quantity").value;
+        var num_add = parseInt(quantity);
+        var price=document.getElementById("price").value;
+        if(quantity==""){
+            num_add = 1;
+        }
+        if (quantity=="0"){
+            $("#reserve").Attr("disabled",true)
+        }
+        document.getElementById("quantity").value=num_add;
+        var Num=price*num_add;
+        document.getElementById("totalPrice").innerHTML=Num.toFixed(2);
+
+        var input = $("#quantity")
+
+        input.keyup(function(){
+            var quantity = document.getElementById("quantity").value;
+            var num_add = parseInt(quantity);
+            var price=document.getElementById("price").value;
+            if(quantity==""){
+                num_add = 1;
+            }
+            if(num_add>=100){
+                document.getElementById("quantity").value=100;
+                var Num=price*100;
+                document.getElementById("totalPrice").innerHTML=Num.toFixed(2);
+                alert("商品数量不能大于100");
+            }else{
+                document.getElementById("quantity").value=num_add;
+                var Num=price*num_add;
+                document.getElementById("totalPrice").innerHTML=Num.toFixed(2);
+            }
+            $("#reserve").removeAttr("disabled")
+        });
     });
 
-
-
-    function insertCollection(id) {
-        $.ajax({
-            type:"get",
-            url:"${pageContext.request.contextPath }/insertCollection",
-            data:{"ids":id},
-            success:function(data) {
-                alert("收藏成功")
-                window.location.reload();
-            }
-
-        });
+    /*商品数量+1*/
+    function numAdd(){
+        var quantity = document.getElementById("quantity").value;
+        var num_add = parseInt(quantity)+1;
+        var price=document.getElementById("price").value;
+        if(quantity==""){
+            num_add = 1;
+        }
+        if(num_add>=100){
+            document.getElementById("quantity").value=100;
+            var Num=price*100;
+            document.getElementById("totalPrice").innerHTML=Num;
+            alert("商品数量不能大于100");
+        }else{
+            document.getElementById("quantity").value=num_add;
+            var Num=price*num_add;
+            document.getElementById("totalPrice").innerHTML=Num.toFixed(2);
+        }
+        $("#reserve").removeAttr("disabled")
     }
+    /*商品数量-1*/
+    function numDec(){
+        var quantity = document.getElementById("quantity").value;
+        var price=document.getElementById("price").value;
+        var num_dec = parseInt(quantity)-1;
+        if(num_dec>0){
+            document.getElementById("quantity").value=num_dec;
+            var Num=price*num_dec;
+            document.getElementById("totalPrice").innerHTML=Num.toFixed(2);
+        }
+        $("#reserve").removeAttr("disabled")
+    }
+
+
+    <%--function insertCollection(id) {--%>
+        <%--$.ajax({--%>
+            <%--type: "get",--%>
+            <%--url: "${pageContext.request.contextPath }/insertCollection",--%>
+            <%--data: {"ids": id},--%>
+            <%--success: function (data) {--%>
+                <%--alert("收藏成功")--%>
+                <%--window.location.reload();--%>
+            <%--}--%>
+
+        <%--});--%>
+    <%--}--%>
 </script>
 
 </body>

@@ -46,7 +46,7 @@
 
 
 <!--nav部分 -->
-<div class="nav">
+<div class="nav" style="margin-top: 60px;">
     <nav class="navbar navbar-default" id="nav_daohang">
         <div class="container">
             <div class="navbar-header">
@@ -57,22 +57,14 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right" style="padding: 0px;">
-                    <li class="active"><a href="<%=basePath%>user"><span class="glyphicon glyphicon-home"></span>首页</a></li>
-                    <li class="dropdown"><a href="<%=basePath%>informationPage"><span class="glyphicon glyphicon-th-list"></span>最新资讯</a>
-                        <ul class="dropdown-content">
-                            <li><a href="#">凤凰古城</a></li>
-                            <li><a href="#">北京故宫</a></li>
-                            <li><a href="#">云南大理</a></li>
-                            <li><a href="#">武汉樱花</a></li>
-                            <li><a href="#">四川美食</a></li>
-                            <li><a href="#">港澳风情</a></li>
-                        </ul>
+                    <li class="menu"><a href="<%=basePath%>user"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+                    <li class="menu dropdown"><a href="<%=basePath%>informationPage"><span class="glyphicon glyphicon-th-list"></span>热门景区</a>
                     </li>
-                    <li><a href="<%=basePath%>strategyPage"><span class="glyphicon glyphicon-fire"></span>热门攻略</a>
-                    <li><a href="<%=basePath%>routePage"><span class="glyphicon glyphicon-flag"></span>特价路线</a></li>
-                    <li><a href="<%=basePath%>personPage"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>
-                    <li><a href="<%=basePath%>mycollectionPage"><span class="glyphicon glyphicon-heart"></span>我的收藏</a></li>
-                    <li><a href="<%=basePath%>listOrder"><span class="glyphicon glyphicon-shopping-cart"></span>我的订单</a></li>
+                    <li class="menu"><a href="<%=basePath%>strategyPage"><span class="glyphicon glyphicon-fire"></span>热门攻略</a>
+                    <li class="menu"><a href="<%=basePath%>routePage"><span class="glyphicon glyphicon-flag"></span>特价景区</a></li>
+                    <li class="menu"><a href="<%=basePath%>personPage"><span class="glyphicon glyphicon-user"></span>个人中心</a></li>
+                    <li class="menu"><a href="<%=basePath%>mycollectionPage"><span class="glyphicon glyphicon-heart"></span>我的收藏</a></li>
+                    <li class="menu"><a href="<%=basePath%>listOrder"><span class="glyphicon glyphicon-shopping-cart"></span>我的订单</a></li>
                 </ul>
             </div>
         </div>

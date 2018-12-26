@@ -45,12 +45,12 @@
 #infomation,#all_infomation{
 	width: 90%;
     height: 1000px;
-    margin: auto;
     margin-top: 30px;
 }
 #content{
 	width: 100%;
 	margin-bottom: 50px;
+    margin-top: 50px;
 	display:flex;
 	-webkit-justify-content: space-between;
     justify-content: space-between;
@@ -84,25 +84,6 @@
     font-size: 18px;
     color: blue;
     border-bottom: solid 1px #aaa;
-}
-#content button{
-    margin:auto;
-    margin-left: 37%;
-    margin-top: 50px;
-    width: 120px;
-    height: 40px;
-}
-#content-2{
-	width: 30%;
-	height: 450px;
-	padding: 5px;
-	box-shadow: 0px 5px 5px 0px #ccc;
-}
-#content-3{
-	width: 30%;
-	height: 450px;
-	padding: 5px;
-	box-shadow: 0px 5px 5px 0px #ccc;
 }
 
 

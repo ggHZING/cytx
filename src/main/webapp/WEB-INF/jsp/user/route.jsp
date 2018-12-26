@@ -48,7 +48,7 @@
                 </div>
                 <div class="title">${scenic.scenicName}</div>
                 <div class="content hidden-xs">&nbsp;&nbsp;&nbsp;&nbsp;<lyz:htmlFilter>${scenic.scenicIntro}</lyz:htmlFilter>......</div>
-                <div class="money">优惠价<img src="../icon/rmb.png" id="rmb"><span id="sum">${scenic.scenicCharge}</span></div>
+                <div class="money" style="margin-top: 5%;margin-left: 75%;">优惠价<img src="../icon/rmb.png" id="rmb"><span id="sum">${scenic.scenicCharge}</span></div>
             </div>
         </c:forEach>
 
@@ -64,12 +64,12 @@
         </div>
     </div>
 
-    <div id="all_strategy">
+    <div id="all_strategy" style="height: 400px;">
         <c:forEach items="${page.rows}" var="scenic">
             <div class="strategy_1">
                 <div class="strategy_img"><button type="button" onclick="getScenic(${scenic.scenicId})"><img src="../${scenic.scenicPicture}"></button></div>
                 <div class="strategy_title">${scenic.scenicName}</div>
-                <div class="strategy_money">价格<img src="../icon/rmb.png" id="rmb"><span id="sum">${scenic.scenicCharge}</span></div>
+                <div class="strategy_money" style="margin-top: 1%;margin-left: 70%;">价格<img src="../icon/rmb.png" id="rmb"><span id="sum">${scenic.scenicCharge}</span></div>
             </div>
         </c:forEach>
 

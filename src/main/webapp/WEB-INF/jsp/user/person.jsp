@@ -18,6 +18,7 @@
 
 </head>
 <body>
+<div class="main">
 <!-- 引入header.jsp -->
 <jsp:include page="header.jsp"></jsp:include>
 
@@ -59,8 +60,8 @@
             <!-- 申请成为商家-->
             <c:if test="${application.state==null}">
                 <form action="${pageContext.request.contextPath }/apply" method="post">
-                    <input type="hidden"  name="uid" value="${user.userId}"/>
-                    <input type="submit"  class="btn btn-primary apply" value="申请成为商家">
+                    <input type="hidden"  name="uid" value="${user.userId}" style="margin-left: -100px;"/>
+                    <input type="submit"  class="btn btn-primary apply" value="申请成为商家" style="margin-left: 700px;margin-top: -35px;">
                 </form>
             </c:if>
 

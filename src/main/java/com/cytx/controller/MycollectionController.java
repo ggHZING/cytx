@@ -1,9 +1,6 @@
 package com.cytx.controller;
 
-import com.cytx.pojo.Mycollection;
-import com.cytx.pojo.QueryVo;
-import com.cytx.pojo.User;
-import com.cytx.pojo.Way;
+import com.cytx.pojo.*;
 import com.cytx.service.MycollectionService;
 import com.cytx.utils.Page;
 import com.cytx.utils.UploadUtil;
@@ -24,20 +21,19 @@ public class MycollectionController {
 
 
     /**
-     * 添加收藏
-     * @param ids
+     *  添加收藏
      * @param mycollection
      * @param request
      * @return
      */
     @RequestMapping(value = "/insertCollection")
-    public @ResponseBody
-    String insert(Integer ids, Mycollection mycollection, HttpServletRequest request){
+    public String insert(Mycollection mycollection, HttpServletRequest request){
         User user = (User)request.getSession().getAttribute("user");
+        Scenic scenics =(Scenic) request.getSession().getAttribute("scenics");
         mycollection.setUid(user.getUserId());
-        mycollection.setSid(ids);
+        mycollection.setSid(scenics.getScenicId());
         mycollectionService.addCollection(mycollection);
-        return "OK";
+        return "user/ScenicDetail";
     }
 
 

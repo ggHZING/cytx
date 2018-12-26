@@ -22,6 +22,7 @@
 
 
 <div class="main">
+    <div class="background"></div>
     <!-- 引入header.jsp -->
     <jsp:include page="header.jsp"></jsp:include>
 
@@ -42,13 +43,13 @@
                         </ol>
                         <div class="carousel-inner">
                             <div class="item active lunbo-img">
-                                <a href="#"><img src="<%=basePath%>/images/l-1.jpg"></a>
+                                <a href="#"><img src="<%=basePath%>/images/l-1.jpg" style="width: 90%;height: 450px;margin: auto;"></a>
                             </div>
                             <div class="item lunbo-img">
-                                <a href="#"><img src="<%=basePath%>/images/l-2.jpg"></a>
+                                <a href="#"><img src="<%=basePath%>/images/l-2.jpg" style="width: 90%;height: 450px;margin: auto;"></a>
                             </div>
                             <div class="item lunbo-img">
-                                <a href="#"><img src="<%=basePath%>/images/l-1.jpg"></a>
+                                <a href="#"><img src="<%=basePath%>/images/l-1.jpg" style="width: 90%;height: 450px;margin: auto;"></a>
                             </div>
                         </div>
 
@@ -63,18 +64,18 @@
     <!--分割线 -->
     <div class="line">
         <div class="middle-line">
-            <span class="line-text">最新资讯</span>
+            <span class="line-text">景区推荐</span>
         </div>
     </div>
 
 
     <div id="hot-infomation">
         <c:forEach items="${list}" var="scenic">
-            <div class="infomation_l">
+            <div class="infomation_l" style="height: 450px;">
                 <div class="img"><button type="button" onclick="getScenic(${scenic.scenicId})"><img src="<%=basePath%>/${scenic.scenicPicture}" id="img1"></button></div>
                 <div class="title">${scenic.scenicName}</div>
-                <div class="content"><lyz:htmlFilter>${scenic.scenicIntro}</lyz:htmlFilter>......</div>
-                <div class="money hidden-xs"><img src="<%=basePath%>/icon/rmb.png" class="rmb"><span id="sum">${scenic.scenicCharge}元</span></div>
+                <div class="content" style="width: 100%;height: 40px;"><lyz:htmlFilter>${scenic.scenicIntro}</lyz:htmlFilter>......</div>
+                <div class="money hidden-xs" style="margin-left: 80%;"><img src="<%=basePath%>/icon/rmb.png" class="rmb"><span id="sum">${scenic.scenicCharge}元</span></div>
             </div>
         </c:forEach>
 

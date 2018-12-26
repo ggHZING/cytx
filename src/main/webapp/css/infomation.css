@@ -75,7 +75,8 @@
 	overflow: hidden;
 }
 .col-md-5 img{
-
+	width: 150px;
+	height: 100px;
 	transition: all 0.8s ease;
 }
 .col-md-7 img:hover,.col-md-5 img:hover{
@@ -85,7 +86,7 @@
     -ms-transform: scale(1.2); /*IE9*/
     -o-transform: scale(1.2); /*Opera*/
 }
-}
+
 
 
 .info-content img{
@@ -101,7 +102,6 @@
 .left_title{
 	width: 95%;
 	margin: auto;
-	margin-bottom: 10px;
 	border-bottom: solid 1px;
 	
 }
@@ -125,7 +125,7 @@
 }
 .money img{
 	width: 25px;
-	height: 25px;
+	height: 50px;
 	padding-bottom: 5px;
 }
 .money #sum{
